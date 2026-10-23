@@ -1,0 +1,725 @@
+{
+  "sprint": {
+    "numero": 255,
+    "periodo": "06-10-2026 al 14-10-2026",
+    "fecha_corte": "2026-10-23 11:18:45"
+  },
+  "items": [
+    {
+      "id": 7852794,
+      "tipo": "Habilitador",
+      "nombre": "Crear la base de datos del MAC (Módulo de Anexos de Confirmación)",
+      "epica_proyecto": "PIV Modernización de interfaz Anexos de confirmación (por riesgos de incumplimiento)",
+      "celula": "Flintstones",
+      "story_points": 8.0,
+      "estado": "Closed",
+      "descripcion": "Como parte de la construcción del MAC (Módulo de Anexos de Confirmación) , se requiere habilitar la base de datos que soportará la operación de la solución, asegurando que se encuentre disponible para los posteriores desarrollos, integraciones y pruebas funcionales. Esta HA busca aprovisionar y configurar, así como diseñar, desplegar y validar la base de datos requerida para la persistencia de la información asociada al proceso de gestión de Anexos de Confirmación. La solución deberá quedar alineada con los lineamientos corporativos de arquitectura, seguridad, observabilidad, respaldo y operación.",
+      "criterios_aceptacion": [
+        "La base de datos del MAC es diseñada y desplegada correctamente. Los accesos y permisos requeridos quedan configurados. La BD cumple los lineamientos de arquitectura y seguridad corporativos. La documentación e inventarios correspondientes quedan actualizados. Apoyo Funcional @Yenny Marcela Estrada Osorio Apoyo @Richard Leandro Mazo Osorio"
+      ],
+      "tareas": [
+        {
+          "id": 7950531,
+          "nombre": "Crear la base de datos para el MAC",
+          "estado": "Closed"
+        },
+        {
+          "id": 7950534,
+          "nombre": "Diseñar MER para la creación de bd para el MAC",
+          "estado": "Closed"
+        },
+        {
+          "id": 7950528,
+          "nombre": "Generar documento base de datos",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "La HU/HA figura cerrada en la fuente operativa y registra 3 de 3 tareas cerradas.",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "VALOR TÉCNICO",
+      "clasificacion_valor": "VALOR TÉCNICO",
+      "avance": "La HU/HA figura cerrada en la fuente operativa y registra 3 de 3 tareas cerradas.",
+      "valor_generado": "La fuente operativa registra cierre de la capacidad técnica asociada a: Crear la base de datos del MAC (Módulo de Anexos de Confirmación).",
+      "proximo_paso": "No se reportan pendientes adicionales para esta HU/HA.",
+      "riesgo": "",
+      "riesgos": []
+    },
+    {
+      "id": 7864245,
+      "tipo": "Habilitador",
+      "nombre": "Capacitaciones frontend",
+      "epica_proyecto": "Administración de eventos de las tasas incumplidas desde KitCapital",
+      "celula": "Rocket",
+      "story_points": 8.0,
+      "estado": "Closed",
+      "descripcion": "Realizar capacitaciones frontend",
+      "criterios_aceptacion": [
+        "Capacitaciones frontend"
+      ],
+      "tareas": [],
+      "contexto_avance": "La HU/HA figura cerrada en la fuente operativa. No se suministró detalle adicional de tareas.",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "VALOR TÉCNICO",
+      "clasificacion_valor": "VALOR TÉCNICO",
+      "avance": "La HU/HA figura cerrada en la fuente operativa. No se suministró detalle adicional de tareas.",
+      "valor_generado": "La fuente operativa registra cierre de la capacidad técnica asociada a: Capacitaciones frontend.",
+      "proximo_paso": "No se reportan pendientes adicionales para esta HU/HA.",
+      "riesgo": "",
+      "riesgos": []
+    },
+    {
+      "id": 7934930,
+      "tipo": "User Story",
+      "nombre": "ms_mesas_mct, agregar campo de usage en la tabla de mesas",
+      "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
+      "celula": "Flintstones",
+      "story_points": 5.0,
+      "estado": "Closed",
+      "descripcion": "Yo como parte del equipo Rocket, requiero la modificación de tabla de mesas para agregarle un campo de usage",
+      "criterios_aceptacion": [
+        "Tabla de mesas con el campo nuevo de USAGE Crud de mesas ajustado incluyendo el nuevo campo modificar el endpoint consultarTraderAsociadopara que entregue el nuevo campo"
+      ],
+      "tareas": [
+        {
+          "id": 7948154,
+          "nombre": "Ajustar las operaciones CRUD de mesas para soportar USAGE",
+          "estado": "Closed"
+        },
+        {
+          "id": 7949634,
+          "nombre": "Implementar pruebas unitarias y de integración para el campo USAGE",
+          "estado": "Closed"
+        },
+        {
+          "id": 7949627,
+          "nombre": "Modificar el endpoint consultarTraderAsociado para retornar el campo USAGE",
+          "estado": "Closed"
+        },
+        {
+          "id": 7948153,
+          "nombre": "Ajustar la entidad y el mapeo de datos de mesas",
+          "estado": "Closed"
+        },
+        {
+          "id": 7948152,
+          "nombre": "Modificar la estructura de la tabla de mesas para agregar el campo USAGE",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "La HU/HA figura cerrada en la fuente operativa y registra 5 de 5 tareas cerradas.",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "VALOR FUNCIONAL",
+      "clasificacion_valor": "VALOR FUNCIONAL",
+      "avance": "La HU/HA figura cerrada en la fuente operativa y registra 5 de 5 tareas cerradas.",
+      "valor_generado": "La fuente operativa registra cierre y aprobación administrativa de: ms_mesas_mct, agregar campo de usage en la tabla de mesas.",
+      "proximo_paso": "No se reportan pendientes adicionales para esta HU/HA.",
+      "riesgo": "",
+      "riesgos": []
+    },
+    {
+      "id": 7956634,
+      "tipo": "Habilitador",
+      "nombre": "MsMesasNeg - Modificación ConsultarTraderAsociado busquedad por parametrización",
+      "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
+      "celula": "Rocket",
+      "story_points": 5.0,
+      "estado": "Closed",
+      "descripcion": "Yo como parte del equipo Rocket requiero realizar nueva busqueda en el momento de consultar un trader asociado solo para las mesas institucionales.",
+      "criterios_aceptacion": [
+        "Habilitar una nueva ruta directa cuando un cliente se encuentre con una parametrización de trader. Continuar con el flujo normal siempre y cuando esa parametrización no sea encontrada."
+      ],
+      "tareas": [
+        {
+          "id": 7962554,
+          "nombre": "Se realizan pruebas y estabilidad del ms de mesas neg",
+          "estado": "Closed"
+        },
+        {
+          "id": 7962541,
+          "nombre": "Se realiza paso a producción",
+          "estado": "Closed"
+        },
+        {
+          "id": 7962536,
+          "nombre": "Despliegue a ambientes intermedios",
+          "estado": "Closed"
+        },
+        {
+          "id": 7962534,
+          "nombre": "Se realiza la modificación de consultarTraderAsociado",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "La HU/HA figura cerrada en la fuente operativa y registra 4 de 4 tareas cerradas.",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "VALOR FUNCIONAL",
+      "clasificacion_valor": "VALOR FUNCIONAL",
+      "avance": "La HU/HA figura cerrada en la fuente operativa y registra 4 de 4 tareas cerradas.",
+      "valor_generado": "La fuente operativa registra cierre y aprobación administrativa de: MsMesasNeg - Modificación ConsultarTraderAsociado busquedad por parametrización.",
+      "proximo_paso": "No se reportan pendientes adicionales para esta HU/HA.",
+      "riesgo": "",
+      "riesgos": []
+    },
+    {
+      "id": 7868791,
+      "tipo": "Habilitador",
+      "nombre": "Registro de dominio para envio de correos",
+      "epica_proyecto": "PIV Modernización de interfaz Anexos de confirmación (por riesgos de incumplimiento)",
+      "celula": "Flintstones",
+      "story_points": 5.0,
+      "estado": "Closed",
+      "descripcion": "Como parte de la construcción de la solución de Anexos de Confirmación (MAC) , se requiere habilitar la capacidad de envío de correos electrónicos mediante AWS SES (Simple Email Service) . Para ello es necesario gestionar los prerrequisitos técnicos, seguridad y configuración asociados al dominio que será utilizado para el envío de comunicaciones, así como las configuraciones requeridas para garantizar la correcta autenticación, autorización, trazabilidad y reputación de los correos electrónicos enviados. Esta HA busca dejar preparado todo lo asociado al dominio y la configuración necesaria para que las futuras integraciones del MAC puedan utilizar AWS SES como mecanismo de envío de correos de confirmación y reenvío de anexos.",
+      "criterios_aceptacion": [
+        "Registrar dominio para envio de correos: https://grupobancolombia.visualstudio.com/Vicepresidencia%20Servicios%20de%20Tecnolog%C3%ADa/_wiki/wikis/Vicepresidencia%20Servicios%20de%20Tecnolog%C3%ADa.wiki/354902/SES-(Amazon-Simple-Email-Service) Se define el dominio a utilizar para los envíos. Apoya @Yenny Marcela Estrada Osorio Se identifica y gestiona el dominio o subdominio requerido. AWS SES queda habilitado para el dominio definido. Se gestionan las configuraciones necesarias de SPF, DKIM y DMARC. Se identifican los mecanismos de trazabilidad y monitoreo requeridos (validar si es necesario SNS). Se documentan las dependencias para futuras integraciones del MAC. Se valida la solución con Arquitectura y Ciberseguridad cuando corresponda. Se documentan las configuraciones realizadas y los pasos necesarios para el consumo futuro de AWS SES."
+      ],
+      "tareas": [
+        {
+          "id": 7941943,
+          "nombre": "Entrega de DKIN",
+          "estado": "Closed"
+        },
+        {
+          "id": 7943208,
+          "nombre": "Registros DNS",
+          "estado": "Closed"
+        },
+        {
+          "id": 7889571,
+          "nombre": "Validación de prerrequisitos de Ciberseguridad",
+          "estado": "Closed"
+        },
+        {
+          "id": 7953914,
+          "nombre": "Gestionar aprobación y creación del subdominio anexos.notificacionesbancolombia.com",
+          "estado": "Closed"
+        },
+        {
+          "id": 7924225,
+          "nombre": "Reunión con equipo Ultron",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "La HU/HA figura cerrada en la fuente operativa y registra 5 de 5 tareas cerradas.",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "VALOR TÉCNICO",
+      "clasificacion_valor": "VALOR TÉCNICO",
+      "avance": "La HU/HA figura cerrada en la fuente operativa y registra 5 de 5 tareas cerradas.",
+      "valor_generado": "La fuente operativa registra cierre de la capacidad técnica asociada a: Registro de dominio para envio de correos.",
+      "proximo_paso": "No se reportan pendientes adicionales para esta HU/HA.",
+      "riesgo": "",
+      "riesgos": []
+    },
+    {
+      "id": 7932021,
+      "tipo": "Habilitador",
+      "nombre": "Actualizar el Frontend del MCT para alinearse con la nueva versión de Angular y Zoneless del Kit Capital",
+      "epica_proyecto": "Q4 2026 - Garantizar la disponibilidad de los aplicativos satélite de la Tesorería",
+      "celula": "Flintstones",
+      "story_points": 8.0,
+      "estado": "Closed",
+      "descripcion": "Como parte de la evolución tecnológica del Módulo de Clientes de Tesorería (MCT) y de la alineación con los lineamientos definidos para Kit Capital , se requiere actualizar el Frontend para adoptar la versión objetivo de Angular y habilitar Zoneless . La iniciativa busca garantizar que el MCT mantenga compatibilidad con el contenedor y los microfrontends del ecosistema, evitando discrepancias de versiones y asegurando una evolución tecnológica homogénea. La implementación deberá incluir las validaciones necesarias para garantizar que los cambios no introduzcan regresiones ni afectaciones sobre la experiencia de usuario o las funcionalidades existentes.",
+      "criterios_aceptacion": [
+        "Criterios de Aceptación Se identifica y documenta la versión actual de Angular utilizada por el MCT. El Frontend queda alineado con Angular ^20.3.28 . Se valida la compatibilidad con el contenedor y los microfrontends. Se habilita Zoneless. Se documentan riesgos, restricciones y dependencias asociadas. Las funcionalidades actuales continúan operando correctamente después de los cambios. Se ejecutan pruebas funcionales satisfactorias. Se documenta la evaluación de rendimiento obtenida. No se identifican regresiones funcionales derivadas de la actualización. La documentación técnica queda actualizada si aplica."
+      ],
+      "tareas": [
+        {
+          "id": 7940658,
+          "nombre": "arreglar la info de mdm de clientes tesoreria",
+          "estado": "Closed"
+        },
+        {
+          "id": 7940641,
+          "nombre": "pasar el angular a 20.3.28",
+          "estado": "Closed"
+        },
+        {
+          "id": 7977821,
+          "nombre": "Pruebas de Aceptación",
+          "estado": "New"
+        },
+        {
+          "id": 7949677,
+          "nombre": "organizar repo, build, relesases",
+          "estado": "Closed"
+        },
+        {
+          "id": 7949675,
+          "nombre": "renombrar componente a _front",
+          "estado": "Closed"
+        },
+        {
+          "id": 7940656,
+          "nombre": "arreglar el editar en homolaciones",
+          "estado": "Closed"
+        },
+        {
+          "id": 7940648,
+          "nombre": "pasar todos los test a nuevo renderizado",
+          "estado": "Closed"
+        },
+        {
+          "id": 7940644,
+          "nombre": "pasar todo el micro a zoneless",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "La HU/HA figura cerrada en la fuente operativa y registra 7 de 8 tareas cerradas.",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [
+        "El estado administrativo es Closed, pero existen tareas no cerradas en la extracción; se requiere validar la consistencia del cierre."
+      ],
+      "clasificacion": "VALOR TÉCNICO",
+      "clasificacion_valor": "VALOR TÉCNICO",
+      "avance": "La HU/HA figura cerrada en la fuente operativa y registra 7 de 8 tareas cerradas.",
+      "valor_generado": "La fuente operativa registra cierre de la capacidad técnica asociada a: Actualizar el Frontend del MCT para alinearse con la nueva versión de Angular y Zoneless del Kit Capital.",
+      "proximo_paso": "Validar la consistencia entre el estado Closed y las tareas pendientes registradas.",
+      "riesgo": "El estado administrativo es Closed, pero existen tareas no cerradas en la extracción; se requiere validar la consistencia del cierre.",
+      "riesgos": [
+        {
+          "tipo": "VALIDACIÓN",
+          "descripcion": "El estado administrativo es Closed, pero existen tareas no cerradas en la extracción; se requiere validar la consistencia del cierre."
+        }
+      ]
+    },
+    {
+      "id": 7950098,
+      "tipo": "Habilitador",
+      "nombre": "Set de Validaciones ANEXO - MAC",
+      "epica_proyecto": "PIV Modernización de interfaz Anexos de confirmación (por riesgos de incumplimiento)",
+      "celula": "Flintstones",
+      "story_points": 5.0,
+      "estado": "Closed",
+      "descripcion": "Crear el set de validaciones para el anexo que llegue al caso MAC",
+      "criterios_aceptacion": [
+        "Generar las validaciones correspondientes al anexo que llegue al modulo para aplicarlas"
+      ],
+      "tareas": [],
+      "contexto_avance": "La HU/HA figura cerrada en la fuente operativa. No se suministró detalle adicional de tareas.",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "VALOR TÉCNICO",
+      "clasificacion_valor": "VALOR TÉCNICO",
+      "avance": "La HU/HA figura cerrada en la fuente operativa. No se suministró detalle adicional de tareas.",
+      "valor_generado": "La fuente operativa registra cierre de la capacidad técnica asociada a: Set de Validaciones ANEXO - MAC.",
+      "proximo_paso": "No se reportan pendientes adicionales para esta HU/HA.",
+      "riesgo": "",
+      "riesgos": []
+    },
+    {
+      "id": 7946380,
+      "tipo": "Habilitador",
+      "nombre": "Generación de Documentación BD MAC",
+      "epica_proyecto": "PIV Modernización de interfaz Anexos de confirmación (por riesgos de incumplimiento)",
+      "celula": "Flintstones",
+      "story_points": 5.0,
+      "estado": "Closed",
+      "descripcion": "realizar documentación de la base de datos para el modulo de anexos de confirmación",
+      "criterios_aceptacion": [
+        "Generar un documento formal con toda la descripción necesaria para la base de datos para el modulo de anexos de confirmación"
+      ],
+      "tareas": [],
+      "contexto_avance": "La HU/HA figura cerrada en la fuente operativa. No se suministró detalle adicional de tareas.",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "VALOR TÉCNICO",
+      "clasificacion_valor": "VALOR TÉCNICO",
+      "avance": "La HU/HA figura cerrada en la fuente operativa. No se suministró detalle adicional de tareas.",
+      "valor_generado": "La fuente operativa registra cierre de la capacidad técnica asociada a: Generación de Documentación BD MAC.",
+      "proximo_paso": "No se reportan pendientes adicionales para esta HU/HA.",
+      "riesgo": "",
+      "riesgos": []
+    },
+    {
+      "id": 7864164,
+      "tipo": "User Story",
+      "nombre": "Parametrizar el icono de la bandera de la entidad",
+      "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
+      "celula": "Rocket",
+      "story_points": 5.0,
+      "estado": "Closed",
+      "descripcion": "Yo como usuario del MPT requiero campo para parametrizar el icono de la bandera de la entidad",
+      "criterios_aceptacion": [
+        "1 Crud de entidades actualizado con el campo bandera entidad"
+      ],
+      "tareas": [
+        {
+          "id": 7945900,
+          "nombre": "Se realiza el campo en la Base de datos de icono - DEV y QA",
+          "estado": "Closed"
+        },
+        {
+          "id": 7945901,
+          "nombre": "Se realiza el ajuste en el ms_sistema en todo el flujo del CRUD",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "La HU/HA figura cerrada en la fuente operativa y registra 2 de 2 tareas cerradas.",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "VALOR FUNCIONAL",
+      "clasificacion_valor": "VALOR FUNCIONAL",
+      "avance": "La HU/HA figura cerrada en la fuente operativa y registra 2 de 2 tareas cerradas.",
+      "valor_generado": "La fuente operativa registra cierre y aprobación administrativa de: Parametrizar el icono de la bandera de la entidad.",
+      "proximo_paso": "No se reportan pendientes adicionales para esta HU/HA.",
+      "riesgo": "",
+      "riesgos": []
+    },
+    {
+      "id": 7864163,
+      "tipo": "User Story",
+      "nombre": "Parametrizar el sufijo de la entidad en el token para identificar los usuarios",
+      "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
+      "celula": "Rocket",
+      "story_points": 5.0,
+      "estado": "Closed",
+      "descripcion": "Yo como usuario del MPT requiero poder parametrizar el campo sufijo mediante el cual identifcaremos a que entidad pertecen los usuarios logueados en el sistema",
+      "criterios_aceptacion": [
+        "1 Crud de entidades actualizado con el campo sufijo"
+      ],
+      "tareas": [
+        {
+          "id": 7945897,
+          "nombre": "Se realiza el campo en la Base de datos de sufijo - DEV y QA",
+          "estado": "Closed"
+        },
+        {
+          "id": 7945898,
+          "nombre": "Se realiza el ajuste en el ms_sistema en todo el flujo del CRUD",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "La HU/HA figura cerrada en la fuente operativa y registra 2 de 2 tareas cerradas.",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "VALOR FUNCIONAL",
+      "clasificacion_valor": "VALOR FUNCIONAL",
+      "avance": "La HU/HA figura cerrada en la fuente operativa y registra 2 de 2 tareas cerradas.",
+      "valor_generado": "La fuente operativa registra cierre y aprobación administrativa de: Parametrizar el sufijo de la entidad en el token para identificar los usuarios.",
+      "proximo_paso": "No se reportan pendientes adicionales para esta HU/HA.",
+      "riesgo": "",
+      "riesgos": []
+    },
+    {
+      "id": 7709384,
+      "tipo": "User Story",
+      "nombre": "MsTasasMPT  - Funcionalidad Vigencia de tasa por entidad",
+      "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
+      "celula": "Rocket",
+      "story_points": 5.0,
+      "estado": "Closed",
+      "descripcion": "Yo como célula Rocket requiero gestionar el tiempo de vigencia durante la cual una tasa puede quedar activa en el sistema y se pueda definir por cada una de las entidades",
+      "criterios_aceptacion": [
+        "1- Endpoint que permita modificar la vigencia de la tasa por entidad"
+      ],
+      "tareas": [
+        {
+          "id": 7945929,
+          "nombre": "Modificacion de llave primario y/o restricciones",
+          "estado": "Closed"
+        },
+        {
+          "id": 7945928,
+          "nombre": "Creacion de nuevo campo ENTIDAD",
+          "estado": "Closed"
+        },
+        {
+          "id": 7945930,
+          "nombre": "Modificacion de cada uno de los flujos en el CRUD",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "La HU/HA figura cerrada en la fuente operativa y registra 3 de 3 tareas cerradas.",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "VALOR FUNCIONAL",
+      "clasificacion_valor": "VALOR FUNCIONAL",
+      "avance": "La HU/HA figura cerrada en la fuente operativa y registra 3 de 3 tareas cerradas.",
+      "valor_generado": "La fuente operativa registra cierre y aprobación administrativa de: MsTasasMPT  - Funcionalidad Vigencia de tasa por entidad.",
+      "proximo_paso": "No se reportan pendientes adicionales para esta HU/HA.",
+      "riesgo": "",
+      "riesgos": []
+    },
+    {
+      "id": 7864237,
+      "tipo": "User Story",
+      "nombre": "Incumplimientos - Funcionalidad auditoria - Back",
+      "epica_proyecto": "Administración de eventos de las tasas incumplidas desde KitCapital",
+      "celula": "Rocket",
+      "story_points": 8.0,
+      "estado": "New",
+      "descripcion": "Yo como miembro de la posición propia quiero poder visualizar la auditoria sobre todos los eventos asociados a la gestión de las operaciones incumplidas",
+      "criterios_aceptacion": [
+        "Funcionalidad interna que guarde la auditoria de las funciones crear, eliminar y update sobre los objetos de operaciones incumplidas."
+      ],
+      "tareas": [],
+      "contexto_avance": "La HU/HA permanece en estado New y no tiene tareas informadas en la fuente operativa.",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "AVANCE RELEVANTE",
+      "clasificacion_valor": "AVANCE RELEVANTE",
+      "avance": "La HU/HA permanece en estado New y no tiene tareas informadas en la fuente operativa.",
+      "valor_generado": "No existe evidencia suficiente de una capacidad materializada en el corte; se conserva como avance pendiente.",
+      "proximo_paso": "Definir y ejecutar las actividades pendientes; la fuente operativa no informa tareas para calcular avance.",
+      "riesgo": "",
+      "riesgos": []
+    },
+    {
+      "id": 7928298,
+      "tipo": "User Story",
+      "nombre": "Entidades Back: CRUDs de consumidores de tasa finalRate",
+      "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
+      "celula": "Rocket",
+      "story_points": 5.0,
+      "estado": "New",
+      "descripcion": "Yo como parte del equipo Rocket, requiero la implementación de los endpoints en el micro de sistema para crear, editar y eliminar consumidores de tasa finalRate",
+      "criterios_aceptacion": [
+        "Implementar endpoints para crear, editar y eliminar consumidores de tasa finalRate"
+      ],
+      "tareas": [],
+      "contexto_avance": "La HU/HA permanece en estado New y no tiene tareas informadas en la fuente operativa.",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "AVANCE RELEVANTE",
+      "clasificacion_valor": "AVANCE RELEVANTE",
+      "avance": "La HU/HA permanece en estado New y no tiene tareas informadas en la fuente operativa.",
+      "valor_generado": "No existe evidencia suficiente de una capacidad materializada en el corte; se conserva como avance pendiente.",
+      "proximo_paso": "Definir y ejecutar las actividades pendientes; la fuente operativa no informa tareas para calcular avance.",
+      "riesgo": "",
+      "riesgos": []
+    },
+    {
+      "id": 7864241,
+      "tipo": "User Story",
+      "nombre": "Creación de microservicio incumplimientos",
+      "epica_proyecto": "Administración de eventos de las tasas incumplidas desde KitCapital",
+      "celula": "Rocket",
+      "story_points": 8.0,
+      "estado": "New",
+      "descripcion": "Yo como celula Rocket, requiero realizar la inicialización de microservicio incumplimientos (back)",
+      "criterios_aceptacion": [
+        "* Inicialización y versión estable del microservicio"
+      ],
+      "tareas": [],
+      "contexto_avance": "La HU/HA permanece en estado New y no tiene tareas informadas en la fuente operativa.",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "AVANCE RELEVANTE",
+      "clasificacion_valor": "AVANCE RELEVANTE",
+      "avance": "La HU/HA permanece en estado New y no tiene tareas informadas en la fuente operativa.",
+      "valor_generado": "No existe evidencia suficiente de una capacidad materializada en el corte; se conserva como avance pendiente.",
+      "proximo_paso": "Definir y ejecutar las actividades pendientes; la fuente operativa no informa tareas para calcular avance.",
+      "riesgo": "",
+      "riesgos": []
+    },
+    {
+      "id": 7860649,
+      "tipo": "User Story",
+      "nombre": "Crear caso en el MAC para la gestión de los anexos (EXITOSO) - MANUAL",
+      "epica_proyecto": "PIV Modernización de interfaz Anexos de confirmación (por riesgos de incumplimiento)",
+      "celula": "",
+      "story_points": 13.0,
+      "estado": "Trasladada a Sprint 256",
+      "descripcion": "El MAC recibe input desde el front con la información de la metadata y el pdf para analizarla y de ser el caso crear el caso de anexos. NOTA: 2 SPRINTS",
+      "criterios_aceptacion": [
+        "Given MAC reciba el pdf y recibir la información de la metadata desde el front When ejecute validaciones técnicas y funcionales Then se debe crear caso asociado al pdf con la metadata que se diligenció vía front y enviarlos al bucket (caso en estado Pendiente Envío) Given que se reciba el pdf y se diligencie la metadata completa en el front del MAC When se cree el caso en el MAC Then se debe asociar un número de radicado al caso Implementar validaciones de campos obligatorios, formatos, tipos de dato, consistencia cliente-operación-anexo, fechas, horas, canal (Manual) y demás datos definidos."
+      ],
+      "tareas": [
+        {
+          "id": 7949658,
+          "nombre": "Implementar la recepción del PDF y la metadata desde el frontend",
+          "estado": "New"
+        },
+        {
+          "id": 7949655,
+          "nombre": "Analizar el flujo de creación del caso de anexos en MAC",
+          "estado": "Active"
+        },
+        {
+          "id": 7949661,
+          "nombre": "Crear el caso de anexos y persistir la metadata",
+          "estado": "New"
+        },
+        {
+          "id": 7949663,
+          "nombre": "Implementar el envío del PDF al bucket",
+          "estado": "New"
+        },
+        {
+          "id": 7949665,
+          "nombre": "Asociar el número de radicado al caso",
+          "estado": "New"
+        },
+        {
+          "id": 7949660,
+          "nombre": "Implementar validaciones técnicas y funcionales",
+          "estado": "New"
+        },
+        {
+          "id": 7949668,
+          "nombre": "Ejecutar pruebas funcionales del flujo exitoso manual",
+          "estado": "New"
+        },
+        {
+          "id": 7949666,
+          "nombre": "Implementar pruebas unitarias",
+          "estado": "New"
+        }
+      ],
+      "contexto_avance": "Esta HA fue planeada para realizarse en dos sprint, por lo que fue pasada del 255 para su continuación y cierre en el 256",
+      "dependencias": [
+        {
+          "tipo": "",
+          "descripcion": "7980515 - Desplegar la infraestructura del MAC (Módulo de Anexos de Confirmación) - AMBIENTE QA"
+        }
+      ],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "AVANCE RELEVANTE",
+      "clasificacion_valor": "AVANCE RELEVANTE",
+      "avance": "Esta HA fue planeada para realizarse en dos sprint, por lo que fue pasada del 255 para su continuación y cierre en el 256",
+      "valor_generado": "No se reporta cierre en Sprint 255; la HU/HA fue trasladada para continuación y cierre en Sprint 256.",
+      "proximo_paso": "Continuar y cerrar la HU/HA en el Sprint 256.",
+      "riesgo": "La continuidad depende del despliegue de infraestructura mínima del MAC en ambiente QA mediante la HA 7980515.",
+      "riesgos": [
+        {
+          "tipo": "DESPLIEGUE",
+          "descripcion": "La continuidad depende del despliegue de infraestructura mínima del MAC en ambiente QA mediante la HA 7980515."
+        }
+      ]
+    },
+    {
+      "id": 7853278,
+      "tipo": "User Story",
+      "nombre": "Crear caso en el MAC para la gestión de los anexos (FALLIDO)",
+      "epica_proyecto": "PIV Modernización de interfaz Anexos de confirmación (por riesgos de incumplimiento)",
+      "celula": "Flintstones",
+      "story_points": 13.0,
+      "estado": "Trasladada a Sprint 256",
+      "descripcion": "El MAC recibe la información desde Murex de la metadata y el pdf para analizarla y retornar error técnico a nivel de monitoreo. NOTA: 2 SPRINTS",
+      "criterios_aceptacion": [
+        "Given MAC reciba metadata incompleta o inconsistente When ejecute validaciones Then el anexo debe quedar en estado INCONSISTENCIA METADATA generando alerta de monitoreo Implementar validaciones de campos obligatorios, formatos, tipos de dato, consistencia cliente-operación-anexo, fechas, horas, canal (Murex, manual, ¿otros?) y demás datos definidos. Apoyo @Yenny Marcela Estrada Osorio"
+      ],
+      "tareas": [
+        {
+          "id": 7950571,
+          "nombre": "Implementar el cambio de estado del anexo",
+          "estado": "New"
+        },
+        {
+          "id": 7950560,
+          "nombre": "Definir reglas y casos de prueba para validaciones",
+          "estado": "Closed"
+        },
+        {
+          "id": 7950572,
+          "nombre": "Configurar la alerta de monitoreo",
+          "estado": "New"
+        },
+        {
+          "id": 7950543,
+          "nombre": "Definición y Configuración de Reglas de Validación",
+          "estado": "New"
+        },
+        {
+          "id": 7950548,
+          "nombre": "Programar las validaciones de datos (Código)",
+          "estado": "New"
+        },
+        {
+          "id": 7950555,
+          "nombre": "Analizar la estructura de la metadata",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "Esta HA fue planeada para realizarse en dos sprint, por lo que fue pasada del 255 para su continuación y cierre en el 256",
+      "dependencias": [
+        {
+          "tipo": "",
+          "descripcion": "7980515 - Desplegar la infraestructura del MAC (Módulo de Anexos de Confirmación) - AMBIENTE QA"
+        }
+      ],
+      "bloqueos": [],
+      "observaciones": [
+        "Se debe tener en cuenta que hay logica cruzada con el desarrollo del HA 7860649"
+      ],
+      "clasificacion": "AVANCE RELEVANTE",
+      "clasificacion_valor": "AVANCE RELEVANTE",
+      "avance": "Esta HA fue planeada para realizarse en dos sprint, por lo que fue pasada del 255 para su continuación y cierre en el 256",
+      "valor_generado": "No se reporta cierre en Sprint 255; la HU/HA fue trasladada para continuación y cierre en Sprint 256.",
+      "proximo_paso": "Continuar y cerrar la HU/HA en el Sprint 256.",
+      "riesgo": "La continuidad depende del despliegue de infraestructura mínima del MAC en ambiente QA mediante la HA 7980515.",
+      "riesgos": [
+        {
+          "tipo": "DESPLIEGUE",
+          "descripcion": "La continuidad depende del despliegue de infraestructura mínima del MAC en ambiente QA mediante la HA 7980515."
+        }
+      ]
+    },
+    {
+      "id": 6831844,
+      "tipo": "Habilitador",
+      "nombre": "Información no suministrada",
+      "epica_proyecto": "ÉPICA/PROYECTO NO INFORMADO",
+      "celula": "",
+      "story_points": null,
+      "estado": "Trasladada a Sprint 256",
+      "descripcion": "",
+      "criterios_aceptacion": [],
+      "tareas": [],
+      "contexto_avance": "Esta HA fue planeada para realizarse en dos sprint, por lo que fue pasada del 255 para su continuación y cierre en el 256",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [
+        "Tener en cuenta que tiene logica cruzada con el HA 7860649 y 7853278"
+      ],
+      "clasificacion": "AVANCE RELEVANTE",
+      "clasificacion_valor": "AVANCE RELEVANTE",
+      "avance": "Esta HA fue planeada para realizarse en dos sprint, por lo que fue pasada del 255 para su continuación y cierre en el 256",
+      "valor_generado": "No se reporta cierre en Sprint 255; la HU/HA fue trasladada para continuación y cierre en Sprint 256.",
+      "proximo_paso": "Continuar y cerrar la HU/HA en el Sprint 256.",
+      "riesgo": "",
+      "riesgos": []
+    }
+  ],
+  "riesgos_identificados": [
+    {
+      "item_id": 7932021,
+      "tipo": "VALIDACIÓN",
+      "descripcion": "El estado administrativo es Closed, pero existen tareas no cerradas en la extracción; se requiere validar la consistencia del cierre."
+    },
+    {
+      "item_id": 7860649,
+      "tipo": "DESPLIEGUE",
+      "descripcion": "La continuidad depende del despliegue de infraestructura mínima del MAC en ambiente QA mediante la HA 7980515."
+    },
+    {
+      "item_id": 7853278,
+      "tipo": "DESPLIEGUE",
+      "descripcion": "La continuidad depende del despliegue de infraestructura mínima del MAC en ambiente QA mediante la HA 7980515."
+    },
+    {
+      "item_id": 7860649,
+      "tipo": "DESPLIEGUE",
+      "descripcion": "La continuidad de 7860649 y 7853278 depende de 7980515 - despliegue de infraestructura mínima del MAC en QA."
+    }
+  ]
+}

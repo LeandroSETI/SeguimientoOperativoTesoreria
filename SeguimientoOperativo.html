@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reporte Seguimiento Operativo</title>
+<style>
+:root{--red:#b51d23;--dark:#292929;--gray:#697078;--line:#dfe2e5;--soft:#f6f7f8;--blue:#2185d0;--yellow:#e5a900;--green:#3a8d55;--sp:#5c6670}
+*{box-sizing:border-box}html,body{margin:0;padding:0;background:#eef0f2;color:#292929;font-family:"Segoe UI",Arial,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.report{width:210mm;min-height:297mm;margin:12px auto;background:#fff;padding:9mm 15mm 10mm;box-shadow:0 3px 18px #0002}
+.header{border-top:2px solid var(--red);display:grid;grid-template-columns:28mm 1fr 34mm;align-items:center;min-height:18mm;padding-top:2mm}
+.logo-seti{max-width:13mm;max-height:13mm;object-fit:contain}.logo-banco{width:34mm;height:13mm;justify-self:end;object-fit:cover;object-position:center}
+.heading{text-align:center}.heading h1{font-size:14pt;margin:0 0 2px}.heading p{font-size:7pt;color:#777;margin:0}
+.general{display:grid;grid-template-columns:1.25fr .55fr 1.25fr 1.55fr;background:var(--dark);color:#fff;margin-top:2mm;padding:3mm 4mm;gap:4mm}
+.general label{display:block;font-size:5.5pt;color:#bebebe;text-transform:uppercase;margin-bottom:2px}.general strong{font-size:6.8pt}
+h2{font-size:10pt;margin:3mm 0 1.4mm}.sprint{border:1px solid var(--line);padding:2.2mm 3mm}.sprint-head,.sprint-stats{display:flex;justify-content:space-between;align-items:center}.sprint-head strong{font-size:7pt}.sprint-head .percent{font-size:6.5pt}.sprint-stats{font-size:5.8pt;color:#666;margin:1.5mm 0}.bar{height:3.5mm;background:#e4e6e8;position:relative;overflow:hidden}.bar-fill{height:100%;background:var(--green)}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.3mm 3mm;align-items:start}.card{border:1px solid var(--line);border-left:2.2px solid var(--class-color);break-inside:avoid;page-break-inside:avoid;background:#fff}.card-top{display:grid;grid-template-columns:1fr auto auto;gap:1.5mm;align-items:center;padding:1.7mm 2mm 1mm}.item-id{font-weight:700;font-size:7.4pt}.badge,.sp{color:#fff;font-weight:700;text-align:center;line-height:1;padding:1.6mm 2.3mm;font-size:5.2pt}.badge{background:var(--class-color)}.sp{background:var(--sp)}
+.card-body{padding:1mm 2.2mm 1.7mm}.card h3{font-size:7.7pt;line-height:1.15;margin:0 0 1.5mm}.epic{display:grid;grid-template-columns:4mm 1fr;border:1px solid var(--line);min-height:8mm;margin-bottom:1mm}.epic::before{content:"";background:var(--red)}.epic span{padding:1.5mm 2mm;font-size:5.1pt;line-height:1.25;color:#626970;font-weight:700;align-self:center}
+.label{font-size:4.9pt;color:#777;margin:1mm 0 .5mm;text-transform:uppercase}.copy{font-size:5.5pt;line-height:1.25}.copy.soft{background:var(--soft);padding:1.4mm 1.7mm}.copy.evidence{background:#f3f8f4;color:#333;padding:1.3mm 1.7mm}.copy.evidence::before{content:"✓ ";color:var(--green);font-weight:700}
+.item-progress{margin-top:1.2mm}.progress-label{font-size:4.8pt;color:#777;margin-bottom:.4mm}.segbar{display:grid;grid-template-columns:repeat(10,1fr);height:3.8mm;border:1px solid var(--line);position:relative}.seg{border-right:.2px solid #fff;background:#e4e6e8}.seg.on{background:var(--green)}.item-percent{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4.8pt;font-weight:700;color:#fff;text-shadow:0 1px 1px #0006}.item-percent.dark{color:#333;text-shadow:none}.state{text-align:right;font-size:5pt;font-weight:700;margin-top:.7mm}
+.legend{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;border-top:1px solid var(--line);padding-top:2mm;margin-top:3mm;font-size:5pt;color:#666}.dot{display:inline-block;width:5px;height:5px;border-radius:50%;margin-right:4px}.risks{display:grid;grid-template-columns:repeat(3,1fr);gap:2mm;margin-top:1mm}.risk{border:1px solid var(--line);padding:2mm;font-size:5.3pt;line-height:1.25}.risk strong{display:block;font-size:5pt;color:#666;margin-bottom:1mm;text-transform:uppercase}.novedades{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2mm 3mm;margin-bottom:3mm;align-items:start}.novedad-card{border:1px solid var(--line);border-left:3px solid #607d8b;background:#f7f9fa;padding:2.5mm;break-inside:avoid;page-break-inside:avoid}.novedad-header{display:flex;justify-content:space-between;align-items:center;gap:2mm;margin-bottom:1.5mm}.novedad-categoria{color:#455a64;font-weight:700;font-size:5.5pt;text-transform:uppercase}.novedad-item{color:#455a64;background:#e8eef1;padding:1mm 2mm;font-size:5.2pt;font-weight:700}.novedad-titulo{font-size:7pt;font-weight:700;margin-bottom:1mm}.novedad-texto{font-size:5.5pt;line-height:1.3}.novedad-etiquetas{display:flex;flex-wrap:wrap;gap:1mm;margin-top:1.5mm}.novedad-etiqueta{background:#e8eef1;color:#455a64;padding:1mm 2mm;font-size:5pt;font-weight:700}.empty{border:1px dashed var(--line);padding:8mm;text-align:center;color:#777;font-size:8pt}.footer{display:flex;justify-content:space-between;border-top:1px solid #eee;padding-top:2mm;margin-top:3mm;color:#aaa;font-size:4.8pt}
+.ejecutivas{display:grid;gap:1.5mm;margin-bottom:3mm}.ejecutiva{display:grid;grid-template-columns:auto 1fr;align-items:start;gap:2mm;border-left:2px solid var(--red);background:var(--soft);padding:1.8mm 2.2mm;break-inside:avoid;page-break-inside:avoid}.ejecutiva-ha{font-size:5.5pt;font-weight:700;color:var(--red);white-space:nowrap}.ejecutiva-descripcion{font-size:5.5pt;line-height:1.3}
+@page{size:A4 portrait;margin:0}@media print{html,body{background:#fff}.report{margin:0;box-shadow:none;width:210mm;min-height:297mm}.card,.novedad-card{break-inside:avoid;page-break-inside:avoid}.footer{break-inside:avoid}.screen-only{display:none}}
+@media(max-width:800px){.report{width:100%;padding:16px}.cards,.risks,.legend,.novedades{grid-template-columns:1fr}.general{grid-template-columns:1fr 1fr}.header{grid-template-columns:50px 1fr 90px}.logo-banco{width:90px;height:50px;max-width:100%}}
+@media print{.report{padding:6mm 9mm 7mm}.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2mm 2mm}.novedades{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2mm 2mm}.card-top{padding:1mm 1.4mm .6mm;gap:1mm}.badge,.sp{padding:1mm 1.3mm;font-size:4.8pt}.card-body{padding:.6mm 1.4mm 1mm}.card h3{font-size:7pt;margin-bottom:.8mm}.epic{min-height:6mm;margin-bottom:.5mm}.epic span{padding:.8mm 1.2mm;font-size:4.7pt}.label{font-size:4.5pt;margin:.6mm 0 .3mm}.copy{font-size:5pt;line-height:1.15}.copy.soft{padding:.7mm 1mm}.copy.evidence{padding:.7mm 1mm}.item-progress{margin-top:.6mm}.segbar{height:2.8mm}.state{margin-top:.4mm}}
+</style>
+</head>
+<body>
+<div class="report">
+  <header class="header">
+    <img class="logo-seti" src="Logo-SETI.png" alt="SETI">
+    <div class="heading"><h1 id="title">Reporte Seguimiento Operativo</h1><p id="subtitle">EVC - Tesorería Bancolombia</p></div>
+    <img class="logo-banco" src="bancolombia-s-a-logo-png_seeklogo-402324.png" alt="Bancolombia">
+  </header>
+  <section class="general">
+    <div><label>Proyecto / Célula</label><strong id="project">-</strong></div>
+    <div><label>Sprint</label><strong id="sprintNumber">-</strong></div>
+    <div><label>Periodo</label><strong id="period">-</strong></div>
+    <div><label>Project Manager</label><strong id="pm">-</strong></div>
+  </section>
+  <main>
+    <h2>Avance por sprint</h2>
+    <section class="sprint">
+      <div class="sprint-head"><strong id="sprintTitle">Sprint -</strong><strong class="percent" id="sprintPercent">-</strong></div>
+      <div class="sprint-stats"><span id="itemsCount">HU/HA informadas: -</span><span id="spCount">Story Points: -</span></div>
+      <div class="bar"><div class="bar-fill" id="sprintBar"></div></div>
+    </section>
+    <h2>Entregas y avances</h2>
+    <section id="cards" class="cards"><div class="empty">Cargando JSON...</div></section>
+    <h2 id="novedadesEjecutivasTitle" hidden>Novedades ejecutivas</h2>
+    <section id="novedadesEjecutivasContainer" class="ejecutivas" hidden></section>
+    <h2 id="novedadesTitle" hidden>Novedades de seguimiento</h2>
+    <section id="novedadesContainer" class="novedades" hidden></section>
+    <section class="legend">
+      <div><span class="dot" style="background:var(--blue)"></span><b>Valor técnico:</b> capacidad técnica habilitada para construir, integrar u operar.</div>
+      <div><span class="dot" style="background:var(--yellow)"></span><b>Avance relevante:</b> trabajo realizado sin capacidad materializada o utilizable.</div>
+      <div><span class="dot" style="background:var(--green)"></span><b>Valor funcional:</b> capacidad integrada y validable que resuelve una necesidad.</div>
+    </section>
+    <h2 id="riskTitle">Riesgos identificados</h2>
+    <section id="risks" class="risks"></section>
+  </main>
+  <footer class="footer"><span id="footerLeft">SETI</span><span>Reporte semanal de entregas de valor</span></footer>
+</div>
+<script>
+const JSON_FILE = 'Contexto_HAs_JSON.json';
+const JSON_EXAMPLE_FILE = 'Contexto_HAs_JSON_Ejemplo.json';
+const REFRESH_INTERVAL_MS = 5000;
+const isFileProtocol = location.protocol === 'file:';
+let loading = false;
+let reportLoaded = false;
+let lastJSON = '';
+const CLASS = {
+  tecnico:{label:'VALOR TÉCNICO',color:'#2185d0'},
+  avance:{label:'AVANCE RELEVANTE',color:'#e5a900'},
+  funcional:{label:'VALOR FUNCIONAL',color:'#3a8d55'},
+  pendiente:{label:'PENDIENTE DE CLASIFICAR',color:'#777'}
+};
+const esc = v => String(v ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');
+const num = v => Number.isFinite(Number(v)) ? Number(v) : null;
+function normalizeTasks(t){
+  if(Array.isArray(t)){return {total:t.length,completadas:t.filter(x=>['closed','close','completed','completado','terminada','terminado','done'].includes(String(x.estado||'').toLowerCase())).length};}
+  return {total:num(t?.total),completadas:num(t?.completadas)};
+}
+function progress(item){const t=normalizeTasks(item.tareas);if(t.total===null||t.completadas===null||t.total<=0)return null;return Math.max(0,Math.min(100,(t.completadas/t.total)*100));}
+function classification(item){
+  const raw=String(item.clasificacion||item.tipo_valor||'').toLowerCase();
+  if(raw.includes('funcional'))return 'funcional';if(raw.includes('técnico')||raw.includes('tecnico'))return 'tecnico';if(raw.includes('avance'))return 'avance';return 'pendiente';
+}
+function valueText(item){return item.valor_generado||item.resultado||item.contexto_valor||item.contexto_avance||'Información no suministrada.';}
+function advanceText(item){return item.avance||item.evidencia||item.contexto_avance||'Información no suministrada.';}
+function nextText(item){return item.proximo_paso||item.pendiente||'No se reportan pendientes adicionales para esta HU/HA.';}
+function sprintProgress(items){
+  let numerator=0,denominator=0,excluded=[];
+  items.forEach(i=>{const p=progress(i),sp=num(i.story_points);if(p===null||sp===null||sp<=0)excluded.push(i.id);else{numerator+=p*sp;denominator+=sp;}});
+  return {percent:denominator?numerator/denominator:null,sp:denominator,excluded};
+}
+function epicName(value){
+  if(typeof value==='string')return value;
+  if(value&&typeof value==='object'&&!Array.isArray(value))return value.nombre||'';
+  return '';
+}
+function renderCard(item){
+  const p=progress(item),key=classification(item),cl=CLASS[key];
+  const filled=p===null?0:Math.round(p/10);let segments='';for(let i=0;i<10;i++)segments+=`<i class="seg ${i<filled?'on':''}"></i>`;
+  const pct=p===null?'N/D':`${Math.round(p)}%`;const dark=p===null||p<60?'dark':'';
+  return `<article class="card" style="--class-color:${cl.color}">
+    <div class="card-top"><span class="item-id">${esc(item.tipo||'HA')} ${esc(item.id)}</span><span class="sp">${esc(item.story_points??'-')} SP</span><span class="badge">${cl.label}</span></div>
+    <div class="card-body"><h3>${esc(item.nombre)}</h3>
+      <div class="epic"><span>Célula: ${esc(item.celula||'No informada')} - Épica: ${esc(epicName(item.epica_proyecto)||'No informada')}</span></div>
+      <div class="label">Avance</div><div class="copy evidence">${esc(advanceText(item))}</div>
+      <div class="label">Valor generado</div><div class="copy soft">${esc(valueText(item))}</div>
+      <div class="label">Próximo paso</div><div class="copy soft">${esc(nextText(item))}</div>
+      <div class="item-progress"><div class="progress-label">Avance de ejecución</div><div class="segbar">${segments}<span class="item-percent ${dark}">${pct}</span></div></div>
+      <div class="state">${esc(String(item.estado||'Estado no informado').toUpperCase())}</div>
+    </div></article>`;
+}
+function renderNovedad(novedad){
+  if(!novedad||typeof novedad!=='object')return '';
+  const categoria = novedad.categoria;
+  const itemRelacion = novedad.item_relacionado;
+  const titulo = novedad.titulo;
+  const fecha = novedad.fecha;
+  const descripcion = novedad.descripcion;
+  const impacto = novedad.impacto;
+  const dependencias = Array.isArray(novedad.dependencias) ? novedad.dependencias.filter(v => v !== null && v !== undefined && String(v).trim() !== '') : [];
+  const estado = novedad.estado;
+  const proximoPaso = novedad.proximo_paso;
+  const trasladaSprint = Boolean(novedad.traslada_sprint);
+  const sprintDestino = novedad.sprint_destino;
+  const itemLabel = itemRelacion && String(itemRelacion).trim() && String(itemRelacion).trim().toUpperCase() !== 'GENERAL' ? `HA/HU ${esc(String(itemRelacion).trim())}` : 'GENERAL';
+  const sections=[];
+  if(categoria && String(categoria).trim())sections.push(`<div class="novedad-texto"><strong>Categoría:</strong> ${esc(categoria)}</div>`);
+  if(itemRelacion && String(itemRelacion).trim())sections.push(`<div class="novedad-texto"><strong>${esc(itemLabel.includes('HA/HU') ? 'HA/HU relacionada' : 'Área relacionada')}:</strong> ${esc(itemLabel)}</div>`);
+  if(titulo && String(titulo).trim())sections.push(`<div class="novedad-titulo">${esc(titulo)}</div>`);
+  if(fecha && String(fecha).trim())sections.push(`<div class="novedad-texto"><strong>Fecha:</strong> ${esc(fecha)}</div>`);
+  if(descripcion && String(descripcion).trim())sections.push(`<div class="novedad-texto"><strong>Descripción:</strong> ${esc(descripcion)}</div>`);
+  if(impacto && String(impacto).trim())sections.push(`<div class="novedad-texto"><strong>Impacto:</strong> ${esc(impacto)}</div>`);
+  if(dependencias.length)sections.push(`<div class="novedad-etiquetas">${dependencias.map(dep => `<span class="novedad-etiqueta">${esc(dep)}</span>`).join('')}</div>`);
+  if(estado && String(estado).trim())sections.push(`<div class="novedad-texto"><strong>Estado:</strong> ${esc(estado)}</div>`);
+  if(proximoPaso && String(proximoPaso).trim())sections.push(`<div class="novedad-texto"><strong>Próximo paso:</strong> ${esc(proximoPaso)}</div>`);
+  sections.push(`<div class="novedad-texto"><strong>Traslada Sprint:</strong> ${esc(trasladaSprint ? 'Sí' : 'No')}</div>`);
+  if(trasladaSprint && sprintDestino !== null && sprintDestino !== undefined && String(sprintDestino).trim() !== '')sections.push(`<div class="novedad-texto"><strong>Sprint destino:</strong> ${esc(String(sprintDestino))}</div>`);
+  return `<article class="novedad-card">
+    <div class="novedad-header">
+      <span class="novedad-categoria">${esc(categoria || 'Novedad')}</span>
+      <span class="novedad-item">${esc(itemLabel)}</span>
+    </div>
+    ${sections.join('')}
+  </article>`;
+}
+function renderNovedadEjecutiva(novedad){
+  if(!novedad||typeof novedad!=='object'||Array.isArray(novedad))return '';
+  const haHu=novedad.ha_hu;
+  const descripcion=typeof novedad.descripcion==='string'?novedad.descripcion.trim():'';
+  if((haHu===null||haHu===undefined||String(haHu).trim()==='')&&!descripcion)return '';
+  return `<article class="ejecutiva">
+    ${haHu!==null&&haHu!==undefined&&String(haHu).trim()!==''?`<span class="ejecutiva-ha">HA/HU ${esc(haHu)}</span>`:''}
+    ${descripcion?`<span class="ejecutiva-descripcion">${esc(descripcion)}</span>`:''}
+  </article>`;
+}
+function riskRecord(entry, fallbackCategory='RIESGO', fallbackItemId=''){
+  if(typeof entry==='string'||typeof entry==='number')return {categoria:fallbackCategory,detalle:String(entry),itemId:fallbackItemId};
+  if(!entry||typeof entry!=='object'||Array.isArray(entry))return null;
+  const text=value=>typeof value==='string'||typeof value==='number'?String(value).trim():'';
+  const detalle=text(entry.detalle)||text(entry.descripcion)||text(entry.nombre)||text(entry.mensaje);
+  if(!detalle)return null;
+  return {
+    categoria:text(entry.categoria)||text(entry.tipo)||fallbackCategory,
+    detalle,
+    itemId:text(entry.item_id)||text(entry.itemId)||text(fallbackItemId)
+  };
+}
+function risksFrom(data){
+  const identified=Array.isArray(data.riesgos_identificados)?data.riesgos_identificados:[];
+  const explicit=Array.isArray(data.riesgos)&&data.riesgos.length?data.riesgos:identified;
+  if(explicit.length)return explicit.map(entry=>riskRecord(entry)).filter(Boolean);
+  const out=[];
+  for(const item of Array.isArray(data.items)?data.items:[]){
+    for(const dependency of Array.isArray(item.dependencias)?item.dependencias:[]){
+      const risk=riskRecord(dependency,'DEPENDENCIA',item.id);
+      if(risk)out.push(risk);
+    }
+    for(const blockage of Array.isArray(item.bloqueos)?item.bloqueos:[]){
+      const risk=riskRecord(blockage,'BLOQUEO',item.id);
+      if(risk)out.push(risk);
+    }
+  }
+  return out;
+}
+async function load(){if(loading)return;loading=true;try{
+ if(isFileProtocol){
+   const message='El reporte debe abrirse desde un servidor local para poder recargar el JSON automáticamente. Ejecuta: python servir_seguimiento.py y abre http://127.0.0.1:8000/SeguimientoOperativo.html';
+   document.body.dataset.reportReady='error';
+   document.getElementById('cards').innerHTML=`<div class="empty">${esc(message)}</div>`;
+   return;
+ }
+ const r=await fetch(JSON_FILE,{cache:'no-store'});const response=r.status===404?await fetch(JSON_EXAMPLE_FILE,{cache:'no-store'}):r;if(!response.ok)throw new Error(`No se pudo cargar el JSON: HTTP ${response.status}`);const raw=await response.text();if(raw===lastJSON)return;const d=JSON.parse(raw);if(!d.sprint||!Array.isArray(d.items))throw new Error('El JSON debe incluir sprint e items[]');
+ const report=d.reporte||{};const reportName=`Reporte Seguimiento Operativo ${d.sprint.numero??'-'}`;document.title=reportName;document.getElementById('title').textContent=reportName;document.getElementById('subtitle').textContent=report.proyecto||'EVC - Tesorería Bancolombia';document.getElementById('project').textContent=report.celula||'CaaS Tesorería';document.getElementById('sprintNumber').textContent=d.sprint.numero??'-';document.getElementById('period').textContent=d.sprint.periodo||'-';document.getElementById('pm').textContent=report.project_manager||'Christian Leandro Sanchez Rodas';document.getElementById('footerLeft').textContent=`SETI | ${report.project_manager||'Christian Leandro Sanchez Rodas'}`;
+ const calc=sprintProgress(d.items);document.getElementById('sprintTitle').textContent=`Sprint ${d.sprint.numero??'-'}`;document.getElementById('itemsCount').textContent=`HU/HA informadas: ${d.items.length}`;document.getElementById('spCount').textContent=`Story Points incluidos: ${calc.sp}`;document.getElementById('sprintPercent').textContent=calc.percent===null?'N/D':`${calc.percent.toFixed(1)}%`;document.getElementById('sprintBar').style.width=calc.percent===null?'0%':`${calc.percent}%`;
+ document.getElementById('cards').innerHTML=d.items.length?d.items.map(renderCard).join(''):'<div class="empty">No hay HA/HU.</div>';
+ const novedadesEjecutivas=Array.isArray(d.novedades_ejecutivas)?d.novedades_ejecutivas.map(renderNovedadEjecutiva).filter(Boolean):[];
+ const novedadesEjecutivasTitle=document.getElementById('novedadesEjecutivasTitle');
+ const novedadesEjecutivasContainer=document.getElementById('novedadesEjecutivasContainer');
+ novedadesEjecutivasTitle.hidden=novedadesEjecutivas.length===0;
+ novedadesEjecutivasContainer.hidden=novedadesEjecutivas.length===0;
+ novedadesEjecutivasContainer.innerHTML=novedadesEjecutivas.join('');
+ const novedades = Array.isArray(d.novedades) ? d.novedades : [];
+ const novedadesTitle = document.getElementById('novedadesTitle');
+ const novedadesContainer = document.getElementById('novedadesContainer');
+ if (novedades.length === 0) {
+   novedadesTitle.hidden = true;
+   novedadesContainer.hidden = true;
+   novedadesContainer.innerHTML = '';
+ } else {
+   novedadesTitle.hidden = false;
+   novedadesContainer.hidden = false;
+   novedadesContainer.innerHTML = novedades.map(renderNovedad).join('');
+ }
+ const risks=risksFrom(d);document.getElementById('riskTitle').style.display=risks.length?'block':'none';document.getElementById('risks').innerHTML=risks.slice(0,6).map(x=>`<div class="risk"><strong>${esc(x.categoria)}${x.itemId!==''?` · HA/HU ${esc(x.itemId)}`:''}</strong>${esc(x.detalle)}</div>`).join('');
+ lastJSON=raw;reportLoaded=true;document.body.dataset.reportReady='true';delete document.body.dataset.reportError;
+}catch(e){document.body.dataset.reportError=e.message;console.error('No se pudo cargar o actualizar el reporte:',e);if(!reportLoaded){document.body.dataset.reportReady='error';document.getElementById('cards').innerHTML=`<div class="empty">${esc(e.message)}</div>`;}}finally{loading=false;}}
+document.body.dataset.reportReady='false';
+document.addEventListener('DOMContentLoaded',()=>{if(isFileProtocol){document.getElementById('cards').innerHTML='<div class="empty">El reporte debe abrirse desde un servidor local para actualizar automáticamente. Ejecuta: python servir_seguimiento.py</div>';return;} load();setInterval(load,REFRESH_INTERVAL_MS);});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden && !isFileProtocol)load();});
+</script>
+</body></html>

@@ -1,0 +1,684 @@
+{
+  "sprint": {
+    "numero": 255,
+    "periodo": "06-10-2026 al 14-10-2026",
+    "fecha_corte": "2026-10-15 08:38:59"
+  },
+  "items": [
+    {
+      "id": 7932021,
+      "tipo": "Habilitador",
+      "nombre": "Actualizar el Frontend del MCT para alinearse con la nueva versión de Angular y Zoneless del Kit Capital",
+      "epica_proyecto": "Q4 2026 - Garantizar la disponibilidad de los aplicativos satélite de la Tesorería",
+      "celula": "Flintstones",
+      "story_points": 8.0,
+      "estado": "Active",
+      "descripcion": "Como parte de la evolución tecnológica del Módulo de Clientes de Tesorería (MCT) y de la alineación con los lineamientos definidos para Kit Capital, se requiere actualizar el Frontend para adoptar la versión objetivo de Angular y habilitar Zoneless.",
+      "criterios_aceptacion": [
+        "Se identifica y documenta la versión actual de Angular utilizada por el MCT. El Frontend queda alineado con Angular ^20.3.28. Se valida la compatibilidad con el contenedor y los microfrontends. Se habilita Zoneless. Las funcionalidades actuales continúan operando correctamente. Se ejecutan pruebas funcionales satisfactorias y se actualiza la documentación técnica si aplica."
+      ],
+      "tareas": [
+        {
+          "id": 7940658,
+          "nombre": "arreglar la info de mdm de clientes tesoreria",
+          "estado": "Closed"
+        },
+        {
+          "id": 7940641,
+          "nombre": "pasar el angular a 20.3.28",
+          "estado": "Closed"
+        },
+        {
+          "id": 7949677,
+          "nombre": "organizar repo, build, relesases",
+          "estado": "New"
+        },
+        {
+          "id": 7949675,
+          "nombre": "renombrar componente a _front",
+          "estado": "New"
+        },
+        {
+          "id": 7940656,
+          "nombre": "arreglar el editar en homolaciones",
+          "estado": "Closed"
+        },
+        {
+          "id": 7940648,
+          "nombre": "pasar todos los test a nuevo renderizado",
+          "estado": "Active"
+        },
+        {
+          "id": 7940644,
+          "nombre": "pasar todo el micro a zoneless",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "Se logra corregir la información de clientes de MDM y se incian con los test del nuevo renderizado",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "AVANCE RELEVANTE",
+      "clasificacion_valor": "AVANCE RELEVANTE",
+      "avance": "Se logra corregir la información de clientes de MDM y se incian con los test del nuevo renderizado",
+      "valor_generado": "Se corrigió la información de clientes de MDM y comenzaron las pruebas del nuevo renderizado.",
+      "proximo_paso": "Completar las pruebas y cerrar los ajustes pendientes.",
+      "riesgo": "Las pruebas pendientes pueden retrasar la validación final.",
+      "riesgos": [
+        {
+          "tipo": "VALIDACIÓN",
+          "descripcion": "Las pruebas pendientes pueden retrasar la validación final."
+        }
+      ]
+    },
+    {
+      "id": 7950098,
+      "tipo": "Habilitador",
+      "nombre": "Set de Validaciones ANEXO - MAC",
+      "epica_proyecto": "PIV Modernización de interfaz Anexos de confirmación (por riesgos de incumplimiento)",
+      "celula": "Flintstones",
+      "story_points": 5.0,
+      "estado": "Closed",
+      "descripcion": "Crear el set de validaciones para el anexo que llegue al caso MAC",
+      "criterios_aceptacion": [
+        "Generar las validaciones correspondientes al anexo que llegue al modulo para aplicarlas"
+      ],
+      "tareas": [
+        {
+          "id": null,
+          "nombre": "Tarea sintética para cálculo de avance",
+          "estado": "Closed",
+          "origen": "REGLA_SEGUIMIENTO"
+        }
+      ],
+      "contexto_avance": "Validaciones realizadas HA Closed",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "VALOR TÉCNICO",
+      "clasificacion_valor": "VALOR TÉCNICO",
+      "avance": "Validaciones realizadas HA Closed",
+      "valor_generado": "Quedó disponible el conjunto de validaciones técnicas previsto para los anexos del MAC.",
+      "proximo_paso": "No se reportan pendientes adicionales para esta HA.",
+      "riesgo": "",
+      "riesgos": []
+    },
+    {
+      "id": 7946380,
+      "tipo": "Habilitador",
+      "nombre": "Generación de Documentación BD MAC",
+      "epica_proyecto": "PIV Modernización de interfaz Anexos de confirmación (por riesgos de incumplimiento)",
+      "celula": "Flintstones",
+      "story_points": 5.0,
+      "estado": "Closed",
+      "descripcion": "realizar documentación de la base de datos para el modulo de anexos de confirmación",
+      "criterios_aceptacion": [
+        "Generar un documento formal con toda la descripción necesaria para la base de datos para el modulo de anexos de confirmación"
+      ],
+      "tareas": [
+        {
+          "id": null,
+          "nombre": "Tarea sintética para cálculo de avance",
+          "estado": "Closed",
+          "origen": "REGLA_SEGUIMIENTO"
+        }
+      ],
+      "contexto_avance": "documentacion realizada, HA Closed",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "VALOR TÉCNICO",
+      "clasificacion_valor": "VALOR TÉCNICO",
+      "avance": "documentacion realizada, HA Closed",
+      "valor_generado": "Quedó disponible la documentación técnica de la base de datos del MAC.",
+      "proximo_paso": "No se reportan pendientes adicionales para esta HA.",
+      "riesgo": "",
+      "riesgos": []
+    },
+    {
+      "id": 7852794,
+      "tipo": "Habilitador",
+      "nombre": "Crear la base de datos del MAC (Módulo de Anexos de Confirmación)",
+      "epica_proyecto": "PIV Modernización de interfaz Anexos de confirmación (por riesgos de incumplimiento)",
+      "celula": "Flintstones",
+      "story_points": 8.0,
+      "estado": "Closed",
+      "descripcion": "Se requiere habilitar la base de datos que soportará la operación del MAC, incluyendo diseño, despliegue y validación.",
+      "criterios_aceptacion": [
+        "La base de datos del MAC es diseñada y desplegada correctamente. Los accesos y permisos requeridos quedan configurados. La BD cumple los lineamientos de arquitectura y seguridad corporativos. La documentación e inventarios quedan actualizados."
+      ],
+      "tareas": [
+        {
+          "id": 7950531,
+          "nombre": "Crear la base de datos para el MAC",
+          "estado": "Closed"
+        },
+        {
+          "id": 7950534,
+          "nombre": "Diseñar MER para la creación de bd para el MAC",
+          "estado": "Closed"
+        },
+        {
+          "id": 7950528,
+          "nombre": "Generar documento base de datos",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "Se completan todas las actividades, HA closed Base de datos del MAC creada HA closed",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "VALOR TÉCNICO",
+      "clasificacion_valor": "VALOR TÉCNICO",
+      "avance": "Se completan todas las actividades, HA closed Base de datos del MAC creada HA closed",
+      "valor_generado": "La base de datos del MAC quedó creada con su modelo y documentación.",
+      "proximo_paso": "No se reportan pendientes adicionales para esta HA.",
+      "riesgo": "",
+      "riesgos": []
+    },
+    {
+      "id": 7853278,
+      "tipo": "User Story",
+      "nombre": "Crear caso en el MAC para la gestión de los anexos (FALLIDO)",
+      "epica_proyecto": "PIV Modernización de interfaz Anexos de confirmación (por riesgos de incumplimiento)",
+      "celula": "Flintstones",
+      "story_points": 13.0,
+      "estado": "Active",
+      "descripcion": "El MAC recibe la información desde Murex de la metadata y el pdf para analizarla y retornar error técnico a nivel de monitoreo. NOTA: 2 SPRINTS",
+      "criterios_aceptacion": [
+        "Given MAC reciba metadata incompleta o inconsistente When ejecute validaciones Then el anexo debe quedar en estado INCONSISTENCIA METADATA generando alerta de monitoreo."
+      ],
+      "tareas": [
+        {
+          "id": 7950571,
+          "nombre": "Implementar el cambio de estado del anexo",
+          "estado": "New"
+        },
+        {
+          "id": 7950560,
+          "nombre": "Definir reglas y casos de prueba para validaciones",
+          "estado": "Closed"
+        },
+        {
+          "id": 7950572,
+          "nombre": "Configurar la alerta de monitoreo",
+          "estado": "New"
+        },
+        {
+          "id": 7950543,
+          "nombre": "Definición y Configuración de Reglas de Validación",
+          "estado": "New"
+        },
+        {
+          "id": 7950548,
+          "nombre": "Programar las validaciones de datos (Código)",
+          "estado": "New"
+        },
+        {
+          "id": 7950555,
+          "nombre": "Analizar la estructura de la metadata",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "Pendiente de revision con el funcional para revisar los campos obligatorios",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "AVANCE RELEVANTE",
+      "clasificacion_valor": "AVANCE RELEVANTE",
+      "avance": "Pendiente de revision con el funcional para revisar los campos obligatorios",
+      "valor_generado": "Se definieron reglas y casos de prueba; continúa pendiente la revisión funcional de campos obligatorios.",
+      "proximo_paso": "Realizar la revisión funcional y completar validaciones, cambio de estado y alertas.",
+      "riesgo": "La revisión pendiente de campos obligatorios puede generar reproceso.",
+      "riesgos": [
+        {
+          "tipo": "VALIDACIÓN",
+          "descripcion": "La revisión pendiente de campos obligatorios puede generar reproceso."
+        }
+      ]
+    },
+    {
+      "id": 7864164,
+      "tipo": "User Story",
+      "nombre": "Parametrizar el icono de la bandera de la entidad",
+      "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
+      "celula": "Rocket",
+      "story_points": 5.0,
+      "estado": "Closed",
+      "descripcion": "Yo como usuario del MPT requiero campo para parametrizar el icono de la bandera de la entidad",
+      "criterios_aceptacion": [
+        "Crud de entidades actualizado con el campo bandera entidad"
+      ],
+      "tareas": [
+        {
+          "id": 7945900,
+          "nombre": "Se realiza el campo en la Base de datos de icono - DEV y QA",
+          "estado": "Closed"
+        },
+        {
+          "id": 7945901,
+          "nombre": "Se realiza el ajuste en el ms_sistema en todo el flujo del CRUD",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "HA Closed, actividades ejecutadas",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "VALOR FUNCIONAL",
+      "clasificacion_valor": "VALOR FUNCIONAL",
+      "avance": "HA Closed, actividades ejecutadas",
+      "valor_generado": "El CRUD permite parametrizar el icono de bandera por entidad.",
+      "proximo_paso": "No se reportan pendientes adicionales para esta HU.",
+      "riesgo": "",
+      "riesgos": []
+    },
+    {
+      "id": 7864163,
+      "tipo": "User Story",
+      "nombre": "Parametrizar el sufijo de la entidad en el token para identificar los usuarios",
+      "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
+      "celula": "Rocket",
+      "story_points": 5.0,
+      "estado": "Closed",
+      "descripcion": "Yo como usuario del MPT requiero poder parametrizar el campo sufijo mediante el cual identificaremos a qué entidad pertenecen los usuarios logueados en el sistema",
+      "criterios_aceptacion": [
+        "Crud de entidades actualizado con el campo sufijo"
+      ],
+      "tareas": [
+        {
+          "id": 7945897,
+          "nombre": "Se realiza el campo en la Base de datos de sufijo - DEV y QA",
+          "estado": "Closed"
+        },
+        {
+          "id": 7945898,
+          "nombre": "Se realiza el ajuste en el ms_sistema en todo el flujo del CRUD",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "HA Closed actividades ejecutadas",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "VALOR FUNCIONAL",
+      "clasificacion_valor": "VALOR FUNCIONAL",
+      "avance": "HA Closed actividades ejecutadas",
+      "valor_generado": "El sistema permite parametrizar el sufijo para identificar la entidad de los usuarios.",
+      "proximo_paso": "No se reportan pendientes adicionales para esta HU.",
+      "riesgo": "",
+      "riesgos": []
+    },
+    {
+      "id": 7709384,
+      "tipo": "User Story",
+      "nombre": "MsTasasMPT - Funcionalidad Vigencia de tasa por entidad",
+      "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
+      "celula": "Rocket",
+      "story_points": 5.0,
+      "estado": "Closed",
+      "descripcion": "Gestionar el tiempo de vigencia durante el cual una tasa puede quedar activa y definirlo por cada entidad",
+      "criterios_aceptacion": [
+        "Endpoint que permita modificar la vigencia de la tasa por entidad"
+      ],
+      "tareas": [
+        {
+          "id": 7945929,
+          "nombre": "Modificacion de llave primario y/o restricciones",
+          "estado": "Closed"
+        },
+        {
+          "id": 7945928,
+          "nombre": "Creacion de nuevo campo ENTIDAD",
+          "estado": "Closed"
+        },
+        {
+          "id": 7945930,
+          "nombre": "Modificacion de cada uno de los flujos en el CRUD",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "Se crea el campo de entidad en la tabla de SCHPAR.MPT_TASASVIGENCIA y queda listo el endpoint, Se completan todas las actividades, HA closed",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "VALOR FUNCIONAL",
+      "clasificacion_valor": "VALOR FUNCIONAL",
+      "avance": "Se crea el campo de entidad en la tabla de SCHPAR.MPT_TASASVIGENCIA y queda listo el endpoint, Se completan todas las actividades, HA closed",
+      "valor_generado": "La vigencia de la tasa quedó parametrizable por entidad y el endpoint está listo.",
+      "proximo_paso": "No se reportan pendientes adicionales para esta HU.",
+      "riesgo": "",
+      "riesgos": []
+    },
+    {
+      "id": 7864245,
+      "tipo": "Habilitador",
+      "nombre": "Capacitaciones frontend",
+      "epica_proyecto": "Administración de eventos de las tasas incumplidas desde KitCapital",
+      "celula": "Rocket",
+      "story_points": 8.0,
+      "estado": "Active",
+      "descripcion": "Realizar capacitaciones frontend",
+      "criterios_aceptacion": [
+        "Capacitaciones frontend"
+      ],
+      "tareas": [
+        {
+          "id": null,
+          "nombre": "Video 1 del curso frontend",
+          "estado": "Closed",
+          "origen": "REGLA_SEGUIMIENTO"
+        },
+        {
+          "id": null,
+          "nombre": "Video 2 del curso frontend",
+          "estado": "Closed",
+          "origen": "REGLA_SEGUIMIENTO"
+        },
+        {
+          "id": null,
+          "nombre": "Video 3 del curso frontend",
+          "estado": "Closed",
+          "origen": "REGLA_SEGUIMIENTO"
+        },
+        {
+          "id": null,
+          "nombre": "Video 4 del curso frontend",
+          "estado": "Closed",
+          "origen": "REGLA_SEGUIMIENTO"
+        },
+        {
+          "id": null,
+          "nombre": "Video 5 del curso frontend",
+          "estado": "Closed",
+          "origen": "REGLA_SEGUIMIENTO"
+        },
+        {
+          "id": null,
+          "nombre": "Video 6 del curso frontend",
+          "estado": "Closed",
+          "origen": "REGLA_SEGUIMIENTO"
+        },
+        {
+          "id": null,
+          "nombre": "Video 7 del curso frontend",
+          "estado": "Active",
+          "origen": "REGLA_SEGUIMIENTO"
+        },
+        {
+          "id": null,
+          "nombre": "Video 8 del curso frontend",
+          "estado": "Active",
+          "origen": "REGLA_SEGUIMIENTO"
+        },
+        {
+          "id": null,
+          "nombre": "Video 9 del curso frontend",
+          "estado": "Active",
+          "origen": "REGLA_SEGUIMIENTO"
+        },
+        {
+          "id": null,
+          "nombre": "Video 10 del curso frontend",
+          "estado": "Active",
+          "origen": "REGLA_SEGUIMIENTO"
+        }
+      ],
+      "contexto_avance": "Se continuan viendo los videos estan pendientes 4 videos de 10",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "AVANCE RELEVANTE",
+      "clasificacion_valor": "AVANCE RELEVANTE",
+      "avance": "Se continuan viendo los videos estan pendientes 4 videos de 10",
+      "valor_generado": "Se completaron 6 de los 10 videos del curso frontend.",
+      "proximo_paso": "Completar los 4 videos pendientes.",
+      "riesgo": "Cuatro videos pendientes pueden afectar la finalización de la capacitación.",
+      "riesgos": [
+        {
+          "tipo": "SEGUIMIENTO",
+          "descripcion": "Cuatro videos pendientes pueden afectar la finalización de la capacitación."
+        }
+      ]
+    },
+    {
+      "id": 7860649,
+      "tipo": "User Story",
+      "nombre": "Crear caso en el MAC para la gestión de los anexos (EXITOSO) - MANUAL",
+      "epica_proyecto": "PIV Modernización de interfaz Anexos de confirmación (por riesgos de incumplimiento)",
+      "celula": "",
+      "story_points": 13.0,
+      "estado": "Active",
+      "descripcion": "El MAC recibe input desde el front con la información de la metadata y el pdf para analizarla y crear el caso de anexos. NOTA: 2 SPRINTS",
+      "criterios_aceptacion": [
+        "Recibir PDF y metadata desde el front, ejecutar validaciones, crear el caso, enviar el PDF al bucket y asociar número de radicado."
+      ],
+      "tareas": [
+        {
+          "id": 7949658,
+          "nombre": "Implementar la recepción del PDF y la metadata desde el frontend",
+          "estado": "New"
+        },
+        {
+          "id": 7949655,
+          "nombre": "Analizar el flujo de creación del caso de anexos en MAC",
+          "estado": "Active"
+        },
+        {
+          "id": 7949661,
+          "nombre": "Crear el caso de anexos y persistir la metadata",
+          "estado": "New"
+        },
+        {
+          "id": 7949663,
+          "nombre": "Implementar el envío del PDF al bucket",
+          "estado": "New"
+        },
+        {
+          "id": 7949665,
+          "nombre": "Asociar el número de radicado al caso",
+          "estado": "New"
+        },
+        {
+          "id": 7949660,
+          "nombre": "Implementar validaciones técnicas y funcionales",
+          "estado": "New"
+        },
+        {
+          "id": 7949668,
+          "nombre": "Ejecutar pruebas funcionales del flujo exitoso manual",
+          "estado": "New"
+        },
+        {
+          "id": 7949666,
+          "nombre": "Implementar pruebas unitarias",
+          "estado": "New"
+        }
+      ],
+      "contexto_avance": "",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "AVANCE RELEVANTE",
+      "clasificacion_valor": "AVANCE RELEVANTE",
+      "avance": "",
+      "valor_generado": "Se inició el análisis del flujo manual; la capacidad completa aún no está disponible.",
+      "proximo_paso": "Completar recepción, persistencia, envío, radicado, validaciones y pruebas.",
+      "riesgo": "Las actividades pendientes pueden extender la entrega al siguiente sprint.",
+      "riesgos": [
+        {
+          "tipo": "ALCANCE",
+          "descripcion": "Las actividades pendientes pueden extender la entrega al siguiente sprint."
+        }
+      ]
+    },
+    {
+      "id": 7934930,
+      "tipo": "User Story",
+      "nombre": "ms_mesas_mct, agregar campo de usage en la tabla de mesas",
+      "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
+      "celula": "Rocket",
+      "story_points": 5.0,
+      "estado": "Active",
+      "descripcion": "Modificar la tabla de mesas para agregarle un campo de usage",
+      "criterios_aceptacion": [
+        "Tabla de mesas con el campo USAGE; CRUD ajustado; endpoint consultarTraderAsociado retorna el nuevo campo."
+      ],
+      "tareas": [
+        {
+          "id": 7948154,
+          "nombre": "Ajustar las operaciones CRUD de mesas para soportar USAGE",
+          "estado": "Active"
+        },
+        {
+          "id": 7949634,
+          "nombre": "Implementar pruebas unitarias y de integración para el campo USAGE",
+          "estado": "New"
+        },
+        {
+          "id": 7949627,
+          "nombre": "Modificar el endpoint consultarTraderAsociado para retornar el campo USAGE",
+          "estado": "New"
+        },
+        {
+          "id": 7948153,
+          "nombre": "Ajustar la entidad y el mapeo de datos de mesas",
+          "estado": "New"
+        },
+        {
+          "id": 7948152,
+          "nombre": "Modificar la estructura de la tabla de mesas para agregar el campo USAGE",
+          "estado": "New"
+        }
+      ],
+      "contexto_avance": "Se estan ajustando las operaciones crud del message para soportar la variable Usage",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "AVANCE RELEVANTE",
+      "clasificacion_valor": "AVANCE RELEVANTE",
+      "avance": "Se estan ajustando las operaciones crud del message para soportar la variable Usage",
+      "valor_generado": "Se ajustan las operaciones CRUD de mesas para soportar USAGE.",
+      "proximo_paso": "Completar tabla, mapeo, endpoint y pruebas.",
+      "riesgo": "La definición incompleta del campo USAGE puede generar reproceso.",
+      "riesgos": [
+        {
+          "tipo": "VALIDACIÓN",
+          "descripcion": "La definición incompleta del campo USAGE puede generar reproceso."
+        }
+      ]
+    },
+    {
+      "id": 7864161,
+      "tipo": "User Story",
+      "nombre": "Documentación técnica sobre el ms_clientes",
+      "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
+      "celula": "Rocket",
+      "story_points": 5.0,
+      "estado": "Active",
+      "descripcion": "Contar con documentación técnica del ms de clientes del MPT",
+      "criterios_aceptacion": [
+        "Documentación creada en la herramienta xxx"
+      ],
+      "tareas": [
+        {
+          "id": null,
+          "nombre": "Tarea sintética para cálculo de avance",
+          "estado": "Active",
+          "origen": "REGLA_SEGUIMIENTO"
+        }
+      ],
+      "contexto_avance": "Se inicia la documentacion tecnica para el ms de clientes del mpt",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "AVANCE RELEVANTE",
+      "clasificacion_valor": "AVANCE RELEVANTE",
+      "avance": "Se inicia la documentacion tecnica para el ms de clientes del mpt",
+      "valor_generado": "Se inició la documentación técnica de ms_clientes.",
+      "proximo_paso": "Completar y publicar la documentación técnica.",
+      "riesgo": "La falta de evidencia de publicación impide confirmar su disponibilidad.",
+      "riesgos": [
+        {
+          "tipo": "SEGUIMIENTO",
+          "descripcion": "La falta de evidencia de publicación impide confirmar su disponibilidad."
+        }
+      ]
+    },
+    {
+      "id": 7868791,
+      "tipo": "Habilitador",
+      "nombre": "Registro de dominio para envio de correos",
+      "epica_proyecto": "PIV Modernización de interfaz Anexos de confirmación (por riesgos de incumplimiento)",
+      "celula": "Flintstones",
+      "story_points": 5.0,
+      "estado": "Active",
+      "descripcion": "Habilitar la capacidad de envío de correos mediante AWS SES y gestionar el dominio, seguridad, autenticación, trazabilidad y monitoreo.",
+      "criterios_aceptacion": [
+        "Definir y gestionar el dominio o subdominio; habilitar AWS SES; gestionar SPF, DKIM y DMARC; validar trazabilidad y SNS; documentar configuraciones y dependencias."
+      ],
+      "tareas": [
+        {
+          "id": 7941943,
+          "nombre": "Entrega de DKIN",
+          "estado": "Closed"
+        },
+        {
+          "id": 7943208,
+          "nombre": "Registros DNS",
+          "estado": "Active"
+        },
+        {
+          "id": 7889571,
+          "nombre": "Validación de prerrequisitos de Ciberseguridad",
+          "estado": "Closed"
+        },
+        {
+          "id": 7924225,
+          "nombre": "Reunión con equipo Ultron",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "Pendiente pasar por comite de dominios, una vez se tenga la aprobación del comite, se procede a montar el pedido en helix para la activacion en DNS del subdominio anexos",
+      "dependencias": [
+        {
+          "tipo": "DEPENDENCIA EXTERNA",
+          "descripcion": "Comite de Dominios de Bancolombia"
+        }
+      ],
+      "bloqueos": [
+        {
+          "tipo": "BLOQUEO",
+          "descripcion": "Aprobacion del comite para poder montar el pedido y registrar el subdominio en el DNS"
+        }
+      ],
+      "observaciones": [
+        "Se solicito espacio en el comite de dominios de bancolombia, paso que no estaba en la documentacion oficial de la wiki"
+      ],
+      "clasificacion": "AVANCE RELEVANTE",
+      "clasificacion_valor": "AVANCE RELEVANTE",
+      "avance": "Pendiente pasar por comite de dominios, una vez se tenga la aprobación del comite, se procede a montar el pedido en helix para la activacion en DNS del subdominio anexos",
+      "valor_generado": "Se solicitó espacio en el Comité de Dominios; el subdominio DNS sigue pendiente de aprobación.",
+      "proximo_paso": "Obtener aprobación y montar el pedido en Helix.",
+      "riesgo": "La aprobación del Comité condiciona la activación del subdominio DNS.",
+      "riesgos": [
+        {
+          "tipo": "DEPENDENCIA EXTERNA",
+          "descripcion": "La aprobación del Comité condiciona la activación del subdominio DNS."
+        }
+      ]
+    }
+  ],
+  "riesgos_identificados": [
+    {
+      "item_id": 7864245,
+      "tipo": "SEGUIMIENTO",
+      "descripcion": "Cuatro videos pendientes pueden afectar la finalización de la capacitación."
+    },
+    {
+      "item_id": 7868791,
+      "tipo": "DEPENDENCIA EXTERNA",
+      "descripcion": "La aprobación del Comité condiciona la activación del subdominio DNS."
+    }
+  ]
+}

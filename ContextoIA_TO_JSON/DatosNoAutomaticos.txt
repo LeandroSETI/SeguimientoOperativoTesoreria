@@ -1,0 +1,95 @@
+{
+  "sprint": 255,
+  "fecha_contexto": "2026-10-14",
+
+  "items": [
+    {
+      "id": 7860649,
+      "celula": "",
+
+      "contexto_avance": " Esta HA fue planeada para realizarse en dos sprint, por lo que fue pasada del 255 para su continuación y cierre en el 256",
+
+      "dependencias": [
+        {
+          "tipo": "",
+          "descripcion": "7980515 - Desplegar la infraestructura del MAC (Módulo de Anexos de Confirmación) - AMBIENTE QA"
+        }
+      ],
+
+      "bloqueos": [
+        {
+          "tipo": "",
+          "descripcion": ""
+        }
+      ],
+
+      "observaciones": []
+    },
+	    {
+      "id": 7853278,
+      "celula": "",
+
+      "contexto_avance": " Esta HA fue planeada para realizarse en dos sprint, por lo que fue pasada del 255 para su continuación y cierre en el 256",
+
+      "dependencias": [
+        {
+          "tipo": "",
+          "descripcion": "7980515 - Desplegar la infraestructura del MAC (Módulo de Anexos de Confirmación) - AMBIENTE QA"
+        }
+      ],
+
+      "bloqueos": [
+        {
+          "tipo": "",
+          "descripcion": ""
+        }
+      ],
+
+      "observaciones": ["Se debe tener en cuenta que hay logica cruzada con el desarrollo del HA 7860649"]
+    },
+	{
+      "id": 7980515,
+      "celula": "",
+
+      "contexto_avance": "Se acuerda desplegar la infraestructura minima en QA para progresar la primera semana del sprint 256",
+
+      "dependencias": [
+        {
+          "tipo": "",
+          "descripcion": ""
+        }
+      ],
+
+      "bloqueos": [
+        {
+          "tipo": "",
+          "descripcion": ""
+        }
+      ],
+
+      "observaciones": [""]
+    },
+	{
+      "id": 6831844,
+      "celula": "",
+
+      "contexto_avance": "Esta HA fue planeada para realizarse en dos sprint, por lo que fue pasada del 255 para su continuación y cierre en el 256",
+
+      "dependencias": [
+        {
+          "tipo": "",
+          "descripcion": ""
+        }
+      ],
+
+      "bloqueos": [
+        {
+          "tipo": "",
+          "descripcion": ""
+        }
+      ],
+
+      "observaciones": ["Tener en cuenta que tiene logica cruzada con el HA 7860649 y 7853278"]
+    }
+  ]
+}

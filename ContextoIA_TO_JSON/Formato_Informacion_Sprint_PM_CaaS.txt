@@ -1,0 +1,434 @@
+============================================================
+FORMATO DE INFORMACIÓN - SEGUIMIENTO OPERATIVO PM CaaS
+============================================================
+
+OBJETIVO
+Este archivo contiene la información operativa del Sprint que será
+utilizada por Copilot para actualizar Contexto_HAs_JSON.json.
+
+No es necesario redactar el reporte final.
+Registrar únicamente información real y verificable del Sprint.
+
+IMPORTANTE
+- No estimar porcentajes manualmente.
+- No clasificar manualmente como Valor Técnico, Avance Relevante o Valor Funcional.
+- No redactar manualmente el Valor Generado si no se desea: Copilot lo derivará del contexto.
+- Las tareas se utilizan únicamente para calcular el avance.
+- No es necesario incluir nombre ni detalle de cada tarea.
+- Una dependencia no es automáticamente un bloqueo.
+- Una novedad no es automáticamente un riesgo o bloqueo.
+
+
+============================================================
+1. INFORMACIÓN GENERAL DEL SPRINT
+============================================================
+
+Número de Sprint:
+
+Fecha de inicio:
+
+Fecha de finalización:
+
+Fecha de corte:
+
+Estado del Sprint:
+[ ] EN CURSO
+[ ] CERRADO
+
+Proyecto / Servicio:
+
+Célula general:
+
+Project Manager:
+
+
+============================================================
+2. NOVEDADES DE SEGUIMIENTO DEL SPRINT
+============================================================
+
+Registrar aquí hechos relevantes ocurridos durante o al cierre del
+Sprint que requieran trazabilidad o seguimiento.
+
+Ejemplos:
+- HA/HU trasladada al siguiente Sprint.
+- Dependencia con otro equipo.
+- Autorización o acceso pendiente.
+- Decisión pendiente.
+- Cambio de alcance.
+- Situación relevante ocurrida después del cierre del Sprint.
+
+Si no existen novedades escribir:
+
+Ninguna
+
+
+------------------------------
+NOVEDAD 1
+------------------------------
+
+ID novedad:
+[Ejemplo: NOV-001]
+
+Fecha:
+
+Categoría:
+[ ] DEPENDENCIA EXTERNA
+[ ] CAMBIO DE ALCANCE
+[ ] TRASLADO DE SPRINT
+[ ] DESPLIEGUE
+[ ] VALIDACIÓN
+[ ] ACCESO / AUTORIZACIÓN
+[ ] DECISIÓN PENDIENTE
+[ ] OTROS
+
+HA/HU relacionada:
+[Escribir ID o GENERAL]
+
+Título breve:
+
+Descripción de lo ocurrido:
+
+Impacto:
+
+Dependencia / Equipo externo:
+-
+
+Estado de la novedad:
+[ ] ABIERTA
+[ ] EN SEGUIMIENTO
+[ ] RESUELTA
+
+Próximo paso:
+
+¿Se traslada al siguiente Sprint?:
+[ ] SÍ
+[ ] NO
+
+Sprint destino:
+[Dejar vacío si no aplica]
+
+
+------------------------------
+NOVEDAD 2
+------------------------------
+
+[Repetir el bloque anterior si existe otra novedad]
+
+
+NOTA SOBRE NOVEDADES
+Una novedad es un hecho ocurrido durante o al cierre del Sprint que
+requiere trazabilidad o seguimiento.
+
+Una novedad NO debe confundirse automáticamente con:
+- riesgo;
+- bloqueo;
+- dependencia;
+- entrega de valor.
+
+
+============================================================
+3. INFORMACIÓN DE HA/HU
+============================================================
+
+Repetir el siguiente bloque para CADA HA/HU incluida en el Sprint.
+
+
+############################################################
+HA/HU 1
+############################################################
+
+ID:
+
+Tipo:
+[ ] HA
+[ ] HU
+
+Nombre:
+
+
+------------------------------------------------------------
+CONTEXTO ORGANIZATIVO
+------------------------------------------------------------
+
+Épica / Proyecto:
+
+Célula:
+
+Story Points:
+
+Estado administrativo en Azure DevOps:
+[Ejemplo: New / Active / Resolved / Closed]
+
+
+------------------------------------------------------------
+DESCRIPCIÓN
+------------------------------------------------------------
+
+Copiar aquí la descripción de Azure DevOps:
+
+
+
+
+------------------------------------------------------------
+CRITERIOS DE ACEPTACIÓN
+------------------------------------------------------------
+
+Copiar los criterios de aceptación tal como aparecen en la fuente.
+Agregar o eliminar líneas según sea necesario.
+
+- 
+- 
+- 
+- 
+
+
+------------------------------------------------------------
+TAREAS - SOLO PARA CÁLCULO DE AVANCE
+------------------------------------------------------------
+
+NO es necesario copiar nombres ni descripción de las tareas.
+
+Total de tareas:
+
+Tareas completadas:
+
+
+NOTA
+Esta información se utiliza únicamente para calcular el porcentaje
+de avance de la HA/HU.
+
+El detalle de las tareas NO será mostrado en el reporte del cliente.
+
+
+------------------------------------------------------------
+CONTEXTO REAL DE AVANCE
+------------------------------------------------------------
+
+Describir qué se ha realizado REALMENTE hasta la fecha de corte.
+
+No copiar aquí simplemente el objetivo de la HA/HU.
+
+Cuando corresponda indicar:
+- qué ya está construido;
+- qué está configurado;
+- qué está desplegado;
+- qué está validado;
+- qué todavía está pendiente;
+- qué depende de terceros;
+- si existe trabajo terminado pero falta validación o autorización.
+
+Contexto:
+
+
+
+
+------------------------------------------------------------
+DEPENDENCIAS
+------------------------------------------------------------
+
+¿La HA/HU depende actualmente de otro equipo, sistema,
+autorización o actividad?
+
+[ ] NO
+[ ] SÍ
+
+Si la respuesta es SÍ:
+
+Dependencia 1:
+
+Equipo / sistema relacionado:
+
+¿Qué debe ocurrir para continuar?:
+
+
+Dependencia 2:
+
+Equipo / sistema relacionado:
+
+¿Qué debe ocurrir para continuar?:
+
+
+
+------------------------------------------------------------
+BLOQUEOS
+------------------------------------------------------------
+
+IMPORTANTE
+Registrar un bloqueo únicamente cuando la situación impida continuar
+con la actividad.
+
+¿Existe bloqueo?
+
+[ ] NO
+[ ] SÍ
+
+Descripción del bloqueo:
+
+
+
+
+------------------------------------------------------------
+OBSERVACIONES / INCONSISTENCIAS
+------------------------------------------------------------
+
+Utilizar esta sección si existe alguna diferencia entre el estado de
+Azure DevOps, las tareas y la situación real.
+
+Ejemplos:
+- Azure DevOps muestra Closed, pero todavía existe una validación.
+- Todas las tareas están cerradas, pero falta un criterio de aceptación.
+- La HA está Active aunque técnicamente el desarrollo terminó.
+- La HA quedó abierta exclusivamente por una dependencia externa.
+- El Sprint está cerrado, pero la HA/HU continúa abierta.
+
+Observaciones:
+
+
+
+
+============================================================
+FIN HA/HU 1
+============================================================
+
+
+############################################################
+HA/HU 2
+############################################################
+
+ID:
+
+Tipo:
+[ ] HA
+[ ] HU
+
+Nombre:
+
+Épica / Proyecto:
+
+Célula:
+
+Story Points:
+
+Estado administrativo:
+
+DESCRIPCIÓN:
+
+
+CRITERIOS DE ACEPTACIÓN:
+-
+-
+-
+
+TAREAS:
+Total:
+Completadas:
+
+CONTEXTO REAL DE AVANCE:
+
+
+DEPENDENCIAS:
+
+
+BLOQUEOS:
+
+
+OBSERVACIONES / INCONSISTENCIAS:
+
+
+============================================================
+FIN HA/HU 2
+============================================================
+
+
+[REPETIR EL BLOQUE PARA TODAS LAS HA/HU DEL SPRINT]
+
+
+============================================================
+4. RIESGOS GENERALES DEL SPRINT
+============================================================
+
+Utilizar esta sección únicamente para riesgos generales del Sprint que
+no estén suficientemente representados por las dependencias o bloqueos
+de una HA/HU específica.
+
+Si no existen riesgos adicionales escribir:
+
+Ninguno
+
+
+------------------------------
+RIESGO 1
+------------------------------
+
+Categoría:
+[ ] DESPLIEGUE
+[ ] INTEGRACIÓN
+[ ] VALIDACIÓN
+[ ] ACCESOS
+[ ] DEPENDENCIA EXTERNA
+[ ] OTROS
+
+HA/HU relacionada:
+[ID o GENERAL]
+
+Descripción:
+
+
+
+------------------------------
+RIESGO 2
+------------------------------
+
+[Repetir si es necesario]
+
+
+============================================================
+5. INFORMACIÓN ADICIONAL PARA EL PM
+============================================================
+
+Utilizar libremente esta sección para información relevante del Sprint
+que no encaje claramente en los campos anteriores.
+
+Información adicional:
+
+
+
+
+============================================================
+QUÉ GENERARÁ COPILOT A PARTIR DE ESTE ARCHIVO
+============================================================
+
+No es necesario completar manualmente los siguientes datos:
+
+- Clasificación: Valor Técnico / Avance Relevante / Valor Funcional.
+- Porcentaje de avance de cada HA/HU.
+- Avance ponderado del Sprint.
+- Valor generado.
+- Próximo paso ejecutivo.
+- Consolidación de riesgos y dependencias.
+- Estructura JSON final para la automatización.
+
+Copilot utilizará:
+
+Tareas completadas / tareas totales
+        ↓
+Porcentaje de avance HA/HU
+        +
+Story Points
+        ↓
+Avance ponderado del Sprint
+
+Además, contrastará:
+
+Descripción
++ Criterios de aceptación
++ Contexto real de avance
++ Dependencias / bloqueos
++ Observaciones
+        ↓
+Clasificación + Valor generado + Próximo paso
+
+
+============================================================
+FIN DEL ARCHIVO
+============================================================
