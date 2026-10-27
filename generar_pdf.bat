@@ -8,13 +8,13 @@ if not exist "%JSON_FILE%" if exist "%JSON_EXAMPLE%" (
     set "JSON_FILE=%JSON_EXAMPLE%"
 )
 
-where py >nul 2>1
+where py >nul 2>nul
 if not errorlevel 1 (
     py -3.12 "Generar_Seguimiento_PDF.py" --json "%JSON_FILE%"
     exit /b %errorlevel%
 )
 
-where python >nul 2>1
+where python >nul 2>nul
 if not errorlevel 1 (
     python "Generar_Seguimiento_PDF.py" --json "%JSON_FILE%"
     exit /b %errorlevel%
