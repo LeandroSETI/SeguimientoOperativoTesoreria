@@ -1,0 +1,330 @@
+============================================================
+CONTEXTO MANUAL DEL SPRINT - CaaS TESORERÍA
+============================================================
+
+OBJETIVO
+Registrar únicamente información del Sprint que NO esté disponible o
+no pueda interpretarse correctamente desde metricas_celula.json.
+
+Este archivo complementa las métricas de Azure DevOps. No reemplaza el
+JSON operativo y no debe repetir información que ya venga allí.
+
+NO COPIAR AQUÍ:
+- Nombre o descripción de la HU/HA.
+- Épica / proyecto.
+- Célula.
+- Story Points.
+- Estado de Azure DevOps.
+- Criterios de aceptación.
+- Tareas ni porcentaje de avance.
+
+Copilot cruzará este archivo con metricas_celula.json para construir
+Contexto_HAs_JSON.json y posteriormente el informe semanal.
+
+REGLAS RÁPIDAS
+- Registrar solamente hechos reales y vigentes del Sprint.
+- Para relacionar información con una HU/HA basta con indicar su ID.
+- No es obligatorio diligenciar todas las secciones.
+- Si una sección no aplica, dejarla vacía o escribir NINGUNA.
+- No inventar responsables ni fechas. Si no están definidos, dejarlos vacíos.
+- Una dependencia no es automáticamente un bloqueo.
+- Un riesgo no significa que el problema ya ocurrió.
+- Un bloqueo debe indicar algo que realmente impide continuar.
+
+============================================================
+1. INFORMACIÓN GENERAL
+============================================================
+
+SPRINT:
+FECHA DE CORTE:
+
+Opcional, únicamente si aporta contexto que Azure no contiene:
+ESTADO GENERAL / COMENTARIO DEL PM:
+
+
+============================================================
+2. NOVEDADES Y CONTEXTO REAL DE HU/HA
+============================================================
+
+Usar esta sección cuando Azure muestre el estado o las tareas, pero no
+explique correctamente qué está ocurriendo en la realidad.
+
+Formato recomendado:
+
+HA/HU: [ID]
+¿Qué está pasando?:
+¿Qué falta o qué sigue?:
+
+---
+
+HA/HU:
+¿Qué está pasando?:
+¿Qué falta o qué sigue?:
+
+---
+
+HA/HU:
+¿Qué está pasando?:
+¿Qué falta o qué sigue?:
+
+
+============================================================
+3. DESVIACIONES / TRASLADOS / CAMBIOS DE ALCANCE
+============================================================
+
+Registrar únicamente elementos que se apartaron del plan del Sprint.
+Repetir el bloque únicamente cuando exista otra desviación.
+
+HA/HU: [ID o GENERAL]
+TIPO: [DESVIACIÓN / TRASLADO / CAMBIO DE ALCANCE / RETIRO DEL SPRINT]
+Situación:
+Causa:
+Acción de recuperación:
+¿Se traslada al siguiente Sprint?: [SÍ / NO]
+Sprint destino: [solo si aplica]
+Impacto conocido: [solo si existe evidencia]
+
+---
+
+HA/HU:
+TIPO:
+Situación:
+Causa:
+Acción de recuperación:
+¿Se traslada al siguiente Sprint?:
+Sprint destino:
+Impacto conocido:
+
+
+============================================================
+4. DEPENDENCIAS Y BLOQUEOS
+============================================================
+
+DEPENDENCIA = se necesita algo externo o previo para continuar.
+BLOQUEO = la situación impide realmente continuar.
+
+Formato recomendado:
+
+HA/HU: [ID o GENERAL]
+TIPO: [DEPENDENCIA / BLOQUEO]
+Situación:
+¿Qué se necesita para continuar?:
+Equipo / responsable externo: [si está definido]
+Fecha objetivo: [si está acordada]
+
+---
+
+HA/HU:
+TIPO:
+Situación:
+¿Qué se necesita para continuar?:
+Equipo / responsable externo:
+Fecha objetivo:
+
+
+============================================================
+5. RIESGOS
+============================================================
+
+Registrar situaciones que PODRÍAN afectar el Sprint o la entrega.
+No repetir aquí un bloqueo salvo que exista un riesgo adicional derivado.
+
+Formato recomendado:
+
+HA/HU: [ID o GENERAL]
+Riesgo:
+Impacto:
+Acción de mitigación:
+Responsable: [si está definido]
+Fecha límite: [si está acordada]
+
+---
+
+HA/HU:
+Riesgo:
+Impacto:
+Acción de mitigación:
+Responsable:
+Fecha límite:
+
+---
+
+HA/HU:
+Riesgo:
+Impacto:
+Acción de mitigación:
+Responsable:
+Fecha límite:
+
+
+============================================================
+6. DECISIONES O APOYO REQUERIDO
+============================================================
+
+Registrar únicamente decisiones o apoyos que necesiten intervención de
+otra persona, equipo o del cliente.
+
+HA/HU: [ID o GENERAL]
+¿Qué se necesita decidir o gestionar?:
+¿Quién debe intervenir?: [si está definido]
+Fecha requerida: [si está acordada]
+Impacto si no se decide / gestiona: [si existe evidencia]
+
+---
+
+HA/HU:
+¿Qué se necesita decidir o gestionar?:
+¿Quién debe intervenir?:
+Fecha requerida:
+Impacto si no se decide / gestiona:
+
+
+============================================================
+7. COMPROMISOS Y SEGUIMIENTO
+============================================================
+
+Registrar acuerdos que deban aparecer en el informe semanal.
+No usar esta sección para tareas técnicas normales que ya están en Azure.
+
+HA/HU: [ID o GENERAL]
+Compromiso:
+Responsable: [obligatorio solo si fue acordado]
+Fecha: [solo si fue acordada]
+Estado: [PENDIENTE / EN CURSO / CERRADO]
+¿Viene de la semana anterior?: [SÍ / NO]
+Comentario de cierre: [solo si está CERRADO]
+
+---
+
+HA/HU:
+Compromiso:
+Responsable:
+Fecha:
+Estado:
+¿Viene de la semana anterior?:
+Comentario de cierre:
+
+
+============================================================
+8. HITOS RELEVANTES
+============================================================
+
+Opcional. Incluir únicamente hitos que deban visualizarse ejecutivamente.
+No convertir cada HU/HA en un hito.
+
+HITO:
+Periodo / fecha: [si está definida]
+Estado: [CUMPLIDO / RETRASADO / PLANIFICADO]
+HA/HU relacionada: [ID o GENERAL]
+Comentario:
+
+---
+
+HITO:
+Periodo / fecha:
+Estado:
+HA/HU relacionada:
+Comentario:
+
+
+============================================================
+9. VALOR ESPERADO / CAMBIO EN EL BENEFICIO
+============================================================
+
+Opcional. Utilizar solamente cuando el contexto de negocio no esté en
+Azure o cuando el beneficio esperado haya cambiado.
+
+INICIATIVA / ÉPICA: [si se conoce]
+HA/HU relacionada: [ID o GENERAL]
+Beneficio esperado:
+¿Se mantiene?: [SÍ / NO / CAMBIÓ]
+¿Qué cambió?: [solo si aplica]
+Indicador de valor: [únicamente si existe uno definido]
+
+
+============================================================
+10. DESTACADOS DEL PM
+============================================================
+
+Opcional. Esta sección ayuda a construir "Lo más importante" del informe.
+No es necesario completar si Copilot puede derivarlo de la evidencia.
+
+LOGRO PRINCIPAL:
+
+DESVIACIÓN CRÍTICA:
+
+DECISIÓN / APOYO PRINCIPAL REQUERIDO:
+
+IMPACTO SOBRE LA FECHA FINAL:
+[solo si existe evidencia]
+
+
+============================================================
+11. INFORMACIÓN ADICIONAL
+============================================================
+
+Utilizar libremente para información verdaderamente relevante que no
+encaje en las secciones anteriores.
+
+COMENTARIO:
+
+
+============================================================
+MODO RÁPIDO - OPCIONAL
+============================================================
+
+Si no se desea llenar los bloques anteriores, se pueden registrar notas
+en una sola línea. Copilot hará el cruce con metricas_celula.json.
+
+Ejemplos de estructura:
+
+NOVEDADES
+HA 1234567 | Documentación lista; pendiente aprobación para cerrar.
+HA 7654321 | Desarrollo iniciado; tareas continúan activas.
+
+DEPENDENCIAS / BLOQUEOS
+HA 1111111 | DEPENDENCIA | Pendiente aprobación de Ciberseguridad |
+Se necesita habilitar conexión | Equipo: Ciberseguridad | Fecha: [si existe]
+
+RIESGOS
+HA 2222222 | Issues de calidad pendientes | Impacto: posible retraso de
+despliegue | Responsable: [si existe] | Fecha: [si existe]
+
+TRASLADOS
+HA 3333333 | No se completó el despliegue | Causa: [causa real] |
+Acción: [acción acordada] | Sprint destino: [número]
+
+DECISIONES
+HA 4444444 | Confirmar alcance de la funcionalidad | Decide: [rol/equipo] |
+Fecha: [si existe]
+
+COMPROMISOS
+HA 5555555 | Realizar validación funcional | Responsable: [acordado] |
+Fecha: [acordada] | Estado: PENDIENTE
+
+
+============================================================
+QUÉ GENERARÁ COPILOT A PARTIR DE ESTE ARCHIVO
+============================================================
+
+Copilot cruzará este contexto manual con metricas_celula.json para:
+
+- Conservar ID, nombre, épica, célula, Story Points y estado desde Azure.
+- Calcular el avance según las reglas vigentes.
+- Clasificar Valor Técnico / Avance Relevante / Valor Funcional.
+- Construir valor generado y próximo paso con evidencia.
+- Identificar desviaciones y acciones de recuperación.
+- Proponer semáforo cuando exista evidencia suficiente.
+- Consolidar dependencias, bloqueos y riesgos.
+- Construir novedades ejecutivas.
+- Preparar hitos y compromisos informados.
+- Construir el resumen ejecutivo y "Lo más importante".
+- Generar Contexto_HAs_JSON.json para alimentar el programa del PDF.
+
+IMPORTANTE:
+Copilot no completará responsables, fechas, impactos, decisiones o
+compromisos que no hayan sido informados o respaldados por evidencia.
+
+============================================================
+FIN DEL ARCHIVO
+============================================================
