@@ -3,224 +3,589 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reporte Seguimiento Operativo</title>
+<title>Informe semanal CaaS Tesorería</title>
 <style>
-:root{--red:#b51d23;--dark:#292929;--gray:#697078;--line:#dfe2e5;--soft:#f6f7f8;--blue:#2185d0;--yellow:#e5a900;--green:#3a8d55;--sp:#5c6670}
-*{box-sizing:border-box}html,body{margin:0;padding:0;background:#eef0f2;color:#292929;font-family:"Segoe UI",Arial,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-.report{width:210mm;min-height:297mm;margin:12px auto;background:#fff;padding:9mm 15mm 10mm;box-shadow:0 3px 18px #0002}
-.header{border-top:2px solid var(--red);display:grid;grid-template-columns:28mm 1fr 34mm;align-items:center;min-height:18mm;padding-top:2mm}
-.logo-seti{max-width:13mm;max-height:13mm;object-fit:contain}.logo-banco{width:34mm;height:13mm;justify-self:end;object-fit:cover;object-position:center}
-.heading{text-align:center}.heading h1{font-size:14pt;margin:0 0 2px}.heading p{font-size:7pt;color:#777;margin:0}
-.general{display:grid;grid-template-columns:1.25fr .55fr 1.25fr 1.55fr;background:var(--dark);color:#fff;margin-top:2mm;padding:3mm 4mm;gap:4mm}
-.general label{display:block;font-size:5.5pt;color:#bebebe;text-transform:uppercase;margin-bottom:2px}.general strong{font-size:6.8pt}
-h2{font-size:10pt;margin:3mm 0 1.4mm}.sprint{border:1px solid var(--line);padding:2.2mm 3mm}.sprint-head,.sprint-stats{display:flex;justify-content:space-between;align-items:center}.sprint-head strong{font-size:7pt}.sprint-head .percent{font-size:6.5pt}.sprint-stats{font-size:5.8pt;color:#666;margin:1.5mm 0}.bar{height:3.5mm;background:#e4e6e8;position:relative;overflow:hidden}.bar-fill{height:100%;background:var(--green)}
-.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.3mm 3mm;align-items:start}.card{border:1px solid var(--line);border-left:2.2px solid var(--class-color);break-inside:avoid;page-break-inside:avoid;background:#fff}.card-top{display:grid;grid-template-columns:1fr auto auto;gap:1.5mm;align-items:center;padding:1.7mm 2mm 1mm}.item-id{font-weight:700;font-size:7.4pt}.badge,.sp{color:#fff;font-weight:700;text-align:center;line-height:1;padding:1.6mm 2.3mm;font-size:5.2pt}.badge{background:var(--class-color)}.sp{background:var(--sp)}
-.card-body{padding:1mm 2.2mm 1.7mm}.card h3{font-size:7.7pt;line-height:1.15;margin:0 0 1.5mm}.epic{display:grid;grid-template-columns:4mm 1fr;border:1px solid var(--line);min-height:8mm;margin-bottom:1mm}.epic::before{content:"";background:var(--red)}.epic span{padding:1.5mm 2mm;font-size:5.1pt;line-height:1.25;color:#626970;font-weight:700;align-self:center}
-.label{font-size:4.9pt;color:#777;margin:1mm 0 .5mm;text-transform:uppercase}.copy{font-size:5.5pt;line-height:1.25}.copy.soft{background:var(--soft);padding:1.4mm 1.7mm}.copy.evidence{background:#f3f8f4;color:#333;padding:1.3mm 1.7mm}.copy.evidence::before{content:"✓ ";color:var(--green);font-weight:700}
-.item-progress{margin-top:1.2mm}.progress-label{font-size:4.8pt;color:#777;margin-bottom:.4mm}.segbar{display:grid;grid-template-columns:repeat(10,1fr);height:3.8mm;border:1px solid var(--line);position:relative}.seg{border-right:.2px solid #fff;background:#e4e6e8}.seg.on{background:var(--green)}.item-percent{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4.8pt;font-weight:700;color:#fff;text-shadow:0 1px 1px #0006}.item-percent.dark{color:#333;text-shadow:none}.state{text-align:right;font-size:5pt;font-weight:700;margin-top:.7mm}
-.legend{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;border-top:1px solid var(--line);padding-top:2mm;margin-top:3mm;font-size:5pt;color:#666}.dot{display:inline-block;width:5px;height:5px;border-radius:50%;margin-right:4px}.risks{display:grid;grid-template-columns:repeat(3,1fr);gap:2mm;margin-top:1mm}.risk{border:1px solid var(--line);padding:2mm;font-size:5.3pt;line-height:1.25}.risk strong{display:block;font-size:5pt;color:#666;margin-bottom:1mm;text-transform:uppercase}.novedades{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2mm 3mm;margin-bottom:3mm;align-items:start}.novedad-card{border:1px solid var(--line);border-left:3px solid #607d8b;background:#f7f9fa;padding:2.5mm;break-inside:avoid;page-break-inside:avoid}.novedad-header{display:flex;justify-content:space-between;align-items:center;gap:2mm;margin-bottom:1.5mm}.novedad-categoria{color:#455a64;font-weight:700;font-size:5.5pt;text-transform:uppercase}.novedad-item{color:#455a64;background:#e8eef1;padding:1mm 2mm;font-size:5.2pt;font-weight:700}.novedad-titulo{font-size:7pt;font-weight:700;margin-bottom:1mm}.novedad-texto{font-size:5.5pt;line-height:1.3}.novedad-etiquetas{display:flex;flex-wrap:wrap;gap:1mm;margin-top:1.5mm}.novedad-etiqueta{background:#e8eef1;color:#455a64;padding:1mm 2mm;font-size:5pt;font-weight:700}.empty{border:1px dashed var(--line);padding:8mm;text-align:center;color:#777;font-size:8pt}.footer{display:flex;justify-content:space-between;border-top:1px solid #eee;padding-top:2mm;margin-top:3mm;color:#aaa;font-size:4.8pt}
-.ejecutivas{display:grid;gap:1.5mm;margin-bottom:3mm}.ejecutiva{display:grid;grid-template-columns:auto 1fr;align-items:start;gap:2mm;border-left:2px solid var(--red);background:var(--soft);padding:1.8mm 2.2mm;break-inside:avoid;page-break-inside:avoid}.ejecutiva-ha{font-size:5.5pt;font-weight:700;color:var(--red);white-space:nowrap}.ejecutiva-descripcion{font-size:5.5pt;line-height:1.3}
-@page{size:A4 portrait;margin:0}@media print{html,body{background:#fff}.report{margin:0;box-shadow:none;width:210mm;min-height:297mm}.card,.novedad-card{break-inside:avoid;page-break-inside:avoid}.footer{break-inside:avoid}.screen-only{display:none}}
-@media(max-width:800px){.report{width:100%;padding:16px}.cards,.risks,.legend,.novedades{grid-template-columns:1fr}.general{grid-template-columns:1fr 1fr}.header{grid-template-columns:50px 1fr 90px}.logo-banco{width:90px;height:50px;max-width:100%}}
-@media print{.report{padding:6mm 9mm 7mm}.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2mm 2mm}.novedades{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2mm 2mm}.card-top{padding:1mm 1.4mm .6mm;gap:1mm}.badge,.sp{padding:1mm 1.3mm;font-size:4.8pt}.card-body{padding:.6mm 1.4mm 1mm}.card h3{font-size:7pt;margin-bottom:.8mm}.epic{min-height:6mm;margin-bottom:.5mm}.epic span{padding:.8mm 1.2mm;font-size:4.7pt}.label{font-size:4.5pt;margin:.6mm 0 .3mm}.copy{font-size:5pt;line-height:1.15}.copy.soft{padding:.7mm 1mm}.copy.evidence{padding:.7mm 1mm}.item-progress{margin-top:.6mm}.segbar{height:2.8mm}.state{margin-top:.4mm}}
+:root {
+  color-scheme: light;
+  --ink: #292929;
+  --muted: #666;
+  --red: #c62828;
+  --green: #2e7d32;
+  --amber: #f9a825;
+  --blue: #1976a4;
+  --line: #d7dadd;
+  --soft: #f2f3f5;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; color: var(--ink); background: #fff; font-family: Arial, Helvetica, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+a { text-decoration: none; color: #464feb; }
+.report { width: 100%; max-width: 186mm; margin: 0 auto; padding: 0; }
+.top-rule { height: 1px; border: 0; background: var(--red); margin: 0 0 9mm; }
+.masthead { display: grid; grid-template-columns: 25mm 1fr 30mm; gap: 3mm; align-items: center; min-height: 23mm; margin-bottom: 2mm; }
+.logo-wrap { display: flex; align-items: center; justify-content: center; min-width: 0; }
+.logo-seti { width: 20mm; height: 20mm; object-fit: contain; }
+.logo-banco { width: 27mm; height: 16mm; object-fit: contain; }
+.logo-fallback { display: none; font-size: 8pt; font-weight: 700; color: var(--muted); text-align: center; }
+.masthead-copy { text-align: center; }
+.masthead h1 { margin: 0 0 1.5mm; font-size: 17pt; line-height: 1.12; font-weight: 700; letter-spacing: .05mm; }
+.masthead p { margin: 0; color: #707070; font-size: 9pt; line-height: 1.2; }
+.reference-date { margin: 0 0 3mm; text-align: center; color: #707070; font-size: 8pt; }
+.meta-table, .data-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+tr th, tr td { border: 1px solid #e6e6e6; }
+tr th { background-color: #f5f5f5; }
+.meta-table th { padding: 2.2mm 2mm; background: #252525; color: #fff; font-size: 7.3pt; font-weight: 700; text-align: left; text-transform: uppercase; }
+.meta-table td { padding: 2.2mm 2mm; background: #f2f3f5; color: #292929; font-size: 8pt; vertical-align: top; overflow-wrap: anywhere; }
+.meta-table .project { width: 24%; }
+.meta-table .sprint { width: 11%; }
+.meta-table .period { width: 28%; }
+.meta-table .manager { width: 37%; }
+.section { margin-top: 4.1mm; }
+.section-title { margin: 0 0 1.7mm; font-size: 13.5pt; line-height: 1.15; font-weight: 700; break-after: avoid-page; page-break-after: avoid; }
+.section-title .number { margin-right: 1mm; }
+.data-table { margin: 0 0 1.3mm; font-size: 8pt; line-height: 1.2; }
+.data-table th, .data-table td { padding: 1.7mm 1.8mm; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.data-table thead { display: table-header-group; }
+.data-table tr { break-inside: avoid; page-break-inside: avoid; }
+.data-table thead th { background: #252525; color: #fff; font-weight: 700; }
+.data-table--blue thead th { background: var(--blue); }
+.data-table--red thead th { background: var(--red); }
+.data-table--green thead th { background: var(--green); }
+.data-table tbody tr:nth-child(even) td { background: #f2f3f5; }
+.status-dot { display: inline-block; width: 2.2mm; height: 2.2mm; margin-right: 1.2mm; border-radius: 50%; vertical-align: middle; }
+.status-green { color: var(--green); }
+.status-amber { color: #ed8b00; }
+.status-red { color: var(--red); }
+.status-neutral { color: #60666c; }
+.status-green .status-dot { background: var(--green); }
+.status-amber .status-dot { background: var(--amber); }
+.status-red .status-dot { background: var(--red); }
+.status-neutral .status-dot { background: #8a8f94; }
+.highlights th { width: 15.5%; color: #fff; text-transform: uppercase; }
+.highlights td { font-size: 8.5pt; line-height: 1.28; }
+.highlight-achievement { background: var(--green); }
+.highlight-deviation { background: var(--amber); }
+.highlight-decision { background: var(--red); }
+.metric-strip { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin: 0 0 1.3mm; border: 1px solid var(--line); background: var(--soft); }
+.metric { min-width: 0; min-height: 19mm; padding: 2mm 1.2mm 1.7mm; text-align: center; border-right: 1px solid #fff; }
+.metric:last-child { border-right: 0; }
+.metric-value { display: block; min-height: 8mm; font-size: 17pt; line-height: 1.08; font-weight: 700; overflow-wrap: anywhere; }
+.metric-label { display: block; margin-top: 1mm; color: #666; font-size: 7pt; line-height: 1.2; }
+.note { margin: .8mm 0 1.3mm; color: #666; font-size: 7pt; line-height: 1.25; }
+.no-data { color: #666; font-style: italic; }
+.small { font-size: 7.3pt; }
+.detail-list { margin: 1mm 0 1.5mm; padding-left: 4mm; font-size: 7.5pt; line-height: 1.3; }
+.detail-list li { margin: 0 0 1.2mm; }
+.annex-epic { margin: 3mm 0 1mm; font-size: 9.5pt; line-height: 1.2; font-weight: 700; }
+.annex-cell { margin: 1.7mm 0 1mm; padding: 1mm 1.5mm; background: #f2f3f5; border-left: 1.2mm solid var(--red); font-size: 8pt; font-weight: 700; }
+.annex-table { font-size: 7.2pt; }
+.annex-table th, .annex-table td { padding: 1mm 1.1mm; }
+.annex-table tbody { break-inside: avoid; page-break-inside: avoid; }
+.annex-info td { padding: .8mm 1.5mm; font-size: 6.8pt; line-height: 1.2; }
+.annex-info strong { color: #444; }
+.annex-details strong { color: #444; }
+.demo-note { margin-top: 3mm; }
+.error { display: none; margin: 5mm 0; padding: 3mm; border: 1px solid var(--red); color: #7f1d1d; font-size: 9pt; white-space: pre-wrap; }
+@page {
+  size: A4;
+  margin: 12mm 12mm 15mm 12mm;
+  @bottom-left { content: "SETI | EVC Tesorería Bancolombia"; color: #777; font: 7pt Arial, Helvetica, sans-serif; }
+  @bottom-right { content: "Página " counter(page); color: #777; font: 7pt Arial, Helvetica, sans-serif; }
+}
+@media screen {
+  body { padding: 12mm; }
+  .report { max-width: 186mm; }
+}
+@media print {
+  .report { max-width: none; }
+  .section { break-inside: auto; }
+  #initiatives-section { break-inside: avoid-page; page-break-inside: avoid; }
+  .section-title, .annex-epic, .annex-cell { break-after: avoid-page; page-break-after: avoid; }
+  .metric-strip, .highlights, .annex-details { break-inside: avoid; page-break-inside: avoid; }
+  #annex-section { break-before: page; page-break-before: always; }
+  .screen-only { display: none !important; }
+}
 </style>
 </head>
-<body>
-<div class="report">
-  <header class="header">
-    <img class="logo-seti" src="Logo-SETI.png" alt="SETI">
-    <div class="heading"><h1 id="title">Reporte Seguimiento Operativo</h1><p id="subtitle">EVC - Tesorería Bancolombia</p></div>
-    <img class="logo-banco" src="bancolombia-s-a-logo-png_seeklogo-402324.png" alt="Bancolombia">
-  </header>
-  <section class="general">
-    <div><label>Proyecto / Célula</label><strong id="project">-</strong></div>
-    <div><label>Sprint</label><strong id="sprintNumber">-</strong></div>
-    <div><label>Periodo</label><strong id="period">-</strong></div>
-    <div><label>Project Manager</label><strong id="pm">-</strong></div>
-  </section>
-  <main>
-    <h2>Avance por sprint</h2>
-    <section class="sprint">
-      <div class="sprint-head"><strong id="sprintTitle">Sprint -</strong><strong class="percent" id="sprintPercent">-</strong></div>
-      <div class="sprint-stats"><span id="itemsCount">HU/HA informadas: -</span><span id="spCount">Story Points: -</span></div>
-      <div class="bar"><div class="bar-fill" id="sprintBar"></div></div>
-    </section>
-    <h2>Entregas y avances</h2>
-    <section id="cards" class="cards"><div class="empty">Cargando JSON...</div></section>
-    <h2 id="novedadesEjecutivasTitle" hidden>Novedades ejecutivas</h2>
-    <section id="novedadesEjecutivasContainer" class="ejecutivas" hidden></section>
-    <h2 id="novedadesTitle" hidden>Novedades de seguimiento</h2>
-    <section id="novedadesContainer" class="novedades" hidden></section>
-    <section class="legend">
-      <div><span class="dot" style="background:var(--blue)"></span><b>Valor técnico:</b> capacidad técnica habilitada para construir, integrar u operar.</div>
-      <div><span class="dot" style="background:var(--yellow)"></span><b>Avance relevante:</b> trabajo realizado sin capacidad materializada o utilizable.</div>
-      <div><span class="dot" style="background:var(--green)"></span><b>Valor funcional:</b> capacidad integrada y validable que resuelve una necesidad.</div>
-    </section>
-    <h2 id="riskTitle">Riesgos identificados</h2>
-    <section id="risks" class="risks"></section>
-  </main>
-  <footer class="footer"><span id="footerLeft">SETI</span><span>Reporte semanal de entregas de valor</span></footer>
-</div>
-<script>
-const JSON_FILE = 'Contexto_HAs_JSON.json';
-const JSON_EXAMPLE_FILE = 'Contexto_HAs_JSON_Ejemplo.json';
-const REFRESH_INTERVAL_MS = 5000;
-const isFileProtocol = location.protocol === 'file:';
-let loading = false;
-let reportLoaded = false;
-let lastJSON = '';
-const CLASS = {
-  tecnico:{label:'VALOR TÉCNICO',color:'#2185d0'},
-  avance:{label:'AVANCE RELEVANTE',color:'#e5a900'},
-  funcional:{label:'VALOR FUNCIONAL',color:'#3a8d55'},
-  pendiente:{label:'PENDIENTE DE CLASIFICAR',color:'#777'}
-};
-const esc = v => String(v ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');
-const num = v => Number.isFinite(Number(v)) ? Number(v) : null;
-function normalizeTasks(t){
-  if(Array.isArray(t)){return {total:t.length,completadas:t.filter(x=>['closed','close','completed','completado','terminada','terminado','done'].includes(String(x.estado||'').toLowerCase())).length};}
-  return {total:num(t?.total),completadas:num(t?.completadas)};
-}
-function progress(item){const t=normalizeTasks(item.tareas);if(t.total===null||t.completadas===null||t.total<=0)return null;return Math.max(0,Math.min(100,(t.completadas/t.total)*100));}
-function classification(item){
-  const raw=String(item.clasificacion||item.tipo_valor||'').toLowerCase();
-  if(raw.includes('funcional'))return 'funcional';if(raw.includes('técnico')||raw.includes('tecnico'))return 'tecnico';if(raw.includes('avance'))return 'avance';return 'pendiente';
-}
-function valueText(item){return item.valor_generado||item.resultado||item.contexto_valor||item.contexto_avance||'Información no suministrada.';}
-function advanceText(item){return item.avance||item.evidencia||item.contexto_avance||'Información no suministrada.';}
-function nextText(item){return item.proximo_paso||item.pendiente||'No se reportan pendientes adicionales para esta HU/HA.';}
-function sprintProgress(items){
-  let numerator=0,denominator=0,excluded=[];
-  items.forEach(i=>{const p=progress(i),sp=num(i.story_points);if(p===null||sp===null||sp<=0)excluded.push(i.id);else{numerator+=p*sp;denominator+=sp;}});
-  return {percent:denominator?numerator/denominator:null,sp:denominator,excluded};
-}
-function epicName(value){
-  if(typeof value==='string')return value;
-  if(value&&typeof value==='object'&&!Array.isArray(value))return value.nombre||'';
-  return '';
-}
-function renderCard(item){
-  const p=progress(item),key=classification(item),cl=CLASS[key];
-  const filled=p===null?0:Math.round(p/10);let segments='';for(let i=0;i<10;i++)segments+=`<i class="seg ${i<filled?'on':''}"></i>`;
-  const pct=p===null?'N/D':`${Math.round(p)}%`;const dark=p===null||p<60?'dark':'';
-  return `<article class="card" style="--class-color:${cl.color}">
-    <div class="card-top"><span class="item-id">${esc(item.tipo||'HA')} ${esc(item.id)}</span><span class="sp">${esc(item.story_points??'-')} SP</span><span class="badge">${cl.label}</span></div>
-    <div class="card-body"><h3>${esc(item.nombre)}</h3>
-      <div class="epic"><span>Célula: ${esc(item.celula||'No informada')} - Épica: ${esc(epicName(item.epica_proyecto)||'No informada')}</span></div>
-      <div class="label">Avance</div><div class="copy evidence">${esc(advanceText(item))}</div>
-      <div class="label">Valor generado</div><div class="copy soft">${esc(valueText(item))}</div>
-      <div class="label">Próximo paso</div><div class="copy soft">${esc(nextText(item))}</div>
-      <div class="item-progress"><div class="progress-label">Avance de ejecución</div><div class="segbar">${segments}<span class="item-percent ${dark}">${pct}</span></div></div>
-      <div class="state">${esc(String(item.estado||'Estado no informado').toUpperCase())}</div>
-    </div></article>`;
-}
-function renderNovedad(novedad){
-  if(!novedad||typeof novedad!=='object')return '';
-  const categoria = novedad.categoria;
-  const itemRelacion = novedad.item_relacionado;
-  const titulo = novedad.titulo;
-  const fecha = novedad.fecha;
-  const descripcion = novedad.descripcion;
-  const impacto = novedad.impacto;
-  const dependencias = Array.isArray(novedad.dependencias) ? novedad.dependencias.filter(v => v !== null && v !== undefined && String(v).trim() !== '') : [];
-  const estado = novedad.estado;
-  const proximoPaso = novedad.proximo_paso;
-  const trasladaSprint = Boolean(novedad.traslada_sprint);
-  const sprintDestino = novedad.sprint_destino;
-  const itemLabel = itemRelacion && String(itemRelacion).trim() && String(itemRelacion).trim().toUpperCase() !== 'GENERAL' ? `HA/HU ${esc(String(itemRelacion).trim())}` : 'GENERAL';
-  const sections=[];
-  if(categoria && String(categoria).trim())sections.push(`<div class="novedad-texto"><strong>Categoría:</strong> ${esc(categoria)}</div>`);
-  if(itemRelacion && String(itemRelacion).trim())sections.push(`<div class="novedad-texto"><strong>${esc(itemLabel.includes('HA/HU') ? 'HA/HU relacionada' : 'Área relacionada')}:</strong> ${esc(itemLabel)}</div>`);
-  if(titulo && String(titulo).trim())sections.push(`<div class="novedad-titulo">${esc(titulo)}</div>`);
-  if(fecha && String(fecha).trim())sections.push(`<div class="novedad-texto"><strong>Fecha:</strong> ${esc(fecha)}</div>`);
-  if(descripcion && String(descripcion).trim())sections.push(`<div class="novedad-texto"><strong>Descripción:</strong> ${esc(descripcion)}</div>`);
-  if(impacto && String(impacto).trim())sections.push(`<div class="novedad-texto"><strong>Impacto:</strong> ${esc(impacto)}</div>`);
-  if(dependencias.length)sections.push(`<div class="novedad-etiquetas">${dependencias.map(dep => `<span class="novedad-etiqueta">${esc(dep)}</span>`).join('')}</div>`);
-  if(estado && String(estado).trim())sections.push(`<div class="novedad-texto"><strong>Estado:</strong> ${esc(estado)}</div>`);
-  if(proximoPaso && String(proximoPaso).trim())sections.push(`<div class="novedad-texto"><strong>Próximo paso:</strong> ${esc(proximoPaso)}</div>`);
-  sections.push(`<div class="novedad-texto"><strong>Traslada Sprint:</strong> ${esc(trasladaSprint ? 'Sí' : 'No')}</div>`);
-  if(trasladaSprint && sprintDestino !== null && sprintDestino !== undefined && String(sprintDestino).trim() !== '')sections.push(`<div class="novedad-texto"><strong>Sprint destino:</strong> ${esc(String(sprintDestino))}</div>`);
-  return `<article class="novedad-card">
-    <div class="novedad-header">
-      <span class="novedad-categoria">${esc(categoria || 'Novedad')}</span>
-      <span class="novedad-item">${esc(itemLabel)}</span>
+<body data-report-ready="false">
+<main class="report" id="report">
+  <hr class="top-rule">
+  <header class="masthead">
+    <div class="logo-wrap">
+      <img class="logo-seti" src="Logo-SETI.png" alt="Logo SETI">
+      <span class="logo-fallback">SETI</span>
     </div>
-    ${sections.join('')}
-  </article>`;
-}
-function renderNovedadEjecutiva(novedad){
-  if(!novedad||typeof novedad!=='object'||Array.isArray(novedad))return '';
-  const haHu=novedad.ha_hu;
-  const descripcion=typeof novedad.descripcion==='string'?novedad.descripcion.trim():'';
-  if((haHu===null||haHu===undefined||String(haHu).trim()==='')&&!descripcion)return '';
-  return `<article class="ejecutiva">
-    ${haHu!==null&&haHu!==undefined&&String(haHu).trim()!==''?`<span class="ejecutiva-ha">HA/HU ${esc(haHu)}</span>`:''}
-    ${descripcion?`<span class="ejecutiva-descripcion">${esc(descripcion)}</span>`:''}
-  </article>`;
-}
-function riskRecord(entry, fallbackCategory='RIESGO', fallbackItemId=''){
-  if(typeof entry==='string'||typeof entry==='number')return {categoria:fallbackCategory,detalle:String(entry),itemId:fallbackItemId};
-  if(!entry||typeof entry!=='object'||Array.isArray(entry))return null;
-  const text=value=>typeof value==='string'||typeof value==='number'?String(value).trim():'';
-  const detalle=text(entry.detalle)||text(entry.descripcion)||text(entry.nombre)||text(entry.mensaje);
-  if(!detalle)return null;
-  return {
-    categoria:text(entry.categoria)||text(entry.tipo)||fallbackCategory,
-    detalle,
-    itemId:text(entry.item_id)||text(entry.itemId)||text(fallbackItemId)
+    <div class="masthead-copy">
+      <h1>INFORME SEMANAL CaaS TESORERÍA</h1>
+      <p id="service-name">EVC Tesorería Bancolombia</p>
+    </div>
+    <div class="logo-wrap">
+      <img class="logo-banco" src="bancolombia-s-a-logo-png_seeklogo-402324.png" alt="Logo Bancolombia">
+      <span class="logo-fallback">BANCOLOMBIA</span>
+    </div>
+  </header>
+  <p class="reference-date" id="reference-date"></p>
+
+  <table class="meta-table" aria-label="Información general del Sprint">
+    <colgroup><col class="project"><col class="sprint"><col class="period"><col class="manager"></colgroup>
+    <thead><tr><th>Proyecto / célula</th><th>Sprint</th><th>Periodo</th><th>Project manager</th></tr></thead>
+    <tbody><tr><td id="project-cell"></td><td id="sprint-number"></td><td id="sprint-period"></td><td id="project-manager"></td></tr></tbody>
+  </table>
+
+  <section class="section" id="highlights-section">
+    <h2 class="section-title"><span class="number">1.</span>Lo más importante</h2>
+    <table class="data-table highlights"><tbody id="highlights"></tbody></table>
+  </section>
+
+  <section class="section" id="summary-section">
+    <h2 class="section-title"><span class="number">2.</span>Resumen ejecutivo</h2>
+    <div class="metric-strip" id="metrics"></div>
+    <p class="note" id="calculation-note"></p>
+    <table class="data-table"><colgroup><col style="width:16%"><col style="width:15%"><col style="width:14%"><col style="width:30%"><col style="width:25%"></colgroup><thead><tr><th>Avance real</th><th>Plan</th><th>Desviación</th><th>Entregas de la semana</th><th>Impacto en fecha final</th></tr></thead><tbody id="summary-details"></tbody></table>
+  </section>
+
+  <section class="section" id="capacity-section">
+    <h2 class="section-title"><span class="number">3.</span>Capacidad atendida por célula</h2>
+    <table class="data-table data-table--blue"><thead><tr><th>Célula origen</th><th>HU/HA</th><th>SP</th><th>SP cerrados</th><th>SP activos</th></tr></thead><tbody id="capacity-body"></tbody></table>
+  </section>
+
+  <section class="section" id="initiatives-section">
+    <h2 class="section-title"><span class="number">4.</span>Iniciativas atendidas</h2>
+    <table class="data-table"><thead><tr><th>Épica / iniciativa</th><th>Células origen</th><th>HU/HA</th><th>SP</th><th>Cerradas</th><th>Activas</th></tr></thead><tbody id="initiatives-body"></tbody></table>
+  </section>
+
+  <section class="section" id="deviations-section">
+    <h2 class="section-title"><span class="number">5.</span>Avances con desviación</h2>
+    <table class="data-table"><thead><tr><th>Semáforo</th><th>Iniciativa / HA</th><th>Plan</th><th>Real</th><th>Causa</th><th>Acción de recuperación</th></tr></thead><tbody id="deviations-body"></tbody></table>
+  </section>
+
+  <section class="section" id="value-section">
+    <h2 class="section-title"><span class="number">6.</span>Valor esperado</h2>
+    <table class="data-table data-table--blue"><thead><tr><th>Iniciativa</th><th>Beneficio esperado</th><th>¿Se mantiene?</th><th>Indicador</th><th>Evidencia actual</th></tr></thead><tbody id="value-body"></tbody></table>
+  </section>
+
+  <section class="section" id="milestones-section">
+    <h2 class="section-title"><span class="number">7.</span>Hitos por semana</h2>
+    <table class="data-table"><thead><tr><th>Semana / fecha</th><th>Hito</th><th>Estado</th><th>Comentario</th></tr></thead><tbody id="milestones-body"></tbody></table>
+  </section>
+
+  <section class="section" id="risks-section">
+    <h2 class="section-title"><span class="number">8.</span>Riesgos e impedimentos</h2>
+    <table class="data-table data-table--red"><thead><tr><th>Tipo</th><th>Descripción</th><th>Impacto</th><th>Responsable</th><th>Fecha límite</th></tr></thead><tbody id="risks-body"></tbody></table>
+  </section>
+
+  <section class="section" id="commitments-section">
+    <h2 class="section-title"><span class="number">9.</span>Compromisos y seguimientos</h2>
+    <table class="data-table"><thead><tr><th>Compromiso</th><th>Responsable</th><th>Fecha</th><th>Estado</th><th>Seguimiento</th></tr></thead><tbody id="commitments-body"></tbody></table>
+  </section>
+
+  <section class="section" id="annex-section">
+    <h2 class="section-title"><span class="number">10.</span>Anexo ejecutivo de entregas</h2>
+    <p class="small" id="annex-intro"></p>
+    <div id="annex-body"></div>
+  </section>
+
+  <section class="section" id="insufficient-section" hidden>
+    <h2 class="section-title"><span class="number">11.</span>Información insuficiente</h2>
+    <ul class="detail-list" id="insufficient-body"></ul>
+  </section>
+  <p class="error" id="report-error" role="alert"></p>
+</main>
+<script>
+(() => {
+  'use strict';
+  const JSON_FILE = 'Contexto_HAs_JSON.json';
+  const JSON_EXAMPLE_FILE = 'Contexto_HAs_JSON_Ejemplo.json';
+  const REFRESH_INTERVAL_MS = 5000;
+  let lastJSON = '';
+  let loading = false;
+  let reportLoaded = false;
+
+  const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, char => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  })[char]);
+  const text = (value, fallback = 'NO INFORMADO') => {
+    if (value === null || value === undefined || String(value).trim() === '') return fallback;
+    return String(value).trim();
   };
-}
-function risksFrom(data){
-  const identified=Array.isArray(data.riesgos_identificados)?data.riesgos_identificados:[];
-  const explicit=Array.isArray(data.riesgos)&&data.riesgos.length?data.riesgos:identified;
-  if(explicit.length)return explicit.map(entry=>riskRecord(entry)).filter(Boolean);
-  const out=[];
-  for(const item of Array.isArray(data.items)?data.items:[]){
-    for(const dependency of Array.isArray(item.dependencias)?item.dependencias:[]){
-      const risk=riskRecord(dependency,'DEPENDENCIA',item.id);
-      if(risk)out.push(risk);
-    }
-    for(const blockage of Array.isArray(item.bloqueos)?item.bloqueos:[]){
-      const risk=riskRecord(blockage,'BLOQUEO',item.id);
-      if(risk)out.push(risk);
+  const number = value => {
+    if (value === null || value === undefined || value === '') return null;
+    const parsed = Number(value);
+    return Number.isFinite(parsed) ? parsed : null;
+  };
+  const parsePercent = value => {
+    if (value === null || value === undefined || value === '') return null;
+    const match = String(value).trim().match(/-?\d+(?:[.,]\d+)?/);
+    if (!match) return null;
+    const parsed = Number(match[0].replace(',', '.'));
+    return Number.isFinite(parsed) && parsed >= 0 && parsed <= 100 ? parsed : null;
+  };
+  const operationalItems = items => (Array.isArray(items) ? items : []).filter(item =>
+    ['active', 'closed'].includes(String(item?.estado || '').trim().toLowerCase())
+  );
+  const isSyntheticTask = task => String(task?.origen || '').toUpperCase() === 'REGLA_CIERRE_100_PORCIENTO'
+    || /tarea\s+sint[eé]tica/i.test(String(task?.nombre || ''));
+  const taskProgress = item => {
+    const tasks = (Array.isArray(item?.tareas) ? item.tareas : []).filter(task => !isSyntheticTask(task));
+    if (!tasks.length) return null;
+    const done = tasks.filter(task => ['closed', 'close', 'completed', 'completado', 'terminada', 'terminado', 'done']
+      .includes(String(task?.estado || '').trim().toLowerCase())).length;
+    return done / tasks.length * 100;
+  };
+  const executionProgress = item => {
+    const state = String(item?.estado || '').trim().toLowerCase();
+    if (state === 'closed') return 100;
+    if (state !== 'active') return parsePercent(item?.avance ?? item?.porcentaje_avance);
+    return parsePercent(item?.avance ?? item?.porcentaje_avance) ?? taskProgress(item);
+  };
+  const total = (items, selector) => items.reduce((sum, item) => sum + (selector(item) ?? 0), 0);
+  const formatNumber = value => value === null || value === undefined
+    ? 'N/D'
+    : new Intl.NumberFormat('es-CO', { maximumFractionDigits: 1 }).format(value);
+  const referenceDate = value => {
+    const raw = String(value || '').trim();
+    const isoDate = raw.match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (isoDate) return `${isoDate[3]}-${isoDate[2]}-${isoDate[1]}`;
+    const localDate = raw.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+    if (localDate) return `${localDate[1].padStart(2, '0')}-${localDate[2].padStart(2, '0')}-${localDate[3]}`;
+    return raw;
+  };
+  const epicName = item => {
+    const value = item?.epica_proyecto ?? item?.epica ?? item?.iniciativa;
+    if (typeof value === 'string') return value.trim() || 'ÉPICA / INICIATIVA NO INFORMADA';
+    if (value && typeof value === 'object' && !Array.isArray(value)) return text(value.nombre, 'ÉPICA / INICIATIVA NO INFORMADA');
+    return 'ÉPICA / INICIATIVA NO INFORMADA';
+  };
+  const cellName = item => text(item?.celula, 'NO INFORMADA');
+  const display = (value, fallback = 'No informado en el JSON') => escapeHTML(text(value, fallback));
+  const emptyRow = (columns, message = 'No hay información informada en el JSON.') =>
+    `<tr><td class="no-data" colspan="${columns}">${escapeHTML(message)}</td></tr>`;
+  const statusMarkup = value => {
+    const status = text(value, 'N/D').toUpperCase();
+    const kind = status.includes('VERDE') || status.includes('CUMPLIDO') || status.includes('CERRADO') ? 'green'
+      : status.includes('AMARILLO') || status.includes('PLANIFICADO') || status.includes('PENDIENTE') ? 'amber'
+      : status.includes('ROJO') || status.includes('RETRASADO') || status.includes('BLOQUEADO') ? 'red' : 'neutral';
+    return `<span class="status-${kind}"><i class="status-dot"></i>${escapeHTML(status)}</span>`;
+  };
+
+  function compliance(data) {
+    const source = data.cumplimiento_sprint && typeof data.cumplimiento_sprint === 'object'
+      ? data.cumplimiento_sprint
+      : data.resumen_ejecutivo?.cumplimiento_sprint && typeof data.resumen_ejecutivo.cumplimiento_sprint === 'object'
+        ? data.resumen_ejecutivo.cumplimiento_sprint : null;
+    if (!source) return null;
+    const committed = number(source.comprometidos);
+    const completed = number(source.completados);
+    const clientBlockers = number(source.impedimentos_cliente) ?? 0;
+    if (committed === null || completed === null || committed - clientBlockers <= 0) return null;
+    return { committed, completed, clientBlockers, percent: completed / (committed - clientBlockers) * 100 };
+  }
+
+  function renderHighlights(data, items, closedSP) {
+    const summary = data.resumen_ejecutivo || {};
+    const updates = Array.isArray(data.novedades_ejecutivas) ? data.novedades_ejecutivas : [];
+    const logro = summary.logro_principal || (items.some(item => String(item.estado).toLowerCase() === 'closed')
+      ? `Se cerraron ${items.filter(item => String(item.estado).toLowerCase() === 'closed').length} HU/HA, equivalentes a ${formatNumber(closedSP)} SP.`
+      : 'No se reportan logros en el JSON.');
+    const deviation = summary.desviacion_critica || updates.map(entry => entry?.descripcion).filter(Boolean).join(' ');
+    const decision = summary.decision_requerida;
+    const rows = [
+      ['LOGRO', logro, 'highlight-achievement'],
+      ['DESVIACIÓN', deviation || 'No se reportan desviaciones en el JSON.', 'highlight-deviation'],
+      ['DECISIÓN / APOYO', decision || 'No se informa una decisión o apoyo requerido.', 'highlight-decision']
+    ];
+    document.getElementById('highlights').innerHTML = rows.map(([label, value, style]) =>
+      `<tr><th class="${style}">${label}</th><td>${escapeHTML(value)}</td></tr>`).join('');
+  }
+
+  function renderSummary(data, items, closedSP, kpi) {
+    const summary = data.resumen_ejecutivo || {};
+    let weightedPoints = 0;
+    let weightedProgress = 0;
+    let excluded = 0;
+    items.forEach(item => {
+      const points = number(item.story_points);
+      const progress = executionProgress(item);
+      if (points === null || points <= 0 || progress === null) { excluded += 1; return; }
+      weightedPoints += points;
+      weightedProgress += points * progress;
+    });
+    const advance = weightedPoints ? weightedProgress / weightedPoints : null;
+    const closedItems = items.filter(item => String(item.estado).toLowerCase() === 'closed');
+    const status = summary.semaforo_general || 'N/D';
+    const metrics = [
+      [advance === null ? 'N/D' : `${formatNumber(advance)}%`, 'Avance de ejecución'],
+      [kpi ? `${formatNumber(kpi.percent)}%` : 'N/D', 'Cumplimiento del Sprint'],
+      [`${formatNumber(closedSP)} SP`, 'SP cerrados'],
+      [`${closedItems.length} / ${kpi ? formatNumber(kpi.committed) : 'N/D'}`, 'HU/HA cerradas / comprometidas'],
+      [status, 'Semáforo general']
+    ];
+    document.getElementById('metrics').innerHTML = metrics.map(([value, label]) =>
+      `<div class="metric"><strong class="metric-value">${escapeHTML(value)}</strong><span class="metric-label">${escapeHTML(label)}</span></div>`).join('');
+    const note = summary.nota_calculo || (excluded ? `${excluded} HU/HA excluidas del avance por datos insuficientes o SP no válidos.` : '');
+    document.getElementById('calculation-note').textContent = note;
+    document.getElementById('calculation-note').hidden = !note;
+    const plan = summary.avance_plan === null || summary.avance_plan === undefined ? null : parsePercent(summary.avance_plan);
+    const deliveryNames = summary.entregas_principales || closedItems.slice(0, 4).map(item => item.nombre).filter(Boolean).join('; ');
+    const values = [
+      advance === null ? 'N/D' : `${formatNumber(advance)}%`,
+      plan === null ? 'N/D' : `${formatNumber(plan)}%`,
+      summary.desviacion === null || summary.desviacion === undefined ? 'N/D' : `${formatNumber(number(summary.desviacion))}${typeof summary.desviacion === 'number' ? ' pp' : ''}`,
+      deliveryNames || 'No informado en el JSON',
+      summary.impacto_fecha_final || 'No informado en el JSON'
+    ];
+    document.getElementById('summary-details').innerHTML = `<tr>${values.map(value => `<td>${escapeHTML(value)}</td>`).join('')}</tr>`;
+  }
+
+  function renderCapacity(items) {
+    const groups = new Map();
+    items.forEach(item => {
+      const key = cellName(item);
+      const group = groups.get(key) || { count: 0, points: 0, closed: 0, active: 0 };
+      const points = number(item.story_points) ?? 0;
+      group.count += 1;
+      group.points += points;
+      if (String(item.estado).toLowerCase() === 'closed') group.closed += points;
+      if (String(item.estado).toLowerCase() === 'active') group.active += points;
+      groups.set(key, group);
+    });
+    const rows = [...groups.entries()].sort(([a], [b]) => a.localeCompare(b, 'es')).map(([cell, group]) =>
+      `<tr><td>${escapeHTML(cell)}</td><td>${group.count}</td><td>${formatNumber(group.points)}</td><td>${formatNumber(group.closed)}</td><td>${formatNumber(group.active)}</td></tr>`);
+    document.getElementById('capacity-body').innerHTML = rows.join('') || emptyRow(5);
+  }
+
+  function renderInitiatives(items) {
+    const groups = new Map();
+    items.forEach(item => {
+      const key = epicName(item);
+      const group = groups.get(key) || { cells: new Set(), count: 0, points: 0, closed: 0, active: 0 };
+      group.cells.add(cellName(item));
+      group.count += 1;
+      group.points += number(item.story_points) ?? 0;
+      if (String(item.estado).toLowerCase() === 'closed') group.closed += 1;
+      if (String(item.estado).toLowerCase() === 'active') group.active += 1;
+      groups.set(key, group);
+    });
+    const rows = [...groups.entries()].sort(([a], [b]) => a.localeCompare(b, 'es')).map(([epic, group]) =>
+      `<tr><td>${escapeHTML(epic)}</td><td>${escapeHTML([...group.cells].join(', '))}</td><td>${group.count}</td><td>${formatNumber(group.points)}</td><td>${group.closed}</td><td>${group.active}</td></tr>`);
+    document.getElementById('initiatives-body').innerHTML = rows.join('') || emptyRow(6);
+  }
+
+  function renderDeviations(data, items) {
+    const rows = [];
+    const reportedIds = new Set();
+    const explicit = Array.isArray(data.avances_con_desviacion) ? data.avances_con_desviacion
+      : Array.isArray(data.desviaciones) ? data.desviaciones : [];
+    explicit.forEach(entry => {
+      if (!entry || typeof entry !== 'object') return;
+      if (entry.ha_hu !== null && entry.ha_hu !== undefined) reportedIds.add(String(entry.ha_hu));
+      rows.push(`<tr><td>${statusMarkup(entry.semaforo)}</td><td>${display(entry.iniciativa || entry.ha_hu || entry.item)}</td><td>${display(entry.plan)}</td><td>${display(entry.resultado_real || entry.real)}</td><td>${display(entry.causa || entry.causa_desviacion)}</td><td>${display(entry.accion_recuperacion || entry.proximo_paso)}</td></tr>`);
+    });
+    items.filter(item => {
+      const status = String(item.semaforo || '').toUpperCase();
+      return ['AMARILLO', 'ROJO'].includes(status) || Boolean(item.causa_desviacion);
+    }).forEach(item => {
+      reportedIds.add(String(item.id));
+      rows.push(`<tr><td>${statusMarkup(item.semaforo)}</td><td>HA/HU ${escapeHTML(item.id)} · ${escapeHTML(text(item.nombre))}</td><td>${display(item.plan)}</td><td>${display(item.resultado_real || item.contexto_avance)}</td><td>${display(item.causa_desviacion)}</td><td>${display(item.accion_recuperacion || item.proximo_paso)}</td></tr>`);
+    });
+    const itemById = new Map(items.map(item => [String(item.id), item]));
+    (Array.isArray(data.novedades_ejecutivas) ? data.novedades_ejecutivas : []).forEach(entry => {
+      if (!entry?.descripcion) return;
+      if (entry.ha_hu !== null && entry.ha_hu !== undefined && reportedIds.has(String(entry.ha_hu))) return;
+      const related = entry.ha_hu === null || entry.ha_hu === undefined ? null : itemById.get(String(entry.ha_hu));
+      if (entry.ha_hu !== null && entry.ha_hu !== undefined) reportedIds.add(String(entry.ha_hu));
+      rows.push(`<tr><td>${statusMarkup(entry.semaforo || related?.semaforo)}</td><td>${entry.ha_hu ? `HA/HU ${escapeHTML(entry.ha_hu)}` : 'General'}${related?.nombre ? ` · ${escapeHTML(related.nombre)}` : ''}</td><td>${display(related?.plan)}</td><td>${escapeHTML(entry.descripcion)}</td><td>${display(related?.causa_desviacion || entry.categoria)}</td><td>${display(related?.accion_recuperacion || entry.proximo_paso)}</td></tr>`);
+    });
+    document.getElementById('deviations-body').innerHTML = rows.join('') || emptyRow(6, 'No se reportan avances con desviación en el JSON.');
+  }
+
+  function renderValues(data) {
+    const entries = Array.isArray(data.valor_esperado) ? data.valor_esperado : [];
+    document.getElementById('value-body').innerHTML = entries.map(entry =>
+      `<tr><td>${display(entry.iniciativa)}${entry.celula ? `<br><span class="small">${escapeHTML(entry.celula)}</span>` : ''}</td><td>${display(entry.beneficio)}</td><td>${display(entry.se_mantiene)}</td><td>${display(entry.indicador)}</td><td>${display(entry.evidencia)}</td></tr>`
+    ).join('') || emptyRow(5);
+  }
+
+  function renderMilestones(data) {
+    const entries = Array.isArray(data.hitos) ? data.hitos : [];
+    document.getElementById('milestones-body').innerHTML = entries.map(entry =>
+      `<tr><td>${display(entry.periodo)}</td><td>${display(entry.descripcion)}</td><td>${statusMarkup(entry.estado)}</td><td>${display(entry.comentario)}</td></tr>`
+    ).join('') || emptyRow(4);
+  }
+
+  function renderRisks(data, items) {
+    const entries = [];
+    const add = (entry, fallbackType = 'RIESGO', id = '') => {
+      if (typeof entry === 'string') {
+        entries.push({ type: fallbackType, description: entry, id });
+        return;
+      }
+      if (!entry || typeof entry !== 'object' || Array.isArray(entry)) return;
+      const description = entry.descripcion || entry.detalle || entry.nombre || entry.mensaje;
+      if (!description) return;
+      entries.push({
+        type: entry.tipo || entry.categoria || fallbackType,
+        description,
+        impact: entry.impacto,
+        owner: entry.responsable,
+        deadline: entry.fecha_limite,
+        id: entry.ha_hu ?? id
+      });
+    };
+    (Array.isArray(data.riesgos_identificados) ? data.riesgos_identificados : []).forEach(entry => add(entry));
+    (Array.isArray(data.riesgos) ? data.riesgos : []).forEach(entry => add(entry));
+    items.forEach(item => {
+      (Array.isArray(item.riesgos) ? item.riesgos : []).forEach(entry => add(entry, 'RIESGO', item.id));
+      (Array.isArray(item.dependencias) ? item.dependencias : []).forEach(entry => add(entry, 'DEPENDENCIA', item.id));
+      (Array.isArray(item.bloqueos) ? item.bloqueos : []).forEach(entry => add(entry, 'BLOQUEO', item.id));
+      if (item.riesgo) add(item.riesgo, 'RIESGO', item.id);
+    });
+    const seen = new Set();
+    const seenTypeAndItem = new Set();
+    const unique = entries.filter(entry => {
+      const key = [entry.type, entry.description, entry.id].join('|').toLowerCase();
+      if (seen.has(key)) return false;
+      const relatedKey = entry.id ? `${entry.type}|${entry.id}`.toLowerCase() : '';
+      if (relatedKey && seenTypeAndItem.has(relatedKey)) return false;
+      seen.add(key);
+      if (relatedKey) seenTypeAndItem.add(relatedKey);
+      return true;
+    });
+    document.getElementById('risks-body').innerHTML = unique.map(entry =>
+      `<tr><td>${escapeHTML(entry.type)}${entry.id ? `<br>HA/HU ${escapeHTML(entry.id)}` : ''}</td><td>${escapeHTML(entry.description)}</td><td>${display(entry.impact)}</td><td>${display(entry.owner)}</td><td>${display(entry.deadline)}</td></tr>`
+    ).join('') || emptyRow(5, 'No se reportan riesgos o impedimentos en el JSON.');
+  }
+
+  function renderCommitments(data) {
+    const entries = Array.isArray(data.compromisos) ? data.compromisos : [];
+    document.getElementById('commitments-body').innerHTML = entries.map(entry =>
+      `<tr><td>${display(entry.compromiso || entry.descripcion)}</td><td>${display(entry.responsable)}</td><td>${display(entry.fecha)}</td><td>${statusMarkup(entry.estado)}</td><td>${display(entry.seguimiento || entry.proximo_paso)}</td></tr>`
+    ).join('') || emptyRow(5);
+  }
+
+  function renderAnnex(items) {
+    const groups = new Map();
+    items.forEach(item => {
+      const epic = epicName(item);
+      if (!groups.has(epic)) groups.set(epic, new Map());
+      const cells = groups.get(epic);
+      const cell = cellName(item);
+      if (!cells.has(cell)) cells.set(cell, []);
+      cells.get(cell).push(item);
+    });
+    const html = [...groups.entries()].sort(([a], [b]) => a.localeCompare(b, 'es')).map(([epic, cells]) => {
+      const cellHtml = [...cells.entries()].sort(([a], [b]) => a.localeCompare(b, 'es')).map(([cell, rows]) => {
+        const tableRows = rows.map(item => {
+          const progress = executionProgress(item);
+          const details = `${item.valor_generado ? `<strong>Valor generado:</strong> ${escapeHTML(item.valor_generado)}` : ''}${item.valor_generado && item.proximo_paso ? '<br>' : ''}${item.proximo_paso ? `<strong>Próximo paso:</strong> ${escapeHTML(item.proximo_paso)}` : ''}`;
+          return `<tbody><tr><td>${escapeHTML(item.id)}</td><td>${escapeHTML(text(item.nombre))}</td><td>${escapeHTML(text(item.tipo))}</td><td>${formatNumber(number(item.story_points))}</td><td>${escapeHTML(text(item.clasificacion_valor || item.clasificacion))}</td><td>${statusMarkup(item.estado)}</td><td>${progress === null ? 'N/D' : `${formatNumber(progress)}%`}</td><td>${statusMarkup(item.semaforo)}</td></tr>${details ? `<tr class="annex-info"><td colspan="8"><strong>HA/HU ${escapeHTML(item.id)}</strong> · ${details}</td></tr>` : ''}</tbody>`;
+        }).join('');
+        return `<div class="annex-cell">${escapeHTML(cell)}</div>
+          <table class="data-table data-table--green annex-table"><colgroup><col style="width:9%"><col style="width:26%"><col style="width:11%"><col style="width:5%"><col style="width:17%"><col style="width:10%"><col style="width:8%"><col style="width:14%"></colgroup><thead><tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>SP</th><th>Clasificación</th><th>Estado</th><th>Avance</th><th>Semáforo</th></tr></thead>${tableRows}</table>`;
+      }).join('');
+      return `<h3 class="annex-epic">${escapeHTML(epic)}</h3>${cellHtml}`;
+    }).join('');
+    document.getElementById('annex-body').innerHTML = html || `<p class="no-data">No hay HU/HA operativas informadas en el JSON.</p>`;
+  }
+
+  function renderInsufficient(data) {
+    const entries = Array.isArray(data.informacion_insuficiente) ? data.informacion_insuficiente : [];
+    const section = document.getElementById('insufficient-section');
+    section.hidden = entries.length === 0;
+    document.getElementById('insufficient-body').innerHTML = entries.map(entry =>
+      `<li><strong>${entry.ha_hu ? `HA/HU ${escapeHTML(entry.ha_hu)} · ` : ''}${escapeHTML(text(entry.campo, 'Campo no informado'))}:</strong> ${escapeHTML(text(entry.descripcion, 'Detalle no informado'))}</li>`
+    ).join('');
+  }
+
+  function render(data) {
+    if (!data || !data.sprint || !Array.isArray(data.items)) throw new Error('El JSON debe incluir sprint e items[].');
+    const sprint = data.sprint;
+    const report = data.reporte || {};
+    const items = operationalItems(data.items);
+    const closedSP = total(items.filter(item => String(item.estado).toLowerCase() === 'closed'), item => number(item.story_points));
+    const kpi = compliance(data);
+    const summary = data.resumen_ejecutivo || {};
+    document.title = `Informe semanal CaaS Tesorería · Sprint ${text(sprint.numero, 'N/D')}`;
+    document.getElementById('service-name').textContent = text(sprint.servicio || report.servicio, 'EVC Tesorería Bancolombia');
+    document.getElementById('reference-date').textContent = sprint.fecha_corte
+      ? `Fecha de referencia: ${referenceDate(sprint.fecha_corte)}`
+      : '';
+    document.getElementById('project-cell').textContent = text(sprint.proyecto || report.proyecto || report.celula);
+    document.getElementById('sprint-number').textContent = text(sprint.numero);
+    document.getElementById('sprint-period').textContent = text(sprint.periodo);
+    document.getElementById('project-manager').textContent = text(sprint.project_manager || report.project_manager);
+    renderHighlights(data, items, closedSP);
+    renderSummary(data, items, closedSP, kpi);
+    renderCapacity(items);
+    renderInitiatives(items);
+    renderDeviations(data, items);
+    renderValues(data);
+    renderMilestones(data);
+    renderRisks(data, items);
+    renderCommitments(data);
+    renderAnnex(items);
+    renderInsufficient(data);
+  }
+
+  async function load() {
+    if (loading) return;
+    loading = true;
+    window.REPORTE_LISTO = false;
+    window.REPORTE_ERROR = null;
+    document.body.dataset.reportReady = 'false';
+    try {
+      let raw;
+      if (window.__REPORT_DATA__) {
+        raw = JSON.stringify(window.__REPORT_DATA__);
+      } else {
+        const response = await fetch(JSON_FILE, { cache: 'no-store' });
+        const source = response.status === 404
+          ? await fetch(JSON_EXAMPLE_FILE, { cache: 'no-store' })
+          : response;
+        if (!source.ok) throw new Error(`No se pudo cargar el JSON: HTTP ${source.status}`);
+        raw = await source.text();
+      }
+      if (raw === lastJSON && reportLoaded) {
+        document.body.dataset.reportReady = 'true';
+        window.REPORTE_LISTO = true;
+        return;
+      }
+      const data = JSON.parse(raw);
+      render(data);
+      await Promise.all([...document.querySelectorAll('.masthead img')].map(image => {
+        if (image.complete) return Promise.resolve();
+        return new Promise(resolve => {
+          image.addEventListener('load', resolve, { once: true });
+          image.addEventListener('error', resolve, { once: true });
+        });
+      }));
+      document.querySelectorAll('.masthead img').forEach(image => {
+        if (image.naturalWidth === 0) {
+          image.hidden = true;
+          image.nextElementSibling.style.display = 'block';
+        }
+      });
+      lastJSON = raw;
+      reportLoaded = true;
+      document.body.dataset.reportReady = 'true';
+      window.REPORTE_LISTO = true;
+    } catch (error) {
+      window.REPORTE_ERROR = error instanceof Error ? error.message : String(error);
+      document.body.dataset.reportError = window.REPORTE_ERROR;
+      document.body.dataset.reportReady = 'error';
+      const errorBox = document.getElementById('report-error');
+      errorBox.textContent = `No fue posible generar el informe: ${window.REPORTE_ERROR}`;
+      errorBox.style.display = 'block';
+      console.error('No se pudo cargar o renderizar el informe:', error);
+    } finally {
+      loading = false;
     }
   }
-  return out;
-}
-async function load(){if(loading)return;loading=true;try{
- if(isFileProtocol){
-   const message='El reporte debe abrirse desde un servidor local para poder recargar el JSON automáticamente. Ejecuta: python servir_seguimiento.py y abre http://127.0.0.1:8000/SeguimientoOperativo.html';
-   document.body.dataset.reportReady='error';
-   document.getElementById('cards').innerHTML=`<div class="empty">${esc(message)}</div>`;
-   return;
- }
- const r=await fetch(JSON_FILE,{cache:'no-store'});const response=r.status===404?await fetch(JSON_EXAMPLE_FILE,{cache:'no-store'}):r;if(!response.ok)throw new Error(`No se pudo cargar el JSON: HTTP ${response.status}`);const raw=await response.text();if(raw===lastJSON)return;const d=JSON.parse(raw);if(!d.sprint||!Array.isArray(d.items))throw new Error('El JSON debe incluir sprint e items[]');
- const report=d.reporte||{};const reportName=`Reporte Seguimiento Operativo ${d.sprint.numero??'-'}`;document.title=reportName;document.getElementById('title').textContent=reportName;document.getElementById('subtitle').textContent=report.proyecto||'EVC - Tesorería Bancolombia';document.getElementById('project').textContent=report.celula||'CaaS Tesorería';document.getElementById('sprintNumber').textContent=d.sprint.numero??'-';document.getElementById('period').textContent=d.sprint.periodo||'-';document.getElementById('pm').textContent=report.project_manager||'Christian Leandro Sanchez Rodas';document.getElementById('footerLeft').textContent=`SETI | ${report.project_manager||'Christian Leandro Sanchez Rodas'}`;
- const calc=sprintProgress(d.items);document.getElementById('sprintTitle').textContent=`Sprint ${d.sprint.numero??'-'}`;document.getElementById('itemsCount').textContent=`HU/HA informadas: ${d.items.length}`;document.getElementById('spCount').textContent=`Story Points incluidos: ${calc.sp}`;document.getElementById('sprintPercent').textContent=calc.percent===null?'N/D':`${calc.percent.toFixed(1)}%`;document.getElementById('sprintBar').style.width=calc.percent===null?'0%':`${calc.percent}%`;
- document.getElementById('cards').innerHTML=d.items.length?d.items.map(renderCard).join(''):'<div class="empty">No hay HA/HU.</div>';
- const novedadesEjecutivas=Array.isArray(d.novedades_ejecutivas)?d.novedades_ejecutivas.map(renderNovedadEjecutiva).filter(Boolean):[];
- const novedadesEjecutivasTitle=document.getElementById('novedadesEjecutivasTitle');
- const novedadesEjecutivasContainer=document.getElementById('novedadesEjecutivasContainer');
- novedadesEjecutivasTitle.hidden=novedadesEjecutivas.length===0;
- novedadesEjecutivasContainer.hidden=novedadesEjecutivas.length===0;
- novedadesEjecutivasContainer.innerHTML=novedadesEjecutivas.join('');
- const novedades = Array.isArray(d.novedades) ? d.novedades : [];
- const novedadesTitle = document.getElementById('novedadesTitle');
- const novedadesContainer = document.getElementById('novedadesContainer');
- if (novedades.length === 0) {
-   novedadesTitle.hidden = true;
-   novedadesContainer.hidden = true;
-   novedadesContainer.innerHTML = '';
- } else {
-   novedadesTitle.hidden = false;
-   novedadesContainer.hidden = false;
-   novedadesContainer.innerHTML = novedades.map(renderNovedad).join('');
- }
- const risks=risksFrom(d);document.getElementById('riskTitle').style.display=risks.length?'block':'none';document.getElementById('risks').innerHTML=risks.slice(0,6).map(x=>`<div class="risk"><strong>${esc(x.categoria)}${x.itemId!==''?` · HA/HU ${esc(x.itemId)}`:''}</strong>${esc(x.detalle)}</div>`).join('');
- lastJSON=raw;reportLoaded=true;document.body.dataset.reportReady='true';delete document.body.dataset.reportError;
-}catch(e){document.body.dataset.reportError=e.message;console.error('No se pudo cargar o actualizar el reporte:',e);if(!reportLoaded){document.body.dataset.reportReady='error';document.getElementById('cards').innerHTML=`<div class="empty">${esc(e.message)}</div>`;}}finally{loading=false;}}
-document.body.dataset.reportReady='false';
-document.addEventListener('DOMContentLoaded',()=>{if(isFileProtocol){document.getElementById('cards').innerHTML='<div class="empty">El reporte debe abrirse desde un servidor local para actualizar automáticamente. Ejecuta: python servir_seguimiento.py</div>';return;} load();setInterval(load,REFRESH_INTERVAL_MS);});
-document.addEventListener('visibilitychange',()=>{if(!document.hidden && !isFileProtocol)load();});
+
+  document.addEventListener('DOMContentLoaded', () => {
+    load();
+    window.setInterval(load, REFRESH_INTERVAL_MS);
+  });
+})();
 </script>
-</body></html>
+</body>
+</html>

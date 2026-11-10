@@ -3,9 +3,15 @@ cd /d "%~dp0"
 
 set "JSON_FILE=Contexto_HAs_JSON.json"
 set "JSON_EXAMPLE=Contexto_HAs_JSON_Ejemplo.json"
+set "PROJECT_PYTHON=%~dp0.venv\Scripts\python.exe"
 
 if not exist "%JSON_FILE%" if exist "%JSON_EXAMPLE%" (
     set "JSON_FILE=%JSON_EXAMPLE%"
+)
+
+if exist "%PROJECT_PYTHON%" (
+    "%PROJECT_PYTHON%" "Generar_Seguimiento_PDF.py" --json "%JSON_FILE%"
+    exit /b %errorlevel%
 )
 
 where py >nul 2>nul

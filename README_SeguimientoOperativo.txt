@@ -1,4 +1,4 @@
-PAQUETE DE SEGUIMIENTO OPERATIVO
+INFORME SEMANAL CaaS TESORERÍA
 
 Archivos requeridos en la misma carpeta:
 - SeguimientoOperativo.html
@@ -8,65 +8,40 @@ Archivos requeridos en la misma carpeta:
 - Logo-SETI.png
 - bancolombia-s-a-logo-png_seeklogo-402324.png
 
-Flujo:
+Generar el informe con los datos activos:
 1. Actualiza Contexto_HAs_JSON.json.
-   El HTML también carga Contexto_HAs_JSON_Ejemplo.json cuando el archivo principal todavía no existe.
-   Mientras el reporte está abierto, consulta cambios del JSON cada 5 segundos.
-   `epica_proyecto` acepta tanto un texto como un objeto con la propiedad `nombre`.
-2. Ejecuta generar_pdf.bat (o py -3.12 Generar_Seguimiento_PDF.py).
-3. Se genera un PDF con el número de sprint del JSON y un consecutivo para no sobrescribir reportes anteriores, por ejemplo:
-   Reporte Seguimiento Operativo 255_001.pdf, Reporte Seguimiento Operativo 255_002.pdf.
+2. Ejecuta generar_pdf.bat.
+
+El PDF usa el número de Sprint y la fecha_corte del JSON. El nombre tiene
+el formato:
+Informe semanal CaaS Tesoreria_Sprint[NUMERO]_[DD-MM-YYYY]_001.pdf
+
+Si el archivo ya existe, se crea el siguiente consecutivo sin sobrescribirlo.
+El script usa primero el Python del entorno .venv del proyecto.
+
+Para validar el diseño con los datos de ejemplo:
+  .venv\Scripts\python.exe Generar_Seguimiento_PDF.py --json Contexto_HAs_JSON_Ejemplo.json
+
+El JSON de ejemplo se carga directamente y no reemplaza ni modifica
+Contexto_HAs_JSON.json.
 
 Primera instalación:
+- Instala Python 3.12.
 - pip install playwright
 - playwright install chromium
 
-Nota: abrir el HTML con doble clic puede bloquear la carga del JSON por seguridad del navegador. Para que el reporte se actualice automáticamente, debe abrirse desde un servidor local. Usa una de estas opciones:
-- python servir_seguimiento.py
-- python -m http.server 8000
-Luego abre: http://127.0.0.1:8000/SeguimientoOperativo.html
+Vista HTML:
+El HTML debe servirse desde un servidor local para permitir la carga dinámica
+del JSON. No se recomienda abrirlo con doble clic.
 
-El script Python de PDF también levanta un servidor local automáticamente y evita ese problema.
-El título del reporte y el nombre predeterminado del PDF usan el formato `Reporte Seguimiento Operativo %Sprint%`, reemplazando `%Sprint%` por el número del sprint.
+  .venv\Scripts\python.exe servir_seguimiento.py --open
 
-Novedades ejecutivas
-- El campo opcional `novedades_ejecutivas` permite mostrar novedades ejecutivas en el reporte y PDF.
-- Puede omitirse completamente o existir como `"novedades_ejecutivas": []`; en ambos casos no se dibuja la sección.
-- Cada elemento puede incluir `ha_hu` y `descripcion`; los elementos sin ambos datos se ignoran.
+Luego, si no se abre automáticamente, visita:
+  http://127.0.0.1:8000/SeguimientoOperativo.html
 
-Ejemplo:
-  "novedades_ejecutivas": [
-    {
-      "ha_hu": 7860649,
-      "descripcion": "HU trasladada al siguiente Sprint para su continuación y cierre."
-    }
-  ]
+El reporte se actualiza al detectar cambios en el JSON. Los campos opcionales
+ausentes se muestran como no informados o se omiten, según la sección. Las
+células, épicas y valores se leen del JSON; no se infieren desde descripciones.
 
-Novedades de seguimiento
-- El campo opcional `novedades` está disponible en `Contexto_HAs_JSON.json`.
-- Puede omitirse completamente.
-- También puede existir como `"novedades": []`.
-- Si no contiene elementos, el HTML y el PDF no muestran la sección.
-- Si contiene elementos, el HTML genera las tarjetas automáticamente sin editar manualmente el HTML.
-- El comando actual para generar el PDF no cambia.
-
-Ejemplo mínimo:
-  "novedades": []
-
-Ejemplo con una novedad:
-  "novedades": [
-    {
-      "id": "NOV-001",
-      "fecha": "06/10/2026",
-      "categoria": "DEPENDENCIA EXTERNA",
-      "item_relacionado": "7868791",
-      "titulo": "HA trasladada por dependencia externa",
-      "descripcion": "La HA quedó pendiente por dependencia externa.",
-      "impacto": "No pudo completarse dentro del Sprint.",
-      "dependencias": ["Ultron"],
-      "estado": "ABIERTA",
-      "proximo_paso": "Completar la dependencia y continuar con la actividad.",
-      "traslada_sprint": true,
-      "sprint_destino": 255
-    }
-  ]
+El Anexo Ejecutivo agrupa los elementos por épica y célula e incluye solamente
+HU/HA operativas. No muestra tareas ni tareas sintéticas.

@@ -12,6 +12,7 @@ Uso con rutas personalizadas:
 """
 from __future__ import annotations
 import argparse, json
+from datetime import date, datetime
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -42,7 +43,22 @@ def validate(path:Path):
 def default_output_path(data:dict)->Path:
     sprint=data["sprint"].get("numero")
     sprint_name=str(sprint).strip() if sprint is not None and str(sprint).strip() else "-"
-    return ROOT/f"Reporte Seguimiento Operativo {sprint_name}.pdf"
+    cutoff=data["sprint"].get("fecha_corte")
+    report_date=None
+    if cutoff:
+        try:
+            report_date=datetime.fromisoformat(str(cutoff).replace("Z","+00:00")).date()
+        except ValueError:
+            for date_format in ("%d/%m/%Y","%Y-%m-%d"):
+                try:
+                    report_date=datetime.strptime(str(cutoff),date_format).date()
+                    break
+                except ValueError:
+                    continue
+    if report_date is None:
+        report_date=date.today()
+    date_name=report_date.strftime("%d-%m-%Y")
+    return ROOT/f"Informe semanal CaaS Tesoreria_Sprint{sprint_name}_{date_name}.pdf"
 
 def next_output_path(path:Path)->Path:
     path.parent.mkdir(parents=True,exist_ok=True)
@@ -63,15 +79,6 @@ def main():
         data=validate(js)
         out=(a.output or default_output_path(data)).resolve()
     except Exception as e: print(f"JSON inválido: {e}");return 1
-    expected=html.parent/"Contexto_HAs_JSON.json"
-    backup=None
-    if js!=expected and expected.exists() and js.name != expected.name:
-        backup=expected.read_bytes()
-    if js!=expected and not expected.exists() and js.name=="Contexto_HAs_JSON_Ejemplo.json":
-        expected.write_bytes(js.read_bytes())
-    elif js!=expected and js.name != expected.name:
-        if expected.exists(): backup=expected.read_bytes()
-        expected.write_bytes(js.read_bytes())
     try:
         from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
     except ImportError:
@@ -82,23 +89,25 @@ def main():
     try:
         with sync_playwright() as p:
             browser=p.chromium.launch()
-            page=browser.new_page(viewport={"width":1200,"height":1600})
-            page.goto(f"http://127.0.0.1:{server.server_port}/{html.name}",wait_until="domcontentloaded")
-            try: page.wait_for_function("document.body.dataset.reportReady === 'true' || document.body.dataset.reportReady === 'error'",timeout=30000)
-            except PlaywrightTimeoutError: raise RuntimeError("El reporte no terminó de cargar")
-            if page.locator("body").get_attribute("data-report-ready")!="true": raise RuntimeError(page.locator(".empty").first.inner_text())
-            out=next_output_path(out)
-            output_created=True
-            page.pdf(path=str(out),format="A4",print_background=True,prefer_css_page_size=True,margin={"top":"0","right":"0","bottom":"0","left":"0"})
-            browser.close()
+            try:
+                page=browser.new_page(viewport={"width":1200,"height":1600})
+                page.add_init_script(script=f"window.__REPORT_DATA__ = {json.dumps(data,ensure_ascii=True)};")
+                page.goto(f"http://127.0.0.1:{server.server_port}/{html.name}",wait_until="domcontentloaded")
+                try: page.wait_for_function("document.body.dataset.reportReady === 'true' || document.body.dataset.reportReady === 'error'",timeout=30000)
+                except PlaywrightTimeoutError: raise RuntimeError("El reporte no terminó de cargar")
+                if page.locator("body").get_attribute("data-report-ready")!="true":
+                    error=page.evaluate("window.REPORTE_ERROR")
+                    raise RuntimeError(error or "El HTML no pudo renderizar el JSON")
+                out=next_output_path(out)
+                output_created=True
+                page.pdf(path=str(out),format="A4",print_background=True,prefer_css_page_size=True,margin={"top":"0","right":"0","bottom":"0","left":"0"})
+            finally:
+                browser.close()
     except Exception as e:
         if output_created:
             out.unlink(missing_ok=True)
         print(f"Error al generar PDF: {e}");return 1
     finally:
         server.shutdown();server.server_close()
-        if js!=expected:
-            if backup is None: expected.unlink(missing_ok=True)
-            else: expected.write_bytes(backup)
     print(f"PDF generado: {out}");return 0
 if __name__=="__main__": raise SystemExit(main())
