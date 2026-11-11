@@ -140,7 +140,6 @@ tr th { background-color: #f5f5f5; }
     <h2 class="section-title"><span class="number">2.</span>Resumen ejecutivo</h2>
     <div class="metric-strip" id="metrics"></div>
     <p class="note" id="calculation-note"></p>
-    <table class="data-table"><colgroup><col style="width:16%"><col style="width:15%"><col style="width:14%"><col style="width:30%"><col style="width:25%"></colgroup><thead><tr><th>Avance real</th><th>Plan</th><th>Desviación</th><th>Entregas de la semana</th><th>Impacto en fecha final</th></tr></thead><tbody id="summary-details"></tbody></table>
   </section>
 
   <section class="section" id="capacity-section">
@@ -311,29 +310,33 @@ tr th { background-color: #f5f5f5; }
     });
     const advance = weightedPoints ? weightedProgress / weightedPoints : null;
     const closedItems = items.filter(item => String(item.estado).toLowerCase() === 'closed');
-    const status = summary.semaforo_general || 'N/D';
+    const committedItems = data.cumplimiento_sprint?.items_comprometidos;
+    const committedSP = Array.isArray(committedItems) && committedItems.length > 0
+      && committedItems.every(item => number(item.story_points) !== null)
+      ? total(committedItems, item => number(item.story_points))
+      : null;
+    const sprintStatus = String(data.sprint?.estado || '').trim().toUpperCase();
+    const sprintClosed = ['CERRADO', 'CLOSED', 'FINALIZADO', 'COMPLETADO'].includes(sprintStatus);
+    const semaphoreLabels = {
+      VERDE: 'EN PLAN',
+      AMARILLO: 'EN RIESGO',
+      ROJO: 'CRÍTICO',
+      'SIN INFORMACIÓN': 'SIN INFORMACIÓN'
+    };
+    const semaphore = String(summary.semaforo_general || '').trim().toUpperCase();
+    const executionHealth = semaphoreLabels[semaphore] || 'SIN INFORMACIÓN';
     const metrics = [
       [advance === null ? 'N/D' : `${formatNumber(advance)}%`, 'Avance de ejecución'],
-      [kpi ? `${formatNumber(kpi.percent)}%` : 'N/D', 'Cumplimiento del Sprint'],
-      [`${formatNumber(closedSP)} SP`, 'SP cerrados'],
-      [`${closedItems.length} / ${kpi ? formatNumber(kpi.committed) : 'N/D'}`, 'HU/HA cerradas / comprometidas'],
-      [status, 'Semáforo general']
+      [sprintStatus === 'EN CURSO' ? 'EN CURSO' : (kpi ? `${formatNumber(kpi.percent)}%` : 'N/D'), 'Cumplimiento del Sprint'],
+      [`${formatNumber(closedSP)} / ${committedSP === null ? 'N/D' : formatNumber(committedSP)} SP`, 'SP completados / comprometidos'],
+      [`${closedItems.length} / ${kpi ? formatNumber(kpi.committed) : 'N/D'}`, 'HU/HA completadas / comprometidas'],
+      [sprintClosed ? (data.cumplimiento_sprint?.estado_kpi || 'SIN INFORMACIÓN') : executionHealth, sprintClosed ? 'Cumplimiento final' : 'Salud de ejecución']
     ];
     document.getElementById('metrics').innerHTML = metrics.map(([value, label]) =>
       `<div class="metric"><strong class="metric-value">${escapeHTML(value)}</strong><span class="metric-label">${escapeHTML(label)}</span></div>`).join('');
     const note = summary.nota_calculo || (excluded ? `${excluded} HU/HA excluidas del avance por datos insuficientes o SP no válidos.` : '');
     document.getElementById('calculation-note').textContent = note;
     document.getElementById('calculation-note').hidden = !note;
-    const plan = summary.avance_plan === null || summary.avance_plan === undefined ? null : parsePercent(summary.avance_plan);
-    const deliveryNames = summary.entregas_principales || closedItems.slice(0, 4).map(item => item.nombre).filter(Boolean).join('; ');
-    const values = [
-      advance === null ? 'N/D' : `${formatNumber(advance)}%`,
-      plan === null ? 'N/D' : `${formatNumber(plan)}%`,
-      summary.desviacion === null || summary.desviacion === undefined ? 'N/D' : `${formatNumber(number(summary.desviacion))}${typeof summary.desviacion === 'number' ? ' pp' : ''}`,
-      deliveryNames || 'No informado en el JSON',
-      summary.impacto_fecha_final || 'No informado en el JSON'
-    ];
-    document.getElementById('summary-details').innerHTML = `<tr>${values.map(value => `<td>${escapeHTML(value)}</td>`).join('')}</tr>`;
   }
 
   function renderCapacity(items) {

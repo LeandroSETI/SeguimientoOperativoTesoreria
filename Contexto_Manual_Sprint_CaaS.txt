@@ -35,8 +35,16 @@ REGLAS RÁPIDAS
 1. INFORMACIÓN GENERAL
 ============================================================
 
-SPRINT:
+SPRINT: 257
+
+FECHA DE INICIO:
+[fecha real]
+
+FECHA DE FINALIZACIÓN:
+[fecha real]
+
 FECHA DE CORTE:
+[fecha del seguimiento]
 
 Opcional, únicamente si aporta contexto que Azure no contiene:
 ESTADO GENERAL / COMENTARIO DEL PM:
@@ -51,22 +59,28 @@ explique correctamente qué está ocurriendo en la realidad.
 
 Formato recomendado:
 
-HA/HU: [ID]
-¿Qué está pasando?:
+HA/HU: 8009304
+¿Qué está pasando?: Se esta reestructurando la eliminación de SpreadsCliente y SpreadSegmentos
 ¿Qué falta o qué sigue?:
-
+Este fix avanza sin ninguna novedad, esta a la espera del despliegue a producción
 ---
 
-HA/HU:
-¿Qué está pasando?:
+HA/HU: 7853278
+¿Qué está pasando?: Todas las tareas de la historia están completadas
 ¿Qué falta o qué sigue?:
-
+El despliegue esta pendiente, se planeo llevar el despliegue en conjunto con el HA 6831844, esto para ahorrar procedimientos
 ---
 
-HA/HU:
-¿Qué está pasando?:
+HA/HU: 6831844
+¿Qué está pasando?: Todo el desarrollo esta completo, no se ha desplegado debido a issues reportados por SonarQ
 ¿Qué falta o qué sigue?:
+1.Habilitar accesos en Sonar Q (se solicitaron los pedidos para los ingresos a los grupos de seguridad requeridos, esto tardo mas de lo esperado porque el proceso cambio y no estaba documentado en la wiki)
+2.Solucionar los Issues reportados en SONAR para salir al despliegue
 
+HA/HU: 7860649
+¿Qué está pasando?: Esta listo para despliegue
+¿Qué falta o qué sigue?:
+Pendiente del despligue de esta ha 6831844
 
 ============================================================
 3. DESVIACIONES / TRASLADOS / CAMBIOS DE ALCANCE
@@ -105,21 +119,28 @@ BLOQUEO = la situación impide realmente continuar.
 
 Formato recomendado:
 
-HA/HU: [ID o GENERAL]
-TIPO: [DEPENDENCIA / BLOQUEO]
-Situación:
-¿Qué se necesita para continuar?:
-Equipo / responsable externo: [si está definido]
-Fecha objetivo: [si está acordada]
+HA/HU: 7853278
+TIPO: [DEPENDENCIA]
+Situación:Se debe desplegar primero la integración de cambios que tiene el analista Henry Zambrano
+¿Qué se necesita para continuar?: Terminar de resolver los issues reportados por SONAR HA 6831844
+Equipo / responsable externo: CaaS Tesrorería
+Fecha objetivo: viernes 13 de noviembre
 
 ---
 
-HA/HU:
-TIPO:
-Situación:
-¿Qué se necesita para continuar?:
-Equipo / responsable externo:
-Fecha objetivo:
+HA/HU:7860649
+TIPO: DEPENDENCIA
+Situación: Se debe desplegar primero la integración de cambios que tiene el analista Henry Zambrano
+¿Qué se necesita para continuar?: resolver Issues reportados por SONAR 6831844
+Equipo / responsable externo: CaaS tesoreria
+Fecha objetivo: viernes 13 de noviembre
+
+HA/HU:6831844
+TIPO: BLOQUEO
+Situación: Problema de accesos a SONAR para solventar los Issues
+¿Qué se necesita para continuar?: Solución de pedidos para ingreso a los grupos de seguridad necesarios en SONAR, la documentación de los accesos esta incompleta en la wiki
+Equipo / responsable externo: CaaS Tesoreria - Bancolombia
+Fecha objetivo: viernes 13 de noviembre
 
 
 ============================================================
@@ -131,21 +152,21 @@ No repetir aquí un bloqueo salvo que exista un riesgo adicional derivado.
 
 Formato recomendado:
 
-HA/HU: [ID o GENERAL]
-Riesgo:
-Impacto:
-Acción de mitigación:
-Responsable: [si está definido]
-Fecha límite: [si está acordada]
+HA/HU: 7860649
+Riesgo: No completar dentro del Sprint 257
+Impacto: Retraso del plan general para el proyecto
+Acción de mitigación: Sesión para definir Issues del HA 6831844, priorizar y solventar Issues
+Responsable: Henry Zambrano - Edwin Vallecilla - Daniel Gustavo Aponte
+Fecha límite: Viernes 13 de Noviembre
 
 ---
 
-HA/HU:
-Riesgo:
-Impacto:
-Acción de mitigación:
-Responsable:
-Fecha límite:
+HA/HU:7853278
+Riesgo:No completar dentro del Sprint 257
+Impacto:Retraso del plan general para el proyecto
+Acción de mitigación: Sesión para definir Issues del HA 6831844, priorizar y solventar Issues
+Responsable:Henry Zambrano - Edwin Vallecilla - Daniel Gustavo Aponte
+Fecha límite:Viernes 13 de Noviembre
 
 ---
 
@@ -186,12 +207,12 @@ Impacto si no se decide / gestiona:
 Registrar acuerdos que deban aparecer en el informe semanal.
 No usar esta sección para tareas técnicas normales que ya están en Azure.
 
-HA/HU: [ID o GENERAL]
-Compromiso:
-Responsable: [obligatorio solo si fue acordado]
-Fecha: [solo si fue acordada]
-Estado: [PENDIENTE / EN CURSO / CERRADO]
-¿Viene de la semana anterior?: [SÍ / NO]
+HA/HU: 7860649
+Compromiso: Solventar Issues del HA 6831844
+Responsable: Henry Zambrano
+Fecha: Viernes 13 de Noviembre
+Estado: [PENDIENTE / EN CURSO / CERRADO] EN CURSO
+¿Viene de la semana anterior?: [SÍ / NO] SI
 Comentario de cierre: [solo si está CERRADO]
 
 ---
@@ -251,9 +272,9 @@ No es necesario completar si Copilot puede derivarlo de la evidencia.
 
 LOGRO PRINCIPAL:
 
-DESVIACIÓN CRÍTICA:
+DESVIACIÓN CRÍTICA: Se genera un reproceso bastante importante al tener que solicitar pedidos adicionales para acceder al aplicativo SONAR, es importante tener en cuenta que, se siguió la guía de la wiki, pero no esta actualizada por lo que fue necesario montar un HA al equipo de SONAR para una asesoría, mientras nos dieron el espacio se perdió tiempo para la solución de los Issues
 
-DECISIÓN / APOYO PRINCIPAL REQUERIDO:
+DECISIÓN / APOYO PRINCIPAL REQUERIDO: Se solicitaron apoyos para la resolución de los pedidos para ingresar a SONAR
 
 IMPACTO SOBRE LA FECHA FINAL:
 [solo si existe evidencia]
@@ -266,7 +287,7 @@ IMPACTO SOBRE LA FECHA FINAL:
 Utilizar libremente para información verdaderamente relevante que no
 encaje en las secciones anteriores.
 
-COMENTARIO:
+COMENTARIO: Durante el sprint se tuvo una novedad con respecto a los usuarios y accesos del analista Edwin Alexander Vallecilla, sus usuarios fueron dados de baja por solicitud de su líder anterior, lo que produjo que, perdiera los accesos a todas las plataformas, solo 3 días después se pudieron tener todos los accesos y normalizar la operación, esto puso en riesgo el cumplimiento de los compromisos.
 
 
 ============================================================
