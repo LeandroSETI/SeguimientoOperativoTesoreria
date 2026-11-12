@@ -71,6 +71,68 @@ def next_output_path(path:Path)->Path:
         except FileExistsError:
             sequence+=1
 
+def next_control_output_path(path:Path)->Path:
+    path.parent.mkdir(parents=True,exist_ok=True)
+    try:
+        path.touch(exist_ok=False)
+        return path
+    except FileExistsError:
+        return next_output_path(path)
+
+def insufficient_text(data:dict)->str|None:
+    entries=data.get("informacion_insuficiente")
+    if entries is None:
+        return None
+    if not isinstance(entries,list):
+        raise ValueError("informacion_insuficiente debe ser una lista")
+    if not entries:
+        return None
+
+    pdf_date=default_output_path(data).stem.rsplit("_",1)[-1]
+    cutoff_date=datetime.strptime(pdf_date,"%d-%m-%Y").strftime("%d/%m/%Y")
+    sprint=data["sprint"].get("numero")
+    sprint_name=str(sprint).strip() if sprint is not None and str(sprint).strip() else "-"
+    lines=[
+        "="*60,
+        "INFORMACIÓN INSUFICIENTE - CONTROL INTERNO PM",
+        "="*60,
+        "",
+        f"Sprint: {sprint_name}",
+        f"Fecha de corte: {cutoff_date}",
+        "",
+        "Este archivo es de uso interno y NO hace parte del informe entregado al cliente.",
+        "",
+    ]
+    for entry in entries:
+        if not isinstance(entry,dict):
+            raise ValueError("Cada registro de informacion_insuficiente debe ser un objeto")
+        if "campo" not in entry or entry["campo"] is None:
+            raise ValueError("Un registro de informacion_insuficiente no tiene campo")
+        description_key="descripcion" if entry.get("descripcion") is not None else "detalle"
+        if description_key not in entry or entry[description_key] is None:
+            raise ValueError("Un registro de informacion_insuficiente no tiene descripcion ni detalle")
+
+        identifier=entry.get("ha_hu")
+        identifier_text=str(identifier).strip() if identifier is not None else ""
+        label="GENERAL" if not identifier_text or identifier_text.upper()=="GENERAL" else f"HA/HU {identifier_text}"
+        lines.extend([
+            "-"*60,
+            label,
+            "-"*60,
+            "",
+            f"Campo: {entry['campo']}",
+            "",
+            "Detalle:",
+            str(entry[description_key]),
+        ])
+        for key,value in entry.items():
+            if key not in {"ha_hu","campo",description_key}:
+                rendered=value if isinstance(value,str) else json.dumps(value,ensure_ascii=False)
+                lines.append(f"{key}: {rendered}")
+        lines.append("")
+    lines.extend(["="*60,"FIN","="*60])
+    return "\n".join(lines)+"\n"
+
 def main():
     a=parse_args();html=a.html.resolve();js=a.json.resolve()
     for f in (html,js):
@@ -78,6 +140,7 @@ def main():
     try:
         data=validate(js)
         out=(a.output or default_output_path(data)).resolve()
+        control_content=insufficient_text(data)
     except Exception as e: print(f"JSON inválido: {e}");return 1
     try:
         from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
@@ -86,6 +149,8 @@ def main():
     server=ThreadingHTTPServer(("127.0.0.1",0),partial(QuietHandler,directory=str(html.parent)))
     Thread(target=server.serve_forever,daemon=True).start()
     output_created=False
+    control_path=None
+    control_created=False
     try:
         with sync_playwright() as p:
             browser=p.chromium.launch()
@@ -103,11 +168,26 @@ def main():
                 page.pdf(path=str(out),format="A4",print_background=True,prefer_css_page_size=True,margin={"top":"0","right":"0","bottom":"0","left":"0"})
             finally:
                 browser.close()
+        if control_content is not None:
+            pdf_date=default_output_path(data).stem.rsplit("_",1)[-1]
+            sprint=data["sprint"].get("numero")
+            sprint_name=str(sprint).strip() if sprint is not None and str(sprint).strip() else "-"
+            control_base=ROOT/f"Informacion_insuficiente_Sprint{sprint_name}_{pdf_date}.txt"
+            control_path=next_control_output_path(control_base)
+            control_created=True
+            control_path.write_text(control_content,encoding="utf-8")
     except Exception as e:
+        if control_created and control_path:
+            control_path.unlink(missing_ok=True)
         if output_created:
             out.unlink(missing_ok=True)
         print(f"Error al generar PDF: {e}");return 1
     finally:
         server.shutdown();server.server_close()
-    print(f"PDF generado: {out}");return 0
+    print(f"PDF generado:\n{out}")
+    if control_path:
+        print(f"Control interno:\n{control_path}")
+    else:
+        print("Sin información insuficiente pendiente de revisión.")
+    return 0
 if __name__=="__main__": raise SystemExit(main())

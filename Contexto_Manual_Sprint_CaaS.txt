@@ -62,7 +62,7 @@ Formato recomendado:
 HA/HU: 8009304
 ¿Qué está pasando?: Se esta reestructurando la eliminación de SpreadsCliente y SpreadSegmentos
 ¿Qué falta o qué sigue?:
-Este fix avanza sin ninguna novedad, esta a la espera del despliegue a producción
+Este fix avanza sin ninguna novedad, esta en fase de verificación funcional por parte del banco, una vez reporten se realiza el cierre de la historia
 ---
 
 HA/HU: 7853278
@@ -91,6 +91,7 @@ Repetir el bloque únicamente cuando exista otra desviación.
 
 HA/HU: [ID o GENERAL]
 TIPO: [DESVIACIÓN / TRASLADO / CAMBIO DE ALCANCE / RETIRO DEL SPRINT]
+PLAN DEL SPRINT:
 Situación:
 Causa:
 Acción de recuperación:
@@ -102,6 +103,7 @@ Impacto conocido: [solo si existe evidencia]
 
 HA/HU:
 TIPO:
+PLAN DEL SPRINT:
 Situación:
 Causa:
 Acción de recuperación:
@@ -170,12 +172,12 @@ Fecha límite:Viernes 13 de Noviembre
 
 ---
 
-HA/HU:
-Riesgo:
-Impacto:
-Acción de mitigación:
-Responsable:
-Fecha límite:
+HA/HU:6831844
+Riesgo: No completar esta HA puede implicar el incumplimiento de dos HA dependientes de esta 7860649 - 7853278, implicaría realizar carry over nuevamente
+Impacto: Incumplimiento de Sprint
+Acción de mitigación: Priorización de pedidos para lograr accesos a SONAR
+Responsable: Christian Leandro Sanchez
+Fecha límite: 11/11/2026
 
 
 ============================================================
