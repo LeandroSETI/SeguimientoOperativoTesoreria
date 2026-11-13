@@ -433,13 +433,14 @@ tr th { background-color: #f5f5f5; }
       const id = idValue.toUpperCase() === 'GENERAL' ? 'GENERAL' : idValue;
       entries.push({
         id,
-        type: textValue(record.tipo || record.categoria) || sourceType,
+        type: textValue(record.tipo) || (priority === 0 ? '' : textValue(record.categoria) || sourceType),
         description,
         impact: textValue(record.impacto),
         owner: textValue(record.responsable),
         deadline: textValue(record.fecha_limite || record.fecha_objetivo),
         cause: textValue(record.causa || record.causa_descripcion),
         action: textValue(record.accion_mitigacion || record.accion_recuperacion || record.proximo_paso),
+        hasPrimaryType: priority === 0 && hasValue(record.tipo),
         priority
       });
     };
@@ -475,12 +476,17 @@ tr th { background-color: #f5f5f5; }
     const rows = groups.map(group => {
       const records = group.entries.slice().sort((a, b) => a.priority - b.priority);
       const descriptions = records.map(entry => entry.description).sort((a, b) => b.length - a.length);
-      const types = [];
-      records.forEach(entry => {
-        if (!types.some(type => type.toLowerCase() === entry.type.toLowerCase())) types.push(entry.type);
-      });
+      const uniqueTypeTokens = values => {
+        const tokens = [];
+        values.filter(Boolean).join(' / ').split('/').map(type => type.trim()).filter(Boolean).forEach(type => {
+          if (!tokens.some(token => token.toLowerCase() === type.toLowerCase())) tokens.push(type);
+        });
+        return tokens.join(' / ');
+      };
+      const primaryType = records.find(entry => entry.hasPrimaryType)?.type;
+      const type = uniqueTypeTokens(primaryType ? [primaryType] : records.map(entry => entry.type));
       const firstValue = key => records.find(entry => entry[key])?.[key] || 'Por definir';
-      return `<tr><td>${escapeHTML(types.join(' / '))}</td><td>${escapeHTML(group.id)}</td><td>${escapeHTML(descriptions[0])}</td><td>${escapeHTML(firstValue('impact'))}</td><td>${escapeHTML(firstValue('owner'))}</td><td>${escapeHTML(firstValue('deadline'))}</td></tr>`;
+      return `<tr><td>${escapeHTML(type)}</td><td>${escapeHTML(group.id)}</td><td>${escapeHTML(descriptions[0])}</td><td>${escapeHTML(firstValue('impact'))}</td><td>${escapeHTML(firstValue('owner'))}</td><td>${escapeHTML(firstValue('deadline'))}</td></tr>`;
     });
     const section = document.getElementById('risks-section');
     section.hidden = rows.length === 0;

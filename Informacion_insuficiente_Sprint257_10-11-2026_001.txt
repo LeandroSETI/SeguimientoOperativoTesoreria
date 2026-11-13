@@ -1,0 +1,21 @@
+============================================================
+INFORMACIÓN INSUFICIENTE - CONTROL INTERNO PM
+============================================================
+
+Sprint: 257
+Fecha de corte: 10/11/2026
+
+Este archivo es de uso interno y NO hace parte del informe entregado al cliente.
+
+------------------------------------------------------------
+GENERAL
+------------------------------------------------------------
+
+Campo: cumplimiento_sprint
+
+Detalle:
+Falta una línea base congelada y confirmada del Planning para calcular el KPI oficial.
+
+============================================================
+FIN
+============================================================
