@@ -38,17 +38,17 @@ REGLAS RÁPIDAS
 SPRINT: 257
 
 FECHA DE INICIO:
-[fecha real]
+04/11/2026
 
 FECHA DE FINALIZACIÓN:
-[fecha real]
+17/11/2026
 
 FECHA DE CORTE:
-[fecha del seguimiento]
+10/11/2026
 
 Opcional, únicamente si aporta contexto que Azure no contiene:
 ESTADO GENERAL / COMENTARIO DEL PM:
-
+Durante el desarrollo del sprint se tuvieron algunas novedades que entorpecieron el libre desarrollo del mismo, como fue la dada de baja del usuario del talento Edwin Alexander Vallecilla y el problema con los accesos 
 
 ============================================================
 2. NOVEDADES Y CONTEXTO REAL DE HU/HA
@@ -81,6 +81,28 @@ HA/HU: 7860649
 ¿Qué está pasando?: Esta listo para despliegue
 ¿Qué falta o qué sigue?:
 Pendiente del despligue de esta ha 6831844
+
+HA/HU: 7930007
+¿Qué está pasando?: El crud esta listo, desarrollado en su totalidad y ya esta en QA
+¿Qué falta o qué sigue?: Aprobación de certificación para despliegue
+
+HA/HU: 7946584
+¿Qué está pasando?: Se esta validando el peso de los archivos del anexo que llegan para cada caso
+¿Qué falta o qué sigue?: Identificar que ningún anexo pese mas de 50MB para continuar con el DLLO
+
+HA/HU: 7868815
+¿Qué está pasando?: El servicio ya puede consultar los autorizados de un cliente que están guardados en
+schgdmac.mac_autorizado. La consulta distingue dos usos: el envío de correo y la pantalla del front.
+¿Qué falta o qué sigue?: Prueba local del endpoint. El cliente TIPDOC_FS001 / 044394889515105 sí existe. Su tabla de
+autorizados está vacía, así que el servicio responde “No hay autorizados”
+
+HA/HU: 7927999
+¿Qué está pasando?: Desarrollo esta completado, se encuentra en QA para revisión
+¿Qué falta o qué sigue?: Aprobación de los endpoints y utilidades. Novedad: El PO solicito un cambio en los filtros que no estaba contemplado, sin embargo, el cambio es configurable dentro del alcance del sprint
+
+HA/HU: 7864161
+¿Qué está pasando?: La documentación esta lista y disponible en la Wiki según lo acordado
+¿Qué falta o qué sigue?: Aprobación de la documentación y revisión de puntos solicitados por la COES para temas de disponibilidad, una vez se completen se cierra el HU
 
 ============================================================
 3. DESVIACIONES / TRASLADOS / CAMBIOS DE ALCANCE

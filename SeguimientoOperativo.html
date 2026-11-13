@@ -24,7 +24,7 @@ a { text-decoration: none; color: #464feb; }
 .masthead { display: grid; grid-template-columns: 25mm 1fr 30mm; gap: 3mm; align-items: center; min-height: 23mm; margin-bottom: 2mm; }
 .logo-wrap { display: flex; align-items: center; justify-content: center; min-width: 0; }
 .logo-seti { width: 20mm; height: 20mm; object-fit: contain; }
-.logo-banco { width: 27mm; height: 16mm; object-fit: contain; }
+.logo-banco { width: 27mm; height: 16mm; object-fit: contain; transform: scale(1.6); }
 .logo-fallback { display: none; font-size: 8pt; font-weight: 700; color: var(--muted); text-align: center; }
 .masthead-copy { text-align: center; }
 .masthead h1 { margin: 0 0 1.5mm; font-size: 17pt; line-height: 1.12; font-weight: 700; letter-spacing: .05mm; }
@@ -76,6 +76,7 @@ tr th { background-color: #f5f5f5; }
 .execution-progress-fill { height: 100%; background: #1565C0; }
 .execution-progress-value { min-width: 14mm; font-size: 9pt; text-align: right; }
 .execution-progress-label { display: block; margin-top: 1mm; color: #666; font-size: 7pt; line-height: 1.2; text-align: center; }
+.deviation-note { margin: 5px 0 2mm; color: #5F6368; font-size: 8pt; font-weight: 400; font-style: italic; break-before: avoid-page; page-break-before: avoid; break-inside: avoid; page-break-inside: avoid; }
 .note { margin: .8mm 0 1.3mm; color: #666; font-size: 7pt; line-height: 1.25; }
 .no-data { color: #666; font-style: italic; }
 .small { font-size: 7.3pt; }
@@ -165,19 +166,15 @@ tr th { background-color: #f5f5f5; }
     <table class="data-table"><thead><tr><th>Épica / iniciativa</th><th>Células origen</th><th>HU/HA</th><th>SP</th><th>Cerradas</th><th>Activas</th></tr></thead><tbody id="initiatives-body"></tbody></table>
   </section>
 
-  <section class="section" id="deviations-section">
+  <section class="section" id="deviations-section" hidden>
     <h2 class="section-title">Avances con desviación</h2>
     <table class="data-table"><thead><tr><th>Semáforo</th><th>Iniciativa / HA</th><th>Plan</th><th>Real</th><th>Causa</th><th>Acción de recuperación</th></tr></thead><tbody id="deviations-body"></tbody></table>
+    <p class="deviation-note" id="deviation-note" hidden>* Para consultar el detalle de cada HU/HA, ver el Anexo ejecutivo de entregas al final del informe.</p>
   </section>
 
-  <section class="section" id="risks-section">
-    <h2 class="section-title">Riesgos e impedimentos</h2>
-    <table class="data-table data-table--red"><thead><tr><th>Tipo</th><th>Descripción</th><th>Impacto</th><th>Responsable</th><th>Fecha límite</th></tr></thead><tbody id="risks-body"></tbody></table>
-  </section>
-
-  <section class="section" id="commitments-section">
-    <h2 class="section-title">Compromisos y seguimientos</h2>
-    <table class="data-table"><thead><tr><th>Compromiso</th><th>Responsable</th><th>Fecha</th><th>Estado</th><th>Seguimiento</th></tr></thead><tbody id="commitments-body"></tbody></table>
+  <section class="section" id="risks-section" hidden>
+    <h2 class="section-title">Riesgos, bloqueos y dependencias</h2>
+    <table class="data-table data-table--red"><thead><tr><th>Tipo</th><th>HA/HU</th><th>Descripción</th><th>Impacto</th><th>Responsable</th><th>Fecha límite</th></tr></thead><tbody id="risks-body"></tbody></table>
   </section>
 
   <section class="section" id="annex-section">
@@ -376,6 +373,7 @@ tr th { background-color: #f5f5f5; }
         rows.push(`<tr><td>${statusMarkup(state)}</td><td>GENERAL</td><td>${escapeHTML(text(entry.plan, ''))}</td><td>${escapeHTML(situation)}</td><td>${causeImpact}</td><td>${escapeHTML(action)}</td></tr>`);
         return;
       }
+      if (![entry.semaforo, entry.iniciativa, entry.ha_hu, entry.item, entry.plan, entry.resultado_real, entry.real, entry.causa, entry.causa_desviacion, entry.accion_recuperacion, entry.proximo_paso].some(hasValue)) return;
       rows.push(`<tr><td>${statusMarkup(entry.semaforo)}</td><td>${display(entry.iniciativa || entry.ha_hu || entry.item)}</td><td>${display(entry.plan)}</td><td>${display(entry.resultado_real || entry.real)}</td><td>${display(entry.causa || entry.causa_desviacion)}</td><td>${display(entry.accion_recuperacion || entry.proximo_paso)}</td></tr>`);
     });
     items.filter(item => {
@@ -384,7 +382,11 @@ tr th { background-color: #f5f5f5; }
     }).forEach(item => {
       rows.push(`<tr><td>${statusMarkup(item.semaforo)}</td><td>HA/HU ${escapeHTML(item.id)} · ${escapeHTML(text(item.nombre))}</td><td>${display(item.plan)}</td><td>${display(item.resultado_real || item.contexto_avance)}</td><td>${display(item.causa_desviacion)}</td><td>${display(item.accion_recuperacion || item.proximo_paso)}</td></tr>`);
     });
-    document.getElementById('deviations-body').innerHTML = rows.join('') || emptyRow(6, 'No se reportan avances con desviación en el JSON.');
+    const section = document.getElementById('deviations-section');
+    const hasDeviations = rows.length > 0;
+    section.hidden = !hasDeviations;
+    document.getElementById('deviations-body').innerHTML = rows.join('');
+    document.getElementById('deviation-note').hidden = !hasDeviations;
   }
 
   function renderMilestones(data) {
@@ -412,54 +414,77 @@ tr th { background-color: #f5f5f5; }
 
   function renderRisks(data, items) {
     const entries = [];
-    const add = (entry, fallbackType = 'RIESGO', id = '', allowGeneral = false) => {
-      if (typeof entry === 'string') {
-        entries.push({ type: fallbackType, description: entry, id });
-        return;
-      }
-      if (!entry || typeof entry !== 'object' || Array.isArray(entry)) return;
-      const description = entry.descripcion || entry.detalle || entry.nombre || entry.mensaje;
+    const hasValue = value => value !== null && value !== undefined && String(value).trim() !== '';
+    const textValue = value => hasValue(value) ? String(value).trim() : '';
+    const stopWords = new Set(['al', 'algo', 'como', 'completar', 'con', 'cumplimiento', 'de', 'del', 'desde', 'dentro', 'el', 'en', 'entre', 'esta', 'este', 'general', 'ha', 'hasta', 'la', 'las', 'lo', 'los', 'no', 'para', 'plan', 'por', 'proyecto', 'puede', 'que', 'retraso', 'riesgo', 'se', 'sin', 'sprint', 'su', 'sus', 'un', 'una', 'y']);
+    const situationTokens = entry => {
+      const source = [
+        entry.description, entry.cause, entry.action
+      ].filter(Boolean).join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+      return new Set(source.match(/[a-z0-9]{3,}/g)?.filter(token => !stopWords.has(token)) || []);
+    };
+    const add = (entry, sourceType, priority, itemId = '') => {
+      if (!entry || (typeof entry !== 'object' && typeof entry !== 'string') || Array.isArray(entry)) return;
+      const record = typeof entry === 'string' ? { descripcion: entry } : entry;
+      const description = textValue(record.descripcion || record.detalle || record.nombre || record.mensaje);
       if (!description) return;
-      const relatedId = entry.ha_hu ?? id;
-      if (String(relatedId || '').trim().toUpperCase() === 'GENERAL' && !allowGeneral) return;
+      const idValue = textValue(record.ha_hu) || textValue(itemId);
+      if (!idValue) return;
+      const id = idValue.toUpperCase() === 'GENERAL' ? 'GENERAL' : idValue;
       entries.push({
-        type: entry.tipo || entry.categoria || fallbackType,
+        id,
+        type: textValue(record.tipo || record.categoria) || sourceType,
         description,
-        impact: entry.impacto,
-        owner: entry.responsable,
-        deadline: entry.fecha_limite,
-        id: relatedId
+        impact: textValue(record.impacto),
+        owner: textValue(record.responsable),
+        deadline: textValue(record.fecha_limite || record.fecha_objetivo),
+        cause: textValue(record.causa || record.causa_descripcion),
+        action: textValue(record.accion_mitigacion || record.accion_recuperacion || record.proximo_paso),
+        priority
       });
     };
-    (Array.isArray(data.riesgos_identificados) ? data.riesgos_identificados : []).forEach(entry => add(entry, 'RIESGO', '', true));
-    (Array.isArray(data.riesgos) ? data.riesgos : []).forEach(entry => add(entry, 'RIESGO', '', true));
-    items.forEach(item => {
-      (Array.isArray(item.riesgos) ? item.riesgos : []).forEach(entry => add(entry, 'RIESGO', item.id));
-      (Array.isArray(item.dependencias) ? item.dependencias : []).forEach(entry => add(entry, 'DEPENDENCIA', item.id));
-      (Array.isArray(item.bloqueos) ? item.bloqueos : []).forEach(entry => add(entry, 'BLOQUEO', item.id));
-      if (item.riesgo) add(item.riesgo, 'RIESGO', item.id);
-    });
-    const seen = new Set();
-    const seenTypeAndItem = new Set();
-    const unique = entries.filter(entry => {
-      const key = [entry.type, entry.description, entry.id].join('|').toLowerCase();
-      if (seen.has(key)) return false;
-      const relatedKey = entry.id ? `${entry.type}|${entry.id}`.toLowerCase() : '';
-      if (relatedKey && seenTypeAndItem.has(relatedKey)) return false;
-      seen.add(key);
-      if (relatedKey) seenTypeAndItem.add(relatedKey);
-      return true;
-    });
-    document.getElementById('risks-body').innerHTML = unique.map(entry =>
-      `<tr><td>${escapeHTML(entry.type)}${entry.id ? `<br>HA/HU ${escapeHTML(entry.id)}` : ''}</td><td>${escapeHTML(entry.description)}</td><td>${display(entry.impact)}</td><td>${display(entry.owner)}</td><td>${display(entry.deadline)}</td></tr>`
-    ).join('') || emptyRow(5, 'No se reportan riesgos o impedimentos en el JSON.');
-  }
+    (Array.isArray(data.riesgos_identificados) ? data.riesgos_identificados : [])
+      .forEach(entry => add(entry, 'RIESGO', 0));
+    items.forEach(item => (Array.isArray(item.bloqueos) ? item.bloqueos : [])
+      .forEach(entry => add(entry, 'BLOQUEO', 1, item.id)));
+    items.forEach(item => (Array.isArray(item.dependencias) ? item.dependencias : [])
+      .forEach(entry => add(entry, 'DEPENDENCIA', 2, item.id)));
+    items.forEach(item => (Array.isArray(item.riesgos) ? item.riesgos : [])
+      .forEach(entry => add(entry, 'RIESGO', 3, item.id)));
 
-  function renderCommitments(data) {
-    const entries = Array.isArray(data.compromisos) ? data.compromisos : [];
-    document.getElementById('commitments-body').innerHTML = entries.map(entry =>
-      `<tr><td>${display(entry.compromiso || entry.descripcion)}</td><td>${display(entry.responsable)}</td><td>${display(entry.fecha)}</td><td>${statusMarkup(entry.estado)}</td><td>${display(entry.seguimiento || entry.proximo_paso)}</td></tr>`
-    ).join('') || emptyRow(5);
+    const groups = [];
+    entries.forEach(entry => {
+      const tokens = situationTokens(entry);
+      let group = groups.find(candidate => {
+        if (candidate.id.toLowerCase() !== entry.id.toLowerCase()) return false;
+        return candidate.entries.some(existing => {
+          const existingTokens = situationTokens(existing);
+          if (existing.description.toLowerCase() === entry.description.toLowerCase()) return true;
+          let shared = 0;
+          tokens.forEach(token => { if (existingTokens.has(token)) shared += 1; });
+          return shared >= 2;
+        });
+      });
+      if (!group) {
+        group = { id: entry.id, entries: [] };
+        groups.push(group);
+      }
+      group.entries.push(entry);
+    });
+
+    const rows = groups.map(group => {
+      const records = group.entries.slice().sort((a, b) => a.priority - b.priority);
+      const descriptions = records.map(entry => entry.description).sort((a, b) => b.length - a.length);
+      const types = [];
+      records.forEach(entry => {
+        if (!types.some(type => type.toLowerCase() === entry.type.toLowerCase())) types.push(entry.type);
+      });
+      const firstValue = key => records.find(entry => entry[key])?.[key] || 'Por definir';
+      return `<tr><td>${escapeHTML(types.join(' / '))}</td><td>${escapeHTML(group.id)}</td><td>${escapeHTML(descriptions[0])}</td><td>${escapeHTML(firstValue('impact'))}</td><td>${escapeHTML(firstValue('owner'))}</td><td>${escapeHTML(firstValue('deadline'))}</td></tr>`;
+    });
+    const section = document.getElementById('risks-section');
+    section.hidden = rows.length === 0;
+    document.getElementById('risks-body').innerHTML = rows.join('');
   }
 
   function renderAnnex(items) {
@@ -509,8 +534,7 @@ tr th { background-color: #f5f5f5; }
     renderInitiatives(items);
     renderDeviations(data, items);
     renderMilestones(data);
-    renderRisks(data, items);
-    renderCommitments(data);
+    renderRisks(data, data.items);
     renderAnnex(items);
   }
 

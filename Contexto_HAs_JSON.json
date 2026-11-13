@@ -3,16 +3,18 @@
     "version_esquema": "2.0",
     "fuentes": [
       "metricas_celula.json",
-      "Contexto_Manual_Sprint_CaaS.txt"
+      "Contexto_Manual_Sprint_CaaS.txt",
+      "PromptMaestro_PMAssistant_V2.txt",
+      "Prompt_Generar_ArchivoBase_V2.txt"
     ],
     "es_demo": false
   },
   "sprint": {
     "numero": 257,
-    "fecha_inicio": "",
-    "fecha_fin": "",
-    "periodo": "",
-    "fecha_corte": "2026-11-12 12:37:19",
+    "fecha_inicio": "04/11/2026",
+    "fecha_fin": "17/11/2026",
+    "periodo": "04/11/2026 al 17/11/2026",
+    "fecha_corte": "10/11/2026",
     "proyecto": "CaaS Tesorería",
     "servicio": "EVC Tesorería Bancolombia",
     "project_manager": "Christian Leandro Sanchez Rodas",
@@ -20,19 +22,11 @@
   },
   "resumen_ejecutivo": {
     "avance_real": 75.9,
-    "avance_plan": null,
-    "desviacion": null,
     "cumplimiento_sprint": null,
-    "story_points_operativos": 94.0,
-    "story_points_completados": 26.0,
-    "hu_ha_operativas": 12,
-    "hu_ha_completadas": 4,
     "semaforo_general": "SIN INFORMACIÓN",
-    "logro_principal": "Se cerraron entregas del Sprint 257 y se mantienen avances técnicos verificables en las iniciativas activas.",
-    "desviacion_critica": "El reproceso para habilitar accesos a Sonar y resolver Issues asociados afectó la continuidad de los despliegues dependientes.",
-    "decision_requerida": "Dar seguimiento a los apoyos solicitados para resolver accesos y Issues de Sonar que condicionan los despliegues dependientes.",
-    "entregas_principales": "Avances en capacidades de MPT, Posición Propia y MAC conforme a las HU/HA activas y cerradas del corte.",
-    "impacto_fecha_final": "",
+    "logro_principal": "Se registran entregas cerradas y avances verificables en las iniciativas activas del Sprint 257.",
+    "desviacion_critica": "Persisten situaciones asociadas a accesos/Sonar que condicionan despliegues relacionados.",
+    "decision_requerida": "Se mantienen apoyos para resolver accesos y Issues de Sonar.",
     "avance_es_parcial": false,
     "story_points_totales": 94.0,
     "story_points_incluidos_calculo": 94.0,
@@ -42,6 +36,7 @@
   },
   "cumplimiento_sprint": {
     "estado": "EN CURSO",
+    "linea_base_disponible": false,
     "items_comprometidos": [],
     "comprometidos": null,
     "completados": 4,
@@ -50,7 +45,7 @@
     "denominador_kpi": null,
     "porcentaje": null,
     "estado_kpi": "EN CURSO",
-    "nota": "Falta línea base confirmada del Planning. Las HU/HA New no deben tratarse como comprometidas."
+    "nota": "Falta línea base congelada y confirmada del Planning."
   },
   "items": [
     {
@@ -99,20 +94,20 @@
           "estado": "Closed"
         }
       ],
-      "contexto_avance": "Se está reestructurando la eliminación de SpreadsCliente y SpreadSegmentos. El fix está en verificación funcional por parte de Bancolombia.",
+      "contexto_avance": "Se esta reestructurando la eliminación de SpreadsCliente y SpreadSegmentos",
       "dependencias": [],
       "bloqueos": [],
       "observaciones": [],
       "clasificacion": "AVANCE RELEVANTE",
       "clasificacion_valor": "AVANCE RELEVANTE",
       "avance": "83.3%",
-      "valor_generado": "Existe avance verificable de ejecución, pero la capacidad completa aún depende de los pendientes descritos.",
-      "proximo_paso": "Recibir el resultado de la verificación funcional y cerrar la historia si no se reportan novedades.",
+      "valor_generado": "Existe trabajo verificable en ejecución, aún sin evidencia suficiente de una capacidad completamente materializada.",
+      "proximo_paso": "Este fix avanza sin ninguna novedad, esta en fase de verificación funcional por parte del banco, una vez reporten se realiza el cierre de la historia",
       "riesgo": "",
       "riesgos": [],
-      "semaforo": "SIN INFORMACIÓN",
+      "semaforo": "VERDE",
       "plan": "",
-      "resultado_real": "Se está reestructurando la eliminación de SpreadsCliente y SpreadSegmentos. El fix está en verificación funcional por parte de Bancolombia.",
+      "resultado_real": "Se esta reestructurando la eliminación de SpreadsCliente y SpreadSegmentos",
       "causa_desviacion": "",
       "accion_recuperacion": ""
     },
@@ -138,14 +133,14 @@
           "origen": "REGLA_CIERRE_100_PORCIENTO"
         }
       ],
-      "contexto_avance": "",
+      "contexto_avance": "HU/HA cerrada con ejecución completada y sin contradicciones vigentes reportadas.",
       "dependencias": [],
       "bloqueos": [],
       "observaciones": [],
-      "clasificacion": "CLASIFICACIÓN PENDIENTE POR FALTA DE EVIDENCIA",
-      "clasificacion_valor": "CLASIFICACIÓN PENDIENTE POR FALTA DE EVIDENCIA",
+      "clasificacion": "VALOR TÉCNICO",
+      "clasificacion_valor": "VALOR TÉCNICO",
       "avance": "100%",
-      "valor_generado": "La HU/HA está cerrada en Azure DevOps, pero no existe contexto manual suficiente para describir de forma verificable el valor materializado.",
+      "valor_generado": "Se completó el resultado definido por los criterios de aceptación: Agregar condicion, solo exista un comercial bloqueado entre 2, reiterar que si sea el Backup o el principal.",
       "proximo_paso": "No se reportan pendientes adicionales para esta HU/HA.",
       "riesgo": "",
       "riesgos": [],
@@ -186,14 +181,14 @@
           "estado": "Closed"
         }
       ],
-      "contexto_avance": "",
+      "contexto_avance": "HU/HA cerrada con ejecución completada y sin contradicciones vigentes reportadas.",
       "dependencias": [],
       "bloqueos": [],
       "observaciones": [],
-      "clasificacion": "CLASIFICACIÓN PENDIENTE POR FALTA DE EVIDENCIA",
-      "clasificacion_valor": "CLASIFICACIÓN PENDIENTE POR FALTA DE EVIDENCIA",
+      "clasificacion": "VALOR TÉCNICO",
+      "clasificacion_valor": "VALOR TÉCNICO",
       "avance": "100%",
-      "valor_generado": "La HU/HA está cerrada en Azure DevOps, pero no existe contexto manual suficiente para describir de forma verificable el valor materializado.",
+      "valor_generado": "Se completó el resultado definido por los criterios de aceptación: Tabla creada en la BD MPT DEV y QA.",
       "proximo_paso": "No se reportan pendientes adicionales para esta HU/HA.",
       "riesgo": "",
       "riesgos": [],
@@ -240,14 +235,14 @@
           "estado": "Closed"
         }
       ],
-      "contexto_avance": "",
+      "contexto_avance": "HU/HA cerrada con ejecución completada y sin contradicciones vigentes reportadas.",
       "dependencias": [],
       "bloqueos": [],
       "observaciones": [],
-      "clasificacion": "CLASIFICACIÓN PENDIENTE POR FALTA DE EVIDENCIA",
-      "clasificacion_valor": "CLASIFICACIÓN PENDIENTE POR FALTA DE EVIDENCIA",
+      "clasificacion": "VALOR FUNCIONAL",
+      "clasificacion_valor": "VALOR FUNCIONAL",
       "avance": "100%",
-      "valor_generado": "La HU/HA está cerrada en Azure DevOps, pero no existe contexto manual suficiente para describir de forma verificable el valor materializado.",
+      "valor_generado": "Se completó el resultado definido por los criterios de aceptación: Modificar Tabla auditoria agregando el campo entidad, en la BD MPT DEV y QA; endpoint que permita registrar las auditorías por entidad.",
       "proximo_paso": "No se reportan pendientes adicionales para esta HU/HA.",
       "riesgo": "",
       "riesgos": [],
@@ -334,41 +329,39 @@
           "estado": "Closed"
         }
       ],
-      "contexto_avance": "El desarrollo está completo y el despliegue estuvo condicionado por Issues de SonarQ y por la habilitación de accesos requeridos.",
+      "contexto_avance": "Todo el desarrollo esta completo, no se ha desplegado debido a issues reportados por SonarQ",
       "dependencias": [],
       "bloqueos": [
         {
-          "tipo": "BLOQUEO",
-          "situacion": "Problema de accesos a Sonar para solventar los Issues.",
-          "requisito": "Resolver los pedidos de ingreso a los grupos de seguridad requeridos en Sonar; la documentación de accesos estaba incompleta en la wiki.",
-          "equipo_responsable": "CaaS Tesorería / Bancolombia",
-          "fecha_objetivo": "2026-11-13"
+          "tipo": "ACCESOS",
+          "descripcion": "Problemas de acceso a Sonar para solventar los Issues; la documentación de accesos estaba incompleta en la wiki.",
+          "responsable": "CaaS Tesorería / Bancolombia",
+          "fecha_limite": "13/11/2026"
         }
       ],
       "observaciones": [],
-      "clasificacion": "CLASIFICACIÓN PENDIENTE POR FALTA DE EVIDENCIA",
-      "clasificacion_valor": "CLASIFICACIÓN PENDIENTE POR FALTA DE EVIDENCIA",
+      "clasificacion": "VALOR TÉCNICO",
+      "clasificacion_valor": "VALOR TÉCNICO",
       "avance": "100%",
-      "valor_generado": "La HU/HA está cerrada; la clasificación de valor requiere evidencia explícita adicional.",
-      "proximo_paso": "Completar la habilitación de accesos, resolver los Issues de Sonar y realizar el despliegue.",
-      "riesgo": "",
+      "valor_generado": "La HU/HA está cerrada y existe evidencia de ejecución, pero la clasificación detallada debe considerar el contexto vigente.",
+      "proximo_paso": "1.Habilitar accesos en Sonar Q (se solicitaron los pedidos para los ingresos a los grupos de seguridad requeridos, esto tardo mas de lo esperado porque el proceso cambio y no estaba documentado en la wiki) 2.Solucionar los Issues reportados en SONAR para salir al despliegue",
+      "riesgo": "No completar esta HA puede implicar incumplimiento de las HA dependientes 7860649 y 7853278 y generar carry over.",
       "riesgos": [
         {
-          "ha_hu": 6831844,
           "tipo": "RIESGO DE CUMPLIMIENTO",
-          "descripcion": "No completar esta HA puede implicar el incumplimiento de las HA dependientes 7860649 y 7853278 y generar carry over nuevamente.",
+          "descripcion": "No completar esta HA puede implicar incumplimiento de las HA dependientes 7860649 y 7853278 y generar carry over.",
           "impacto": "Incumplimiento de Sprint.",
-          "accion_mitigacion": "Priorizar los pedidos para lograr accesos a Sonar.",
+          "accion_mitigacion": "Priorización de pedidos para lograr accesos a Sonar.",
           "responsable": "Christian Leandro Sanchez",
-          "fecha_limite": "2026-11-11",
+          "fecha_limite": "11/11/2026",
           "estado": "EN SEGUIMIENTO"
         }
       ],
       "semaforo": "ROJO",
-      "plan": "",
-      "resultado_real": "El desarrollo está completo y el despliegue estuvo condicionado por Issues de SonarQ y por la habilitación de accesos requeridos.",
-      "causa_desviacion": "Problema de accesos a Sonar para solventar los Issues.",
-      "accion_recuperacion": "Priorizar los pedidos para lograr accesos a Sonar."
+      "plan": "Completar la HA 6831844 dentro del Sprint 257 y habilitar las entregas dependientes.",
+      "resultado_real": "Todo el desarrollo esta completo, no se ha desplegado debido a issues reportados por SonarQ",
+      "causa_desviacion": "Problemas de acceso a Sonar para solventar los Issues; la documentación de accesos estaba incompleta en la wiki.",
+      "accion_recuperacion": "Priorización de pedidos para lograr accesos a Sonar."
     },
     {
       "id": 7930007,
@@ -435,20 +428,20 @@
           "estado": "Closed"
         }
       ],
-      "contexto_avance": "",
+      "contexto_avance": "El crud esta listo, desarrollado en su totalidad y ya esta en QA",
       "dependencias": [],
       "bloqueos": [],
       "observaciones": [],
       "clasificacion": "AVANCE RELEVANTE",
       "clasificacion_valor": "AVANCE RELEVANTE",
       "avance": "100%",
-      "valor_generado": "Existe trabajo operativo en ejecución, pero no hay contexto manual suficiente para confirmar una capacidad materializada.",
-      "proximo_paso": "Información insuficiente para determinar el próximo paso ejecutivo.",
+      "valor_generado": "Existe trabajo verificable en ejecución, aún sin evidencia suficiente de una capacidad completamente materializada.",
+      "proximo_paso": "Aprobación de certificación para despliegue",
       "riesgo": "",
       "riesgos": [],
-      "semaforo": "SIN INFORMACIÓN",
+      "semaforo": "VERDE",
       "plan": "",
-      "resultado_real": "",
+      "resultado_real": "El crud esta listo, desarrollado en su totalidad y ya esta en QA",
       "causa_desviacion": "",
       "accion_recuperacion": ""
     },
@@ -516,20 +509,20 @@
           "estado": "New"
         }
       ],
-      "contexto_avance": "",
+      "contexto_avance": "Se esta validando el peso de los archivos del anexo que llegan para cada caso",
       "dependencias": [],
       "bloqueos": [],
       "observaciones": [],
       "clasificacion": "AVANCE RELEVANTE",
       "clasificacion_valor": "AVANCE RELEVANTE",
       "avance": "0%",
-      "valor_generado": "Existe trabajo operativo en ejecución, pero no hay contexto manual suficiente para confirmar una capacidad materializada.",
-      "proximo_paso": "Información insuficiente para determinar el próximo paso ejecutivo.",
+      "valor_generado": "Existe trabajo verificable en ejecución, aún sin evidencia suficiente de una capacidad completamente materializada.",
+      "proximo_paso": "Identificar que ningún anexo pese mas de 50MB para continuar con el DLLO",
       "riesgo": "",
       "riesgos": [],
-      "semaforo": "SIN INFORMACIÓN",
+      "semaforo": "VERDE",
       "plan": "",
-      "resultado_real": "",
+      "resultado_real": "Se esta validando el peso de los archivos del anexo que llegan para cada caso",
       "causa_desviacion": "",
       "accion_recuperacion": ""
     },
@@ -605,14 +598,13 @@
           "estado": "Active"
         }
       ],
-      "contexto_avance": "La entrega está lista para despliegue y depende del despliegue de la HA 6831844.",
+      "contexto_avance": "Esta listo para despliegue",
       "dependencias": [
         {
           "tipo": "DEPENDENCIA",
-          "situacion": "Se debe desplegar primero la integración de cambios asociada a la HA 6831844.",
-          "requisito": "Resolver los Issues reportados por Sonar en la HA 6831844.",
-          "equipo_responsable": "CaaS Tesorería",
-          "fecha_objetivo": "2026-11-13"
+          "descripcion": "El despliegue depende de la HA 6831844 y de resolver sus Issues reportados por Sonar.",
+          "responsable": "CaaS Tesorería",
+          "fecha_limite": "13/11/2026"
         }
       ],
       "bloqueos": [],
@@ -620,26 +612,25 @@
       "clasificacion": "AVANCE RELEVANTE",
       "clasificacion_valor": "AVANCE RELEVANTE",
       "avance": "70%",
-      "valor_generado": "Existe avance verificable de ejecución, pero la capacidad completa aún depende de los pendientes descritos.",
-      "proximo_paso": "Resolver los Issues de la HA 6831844 y habilitar el despliegue.",
-      "riesgo": "",
+      "valor_generado": "Existe trabajo verificable en ejecución, aún sin evidencia suficiente de una capacidad completamente materializada.",
+      "proximo_paso": "Pendiente del despligue de esta ha 6831844",
+      "riesgo": "No completar dentro del Sprint 257.",
       "riesgos": [
         {
-          "ha_hu": 7860649,
           "tipo": "RIESGO DE CUMPLIMIENTO",
-          "descripcion": "Existe riesgo de no completar la entrega dentro del Sprint 257.",
+          "descripcion": "No completar dentro del Sprint 257.",
           "impacto": "Retraso del plan general para el proyecto.",
-          "accion_mitigacion": "Realizar sesión para definir los Issues de la HA 6831844, priorizarlos y resolverlos.",
+          "accion_mitigacion": "Realizar sesión para definir Issues de la HA 6831844, priorizarlos y resolverlos.",
           "responsable": "Henry Zambrano - Edwin Vallecilla - Daniel Gustavo Aponte",
-          "fecha_limite": "2026-11-13",
+          "fecha_limite": "13/11/2026",
           "estado": "EN SEGUIMIENTO"
         }
       ],
       "semaforo": "AMARILLO",
-      "plan": "",
-      "resultado_real": "La entrega está lista para despliegue y depende del despliegue de la HA 6831844.",
-      "causa_desviacion": "Se debe desplegar primero la integración de cambios asociada a la HA 6831844.",
-      "accion_recuperacion": "Realizar sesión para definir los Issues de la HA 6831844, priorizarlos y resolverlos."
+      "plan": "Completar la HA/HU 7860649 dentro del Sprint 257.",
+      "resultado_real": "Esta listo para despliegue",
+      "causa_desviacion": "El despliegue depende de la HA 6831844 y de resolver sus Issues reportados por Sonar.",
+      "accion_recuperacion": "Realizar sesión para definir Issues de la HA 6831844, priorizarlos y resolverlos."
     },
     {
       "id": 7868815,
@@ -678,20 +669,20 @@
           "estado": "Active"
         }
       ],
-      "contexto_avance": "",
+      "contexto_avance": "El servicio ya puede consultar los autorizados de un cliente que están guardados en schgdmac.mac_autorizado. La consulta distingue dos usos: el envío de correo y la pantalla del front.",
       "dependencias": [],
       "bloqueos": [],
       "observaciones": [],
       "clasificacion": "AVANCE RELEVANTE",
       "clasificacion_valor": "AVANCE RELEVANTE",
       "avance": "0%",
-      "valor_generado": "Existe trabajo operativo en ejecución, pero no hay contexto manual suficiente para confirmar una capacidad materializada.",
-      "proximo_paso": "Información insuficiente para determinar el próximo paso ejecutivo.",
+      "valor_generado": "Existe trabajo verificable en ejecución, aún sin evidencia suficiente de una capacidad completamente materializada.",
+      "proximo_paso": "Prueba local del endpoint. El cliente TIPDOC_FS001 / 044394889515105 sí existe. Su tabla de autorizados está vacía, así que el servicio responde “No hay autorizados”",
       "riesgo": "",
       "riesgos": [],
-      "semaforo": "SIN INFORMACIÓN",
+      "semaforo": "VERDE",
       "plan": "",
-      "resultado_real": "",
+      "resultado_real": "El servicio ya puede consultar los autorizados de un cliente que están guardados en schgdmac.mac_autorizado. La consulta distingue dos usos: el envío de correo y la pantalla del front.",
       "causa_desviacion": "",
       "accion_recuperacion": ""
     },
@@ -751,22 +742,22 @@
           "estado": "Closed"
         }
       ],
-      "contexto_avance": "",
+      "contexto_avance": "Desarrollo esta completado, se encuentra en QA para revisión",
       "dependencias": [],
       "bloqueos": [],
       "observaciones": [],
       "clasificacion": "AVANCE RELEVANTE",
       "clasificacion_valor": "AVANCE RELEVANTE",
       "avance": "87.5%",
-      "valor_generado": "Existe trabajo operativo en ejecución, pero no hay contexto manual suficiente para confirmar una capacidad materializada.",
-      "proximo_paso": "Información insuficiente para determinar el próximo paso ejecutivo.",
+      "valor_generado": "Existe trabajo verificable en ejecución, aún sin evidencia suficiente de una capacidad completamente materializada.",
+      "proximo_paso": "Aprobación de los endpoints y utilidades. Novedad: El PO solicito un cambio en los filtros que no estaba contemplado, sin embargo, el cambio es configurable dentro del alcance del sprint",
       "riesgo": "",
       "riesgos": [],
-      "semaforo": "SIN INFORMACIÓN",
-      "plan": "",
-      "resultado_real": "",
-      "causa_desviacion": "",
-      "accion_recuperacion": ""
+      "semaforo": "AMARILLO",
+      "plan": "Completar y validar en QA los endpoints CRUD de calendarios definidos para el Sprint 257.",
+      "resultado_real": "Desarrollo esta completado, se encuentra en QA para revisión",
+      "causa_desviacion": "El PO solicitó un cambio en los filtros que no estaba contemplado inicialmente.",
+      "accion_recuperacion": "Incorporar el ajuste configurable dentro del alcance del Sprint y completar la aprobación en QA."
     },
     {
       "id": 7853278,
@@ -823,14 +814,13 @@
           "estado": "Closed"
         }
       ],
-      "contexto_avance": "Todas las tareas reportadas están completadas; el despliegue está pendiente y se planeó realizarlo junto con la HA 6831844 para reducir procedimientos.",
+      "contexto_avance": "Todas las tareas de la historia están completadas",
       "dependencias": [
         {
           "tipo": "DEPENDENCIA",
-          "situacion": "Se debe desplegar primero la integración de cambios asociada a la HA 6831844.",
-          "requisito": "Terminar de resolver los Issues reportados por Sonar en la HA 6831844.",
-          "equipo_responsable": "CaaS Tesorería",
-          "fecha_objetivo": "2026-11-13"
+          "descripcion": "El despliegue conjunto depende de terminar de resolver los Issues reportados por Sonar de la HA 6831844.",
+          "responsable": "CaaS Tesorería",
+          "fecha_limite": "13/11/2026"
         }
       ],
       "bloqueos": [],
@@ -838,26 +828,25 @@
       "clasificacion": "AVANCE RELEVANTE",
       "clasificacion_valor": "AVANCE RELEVANTE",
       "avance": "100%",
-      "valor_generado": "Existe avance verificable de ejecución, pero la capacidad completa aún depende de los pendientes descritos.",
-      "proximo_paso": "Resolver los Issues de Sonar asociados a la HA 6831844 y ejecutar el despliegue conjunto.",
-      "riesgo": "",
+      "valor_generado": "Existe trabajo verificable en ejecución, aún sin evidencia suficiente de una capacidad completamente materializada.",
+      "proximo_paso": "El despliegue esta pendiente, se planeo llevar el despliegue en conjunto con el HA 6831844, esto para ahorrar procedimientos",
+      "riesgo": "No completar dentro del Sprint 257.",
       "riesgos": [
         {
-          "ha_hu": 7853278,
           "tipo": "RIESGO DE CUMPLIMIENTO",
-          "descripcion": "Existe riesgo de no completar la entrega dentro del Sprint 257.",
+          "descripcion": "No completar dentro del Sprint 257.",
           "impacto": "Retraso del plan general para el proyecto.",
-          "accion_mitigacion": "Realizar sesión para definir los Issues de la HA 6831844, priorizarlos y resolverlos.",
+          "accion_mitigacion": "Realizar sesión para definir Issues de la HA 6831844, priorizarlos y resolverlos.",
           "responsable": "Henry Zambrano - Edwin Vallecilla - Daniel Gustavo Aponte",
-          "fecha_limite": "2026-11-13",
+          "fecha_limite": "13/11/2026",
           "estado": "EN SEGUIMIENTO"
         }
       ],
       "semaforo": "AMARILLO",
-      "plan": "",
-      "resultado_real": "Todas las tareas reportadas están completadas; el despliegue está pendiente y se planeó realizarlo junto con la HA 6831844 para reducir procedimientos.",
-      "causa_desviacion": "Se debe desplegar primero la integración de cambios asociada a la HA 6831844.",
-      "accion_recuperacion": "Realizar sesión para definir los Issues de la HA 6831844, priorizarlos y resolverlos."
+      "plan": "Completar la HA/HU 7853278 dentro del Sprint 257.",
+      "resultado_real": "Todas las tareas de la historia están completadas",
+      "causa_desviacion": "El despliegue conjunto depende de terminar de resolver los Issues reportados por Sonar de la HA 6831844.",
+      "accion_recuperacion": "Realizar sesión para definir Issues de la HA 6831844, priorizarlos y resolverlos."
     },
     {
       "id": 7864161,
@@ -890,147 +879,68 @@
           "estado": "Closed"
         }
       ],
-      "contexto_avance": "",
+      "contexto_avance": "La documentación esta lista y disponible en la Wiki según lo acordado",
       "dependencias": [],
       "bloqueos": [],
       "observaciones": [],
       "clasificacion": "AVANCE RELEVANTE",
       "clasificacion_valor": "AVANCE RELEVANTE",
       "avance": "66.7%",
-      "valor_generado": "Existe trabajo operativo en ejecución, pero no hay contexto manual suficiente para confirmar una capacidad materializada.",
-      "proximo_paso": "Información insuficiente para determinar el próximo paso ejecutivo.",
+      "valor_generado": "Existe trabajo verificable en ejecución, aún sin evidencia suficiente de una capacidad completamente materializada.",
+      "proximo_paso": "Aprobación de la documentación y revisión de puntos solicitados por la COES para temas de disponibilidad, una vez se completen se cierra el HU",
       "riesgo": "",
       "riesgos": [],
-      "semaforo": "SIN INFORMACIÓN",
+      "semaforo": "VERDE",
       "plan": "",
-      "resultado_real": "",
+      "resultado_real": "La documentación esta lista y disponible en la Wiki según lo acordado",
       "causa_desviacion": "",
       "accion_recuperacion": ""
     }
   ],
-  "novedades_ejecutivas": [
-    {
-      "ha_hu": 6831844,
-      "descripcion": "El despliegue estuvo condicionado por accesos a Sonar e Issues que debían resolverse.",
-      "categoria": "BLOQUEO",
-      "estado": "EN SEGUIMIENTO"
-    },
-    {
-      "ha_hu": 7853278,
-      "descripcion": "Todas las tareas reportadas están completadas; el despliegue está pendiente y coordinado con la HA 6831844.",
-      "categoria": "DEPENDENCIA",
-      "estado": "EN SEGUIMIENTO"
-    },
-    {
-      "ha_hu": 7860649,
-      "descripcion": "La entrega está lista para despliegue y depende de la HA 6831844.",
-      "categoria": "DEPENDENCIA",
-      "estado": "EN SEGUIMIENTO"
-    }
-  ],
+  "novedades_ejecutivas": [],
   "hitos": [],
   "riesgos_identificados": [
     {
-      "ha_hu": 7860649,
-      "tipo": "RIESGO DE CUMPLIMIENTO",
-      "descripcion": "Existe riesgo de no completar la entrega dentro del Sprint 257.",
+      "tipo": "RIESGO DE CUMPLIMIENTO / DEPENDENCIA",
+      "descripcion": "El despliegue depende de la HA 6831844 y de resolver sus Issues reportados por Sonar.",
       "impacto": "Retraso del plan general para el proyecto.",
-      "accion_mitigacion": "Realizar sesión para definir los Issues de la HA 6831844, priorizarlos y resolverlos.",
+      "accion_mitigacion": "Realizar sesión para definir Issues de la HA 6831844, priorizarlos y resolverlos.",
       "responsable": "Henry Zambrano - Edwin Vallecilla - Daniel Gustavo Aponte",
-      "fecha_limite": "2026-11-13",
-      "estado": "EN SEGUIMIENTO"
+      "fecha_limite": "13/11/2026",
+      "estado": "EN SEGUIMIENTO",
+      "ha_hu": 7860649
     },
     {
-      "ha_hu": 7853278,
-      "tipo": "RIESGO DE CUMPLIMIENTO",
-      "descripcion": "Existe riesgo de no completar la entrega dentro del Sprint 257.",
+      "tipo": "RIESGO DE CUMPLIMIENTO / DEPENDENCIA",
+      "descripcion": "El despliegue conjunto depende de terminar de resolver los Issues reportados por Sonar de la HA 6831844.",
       "impacto": "Retraso del plan general para el proyecto.",
-      "accion_mitigacion": "Realizar sesión para definir los Issues de la HA 6831844, priorizarlos y resolverlos.",
+      "accion_mitigacion": "Realizar sesión para definir Issues de la HA 6831844, priorizarlos y resolverlos.",
       "responsable": "Henry Zambrano - Edwin Vallecilla - Daniel Gustavo Aponte",
-      "fecha_limite": "2026-11-13",
-      "estado": "EN SEGUIMIENTO"
+      "fecha_limite": "13/11/2026",
+      "estado": "EN SEGUIMIENTO",
+      "ha_hu": 7853278
     },
     {
-      "ha_hu": 6831844,
-      "tipo": "RIESGO DE CUMPLIMIENTO",
-      "descripcion": "No completar esta HA puede implicar el incumplimiento de las HA dependientes 7860649 y 7853278 y generar carry over nuevamente.",
+      "tipo": "RIESGO DE CUMPLIMIENTO / ACCESOS",
+      "descripcion": "No completar esta HA puede implicar incumplimiento de las HA dependientes 7860649 y 7853278 y generar carry over.",
       "impacto": "Incumplimiento de Sprint.",
-      "accion_mitigacion": "Priorizar los pedidos para lograr accesos a Sonar.",
+      "accion_mitigacion": "Priorización de pedidos para lograr accesos a Sonar.",
       "responsable": "Christian Leandro Sanchez",
-      "fecha_limite": "2026-11-11",
-      "estado": "EN SEGUIMIENTO"
+      "fecha_limite": "11/11/2026",
+      "estado": "EN SEGUIMIENTO",
+      "ha_hu": 6831844
     }
   ],
-  "compromisos": [
-    {
-      "ha_hu": 7860649,
-      "descripcion": "Solventar Issues de la HA 6831844.",
-      "responsable": "Henry Zambrano",
-      "fecha": "2026-11-13",
-      "estado": "EN CURSO",
-      "origen": "SEMANA ANTERIOR",
-      "comentario_cierre": ""
-    }
-  ],
+  "compromisos": [],
   "informacion_insuficiente": [
-    {
-      "ha_hu": 8025796,
-      "campo": "valor_generado",
-      "descripcion": "HU/HA cerrada sin contexto manual suficiente para clasificar el valor materializado."
-    },
-    {
-      "ha_hu": 7864215,
-      "campo": "valor_generado",
-      "descripcion": "HU/HA cerrada sin contexto manual suficiente para clasificar el valor materializado."
-    },
-    {
-      "ha_hu": 7864220,
-      "campo": "valor_generado",
-      "descripcion": "HU/HA cerrada sin contexto manual suficiente para clasificar el valor materializado."
-    },
-    {
-      "ha_hu": 7930007,
-      "campo": "contexto_avance",
-      "descripcion": "No se suministró contexto manual vigente para determinar valor generado y próximo paso con suficiente evidencia."
-    },
-    {
-      "ha_hu": 7946584,
-      "campo": "contexto_avance",
-      "descripcion": "No se suministró contexto manual vigente para determinar valor generado y próximo paso con suficiente evidencia."
-    },
-    {
-      "ha_hu": 7868815,
-      "campo": "contexto_avance",
-      "descripcion": "No se suministró contexto manual vigente para determinar valor generado y próximo paso con suficiente evidencia."
-    },
-    {
-      "ha_hu": 7927999,
-      "campo": "contexto_avance",
-      "descripcion": "No se suministró contexto manual vigente para determinar valor generado y próximo paso con suficiente evidencia."
-    },
-    {
-      "ha_hu": 7864161,
-      "campo": "contexto_avance",
-      "descripcion": "No se suministró contexto manual vigente para determinar valor generado y próximo paso con suficiente evidencia."
-    },
-    {
-      "ha_hu": "GENERAL",
-      "campo": "periodo",
-      "descripcion": "FECHA DE INICIO y FECHA DE FINALIZACIÓN conservan marcadores en el contexto manual; no se construye el periodo."
-    },
     {
       "ha_hu": "GENERAL",
       "campo": "cumplimiento_sprint",
-      "descripcion": "Falta una línea base congelada del Planning para calcular comprometidos y KPI de cumplimiento."
-    },
-    {
-      "ha_hu": "GENERAL",
-      "campo": "salud_ejecucion",
-      "descripcion": "Sin fechas reales de inicio y fin no se calcula avance esperado por momento del Sprint."
+      "descripcion": "Falta una línea base congelada y confirmada del Planning para calcular el KPI oficial."
     }
   ],
   "trazabilidad_contexto": {
-    "corte_actual": "2026-11-12 12:37:19",
+    "corte_actual": "10/11/2026",
     "fuentes": [
       {
         "tipo": "METRICAS",
