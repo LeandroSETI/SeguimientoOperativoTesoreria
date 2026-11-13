@@ -1,80 +1,385 @@
 {
   "metadata": {
     "version_esquema": "2.0",
-    "generado_desde": [
+    "fuentes": [
       "metricas_celula.json",
       "Contexto_Manual_Sprint_CaaS.txt"
     ],
-    "fecha_generacion": "2026-11-10",
     "es_demo": false
   },
   "sprint": {
     "numero": 257,
+    "fecha_inicio": "",
+    "fecha_fin": "",
     "periodo": "",
-    "fecha_corte": "2026-11-10 13:39:55",
+    "fecha_corte": "2026-11-12 12:37:19",
     "proyecto": "CaaS Tesorería",
     "servicio": "EVC Tesorería Bancolombia",
     "project_manager": "Christian Leandro Sanchez Rodas",
     "estado": "EN CURSO"
   },
-  "trazabilidad_contexto": {
-    "corte_actual": "SEGUIMIENTO 10-11-2026",
-    "fuentes": [
-      {
-        "tipo": "METRICAS",
-        "momento": "ACTUAL",
-        "archivo": "metricas_celula.json"
-      },
-      {
-        "tipo": "CONTEXTO_MANUAL",
-        "momento": "ACTUAL",
-        "archivo": "Contexto_Manual_Sprint_CaaS.txt"
-      }
-    ],
-    "comparacion_historica_disponible": false,
-    "nota": "No se adjuntó histórico manual anterior ni línea base de Planning para comparar cambios."
-  },
   "resumen_ejecutivo": {
-    "avance_real": 71.3,
+    "avance_real": 75.9,
     "avance_plan": null,
     "desviacion": null,
     "cumplimiento_sprint": null,
-    "semaforo_general": "ROJO",
-    "logro_principal": "La HA 8009304 completó sus tareas y está pendiente únicamente del despliegue a producción; la HA 8025796 se encuentra cerrada en Azure DevOps.",
-    "desviacion_critica": "El despliegue de las HA 6831844, 7853278 y 7860649 está condicionado por Issues de SonarQube y por la gestión de accesos requerida para resolverlos.",
-    "decision_requerida": "Dar seguimiento a los pedidos de acceso a SonarQube y mantener la priorización de la resolución de Issues para habilitar los despliegues previstos.",
-    "entregas_principales": "Avance técnico en los flujos MAC y finalización del fix de eliminación de SpreadsCliente y SpreadsSegmentos.",
-    "impacto_fecha_final": "No existe evidencia suficiente para confirmar impacto sobre la fecha final del proyecto.",
-    "avance_es_parcial": true,
-    "story_points_totales": 78.0,
-    "story_points_incluidos_calculo": 63.0,
-    "items_incluidos_calculo": 7,
-    "items_excluidos_calculo": 3,
-    "nota_calculo": "El avance ponderado es parcial porque existen HU/HA sin tareas informadas y, por tanto, sin avance calculable."
+    "story_points_operativos": 94.0,
+    "story_points_completados": 26.0,
+    "hu_ha_operativas": 12,
+    "hu_ha_completadas": 4,
+    "semaforo_general": "SIN INFORMACIÓN",
+    "logro_principal": "Se cerraron entregas del Sprint 257 y se mantienen avances técnicos verificables en las iniciativas activas.",
+    "desviacion_critica": "El reproceso para habilitar accesos a Sonar y resolver Issues asociados afectó la continuidad de los despliegues dependientes.",
+    "decision_requerida": "Dar seguimiento a los apoyos solicitados para resolver accesos y Issues de Sonar que condicionan los despliegues dependientes.",
+    "entregas_principales": "Avances en capacidades de MPT, Posición Propia y MAC conforme a las HU/HA activas y cerradas del corte.",
+    "impacto_fecha_final": "",
+    "avance_es_parcial": false,
+    "story_points_totales": 94.0,
+    "story_points_incluidos_calculo": 94.0,
+    "items_incluidos_calculo": 12,
+    "items_excluidos_calculo": 0,
+    "nota_calculo": ""
   },
   "cumplimiento_sprint": {
     "estado": "EN CURSO",
-    "linea_base_disponible": false,
     "items_comprometidos": [],
     "comprometidos": null,
-    "completados": null,
+    "completados": 4,
     "trasladados": null,
     "impedimentos_cliente": null,
     "denominador_kpi": null,
     "porcentaje": null,
-    "estado_kpi": "INFORMACIÓN INSUFICIENTE",
-    "nota": "No se adjuntó una copia congelada y confirmada del Planning. No se calcula el KPI desde la extracción actual."
+    "estado_kpi": "EN CURSO",
+    "nota": "Falta línea base confirmada del Planning. Las HU/HA New no deben tratarse como comprometidas."
   },
   "items": [
+    {
+      "id": 8009304,
+      "tipo": "User Story",
+      "nombre": "MsTasas - Fix Eliminación de SpreadsCliente y SpreadsSegmentos",
+      "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
+      "epica_id": 7848735,
+      "celula": "Rocket",
+      "fuente_celula": "TAG",
+      "story_points": 3.0,
+      "estado": "Active",
+      "descripcion": "Yo como parte del equipo Rocket requiero hacer una reestructuracion de la eliminación de SpreadsCliente y SpreadsSegmentos",
+      "criterios_aceptacion": [
+        "Cambiar la forma de eliminación de SpreadsCliente y SpreadsSegmentos"
+      ],
+      "tareas": [
+        {
+          "id": 8038502,
+          "nombre": "Validacion funcional",
+          "estado": "Active"
+        },
+        {
+          "id": 8038498,
+          "nombre": "Se realizaron pruebas unitarias",
+          "estado": "Closed"
+        },
+        {
+          "id": 8009328,
+          "nombre": "Modificacion de las pruebas unitarias",
+          "estado": "Closed"
+        },
+        {
+          "id": 8009326,
+          "nombre": "Se cambia la forma de eliminar de SpreadClientes y SpreadSegmentos",
+          "estado": "Closed"
+        },
+        {
+          "id": 8009330,
+          "nombre": "Reestructuración de codigo",
+          "estado": "Closed"
+        },
+        {
+          "id": 8038496,
+          "nombre": "Se realizo la modificacion del flujo de Eliminar, Insertar y Editar Spreads - Cliente Segmentos",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "Se está reestructurando la eliminación de SpreadsCliente y SpreadSegmentos. El fix está en verificación funcional por parte de Bancolombia.",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "AVANCE RELEVANTE",
+      "clasificacion_valor": "AVANCE RELEVANTE",
+      "avance": "83.3%",
+      "valor_generado": "Existe avance verificable de ejecución, pero la capacidad completa aún depende de los pendientes descritos.",
+      "proximo_paso": "Recibir el resultado de la verificación funcional y cerrar la historia si no se reportan novedades.",
+      "riesgo": "",
+      "riesgos": [],
+      "semaforo": "SIN INFORMACIÓN",
+      "plan": "",
+      "resultado_real": "Se está reestructurando la eliminación de SpreadsCliente y SpreadSegmentos. El fix está en verificación funcional por parte de Bancolombia.",
+      "causa_desviacion": "",
+      "accion_recuperacion": ""
+    },
+    {
+      "id": 8025796,
+      "tipo": "User Story",
+      "nombre": "MsMesasNeg - Fix trader asignado",
+      "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
+      "epica_id": 7848735,
+      "celula": "Rocket",
+      "fuente_celula": "TAG",
+      "story_points": 3.0,
+      "estado": "Closed",
+      "descripcion": "Yo como parte del equipo Rocket requiero modificar la logica del trader asignado para asignar el trader backup correctamente",
+      "criterios_aceptacion": [
+        "Agregar condicion, solo exista un comercial bloqueado entre 2, reiterar que si sea el Backup o el principal"
+      ],
+      "tareas": [
+        {
+          "id": null,
+          "nombre": "Tarea sintética para cálculo de avance de HU/HA cerrada",
+          "estado": "Closed",
+          "origen": "REGLA_CIERRE_100_PORCIENTO"
+        }
+      ],
+      "contexto_avance": "",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "CLASIFICACIÓN PENDIENTE POR FALTA DE EVIDENCIA",
+      "clasificacion_valor": "CLASIFICACIÓN PENDIENTE POR FALTA DE EVIDENCIA",
+      "avance": "100%",
+      "valor_generado": "La HU/HA está cerrada en Azure DevOps, pero no existe contexto manual suficiente para describir de forma verificable el valor materializado.",
+      "proximo_paso": "No se reportan pendientes adicionales para esta HU/HA.",
+      "riesgo": "",
+      "riesgos": [],
+      "semaforo": "VERDE",
+      "plan": "",
+      "resultado_real": "",
+      "causa_desviacion": "",
+      "accion_recuperacion": ""
+    },
+    {
+      "id": 7864215,
+      "tipo": "Habilitador",
+      "nombre": "Apoyo tabla MesasXTrader y Auditoria",
+      "epica_proyecto": "Gestión del riesgo de Posición Propia - Operaciones de tesorería",
+      "epica_id": 7848740,
+      "celula": "Rocket",
+      "fuente_celula": "HISTORIAL_AREA_PATH",
+      "story_points": 2.0,
+      "estado": "Closed",
+      "descripcion": "Se requiere la creación de la tabla MesasXTrader en la BD MPT para almacenar las relaciones de las mesas que atiende o tiene asignadas cada trader",
+      "criterios_aceptacion": [
+        "Tabla creada en la BD MPT DEV y QA"
+      ],
+      "tareas": [
+        {
+          "id": 8038446,
+          "nombre": "Se realiza apoyo para crear la tabla MesasXTrader QA",
+          "estado": "Closed"
+        },
+        {
+          "id": 8038454,
+          "nombre": "Se realiza apoyo para crear la tabla de auditoria basada en la MsSistemaMpt",
+          "estado": "Closed"
+        },
+        {
+          "id": 8038464,
+          "nombre": "Se realiza apoyo para desplegar a PDN la tabla MesasXtrader",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "CLASIFICACIÓN PENDIENTE POR FALTA DE EVIDENCIA",
+      "clasificacion_valor": "CLASIFICACIÓN PENDIENTE POR FALTA DE EVIDENCIA",
+      "avance": "100%",
+      "valor_generado": "La HU/HA está cerrada en Azure DevOps, pero no existe contexto manual suficiente para describir de forma verificable el valor materializado.",
+      "proximo_paso": "No se reportan pendientes adicionales para esta HU/HA.",
+      "riesgo": "",
+      "riesgos": [],
+      "semaforo": "VERDE",
+      "plan": "",
+      "resultado_real": "",
+      "causa_desviacion": "",
+      "accion_recuperacion": ""
+    },
+    {
+      "id": 7864220,
+      "tipo": "Habilitador",
+      "nombre": "ms_sistema_mpt - ajuste tabla de auditoria por entidad",
+      "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
+      "epica_id": 7848735,
+      "celula": "Rocket",
+      "fuente_celula": "HISTORIAL_AREA_PATH",
+      "story_points": 8.0,
+      "estado": "Closed",
+      "descripcion": "Se requiere la modificación de la tabla de auditoría para que permita hacer el registro por entidad",
+      "criterios_aceptacion": [
+        "Modificar Tabla auditoria agregando el campo entidad, en la BD MPT DEV y QA",
+        "endpoint que permita registrar las auditorías por entidad"
+      ],
+      "tareas": [
+        {
+          "id": 8038470,
+          "nombre": "Se realiza la expresión regular para obtener del objeto actual la entidad",
+          "estado": "Closed"
+        },
+        {
+          "id": 8038471,
+          "nombre": "Se crea el nuevo campo de entidad en la tabla de auditoria",
+          "estado": "Closed"
+        },
+        {
+          "id": 8038477,
+          "nombre": "Se estan realizando pruebas unitarias de las modificaciones",
+          "estado": "Closed"
+        },
+        {
+          "id": 8038473,
+          "nombre": "Se modifica el flujo para el guardado de la entidad en base al objeto valorActual",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "CLASIFICACIÓN PENDIENTE POR FALTA DE EVIDENCIA",
+      "clasificacion_valor": "CLASIFICACIÓN PENDIENTE POR FALTA DE EVIDENCIA",
+      "avance": "100%",
+      "valor_generado": "La HU/HA está cerrada en Azure DevOps, pero no existe contexto manual suficiente para describir de forma verificable el valor materializado.",
+      "proximo_paso": "No se reportan pendientes adicionales para esta HU/HA.",
+      "riesgo": "",
+      "riesgos": [],
+      "semaforo": "VERDE",
+      "plan": "",
+      "resultado_real": "",
+      "causa_desviacion": "",
+      "accion_recuperacion": ""
+    },
+    {
+      "id": 6831844,
+      "tipo": "User Story",
+      "nombre": "Crear caso en el MAC para la gestión de los anexos (EXITOSO) - AUTOMÁTICO",
+      "epica_proyecto": "PIV Modernización de interfaz Anexos de confirmación (por riesgos de incumplimiento)",
+      "epica_id": 7802311,
+      "celula": "Flintstones",
+      "fuente_celula": "HISTORIAL_AREA_PATH",
+      "story_points": 13.0,
+      "estado": "Closed",
+      "descripcion": "El MAC recibe la información desde Murex de la metadata y el pdf para analizarla y de ser el caso crear el caso de anexos. \n NOTA: 2 SPRINTS",
+      "criterios_aceptacion": [
+        "Given MAC reciba metadata completa y el pdf",
+        "When ejecute validaciones técnicas y funcionales",
+        "Then la metadata debe marcarse como válida y crear caso asociado al xml y metadata del bucket en estado Pendiente Envío",
+        "Given que se reciba metada completa y pdf",
+        "When se cree el caso en el MAC",
+        "Then se debe asociar un número de radicado al caso",
+        "Implementar validaciones de campos obligatorios, formatos, tipos de dato, consistencia cliente-operación-anexo, fechas, horas, canal (Murex) y demás datos definidos."
+      ],
+      "tareas": [
+        {
+          "id": 7952733,
+          "nombre": "Implementar persistencia y trazabilidad",
+          "estado": "Closed"
+        },
+        {
+          "id": 7952737,
+          "nombre": "Pruebas unitarias",
+          "estado": "Closed"
+        },
+        {
+          "id": 7952726,
+          "nombre": "Implementar creación automática del caso de anexos en MAC",
+          "estado": "Closed"
+        },
+        {
+          "id": 7952864,
+          "nombre": "Pruebas funcionales e integración",
+          "estado": "Closed"
+        },
+        {
+          "id": 7952729,
+          "nombre": "Asociar número de radicado al caso generado",
+          "estado": "Closed"
+        },
+        {
+          "id": 7946123,
+          "nombre": "Diseñar flujo reactivo de creación automática de casos MAC",
+          "estado": "Closed"
+        },
+        {
+          "id": 7952732,
+          "nombre": "Actualizar estado de metadata a Pendiente Envío",
+          "estado": "Closed"
+        },
+        {
+          "id": 8031301,
+          "nombre": "Revisión de SonarQube",
+          "estado": "Closed"
+        },
+        {
+          "id": 7952867,
+          "nombre": "Documentación técnica y despliegue",
+          "estado": "Closed"
+        },
+        {
+          "id": 8003302,
+          "nombre": "Evidenciar el fallo de conexión al RDS al crear el caso de anexo",
+          "estado": "Closed"
+        },
+        {
+          "id": 7952723,
+          "nombre": "Implementar validaciones de metadata y documentos",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "El desarrollo está completo y el despliegue estuvo condicionado por Issues de SonarQ y por la habilitación de accesos requeridos.",
+      "dependencias": [],
+      "bloqueos": [
+        {
+          "tipo": "BLOQUEO",
+          "situacion": "Problema de accesos a Sonar para solventar los Issues.",
+          "requisito": "Resolver los pedidos de ingreso a los grupos de seguridad requeridos en Sonar; la documentación de accesos estaba incompleta en la wiki.",
+          "equipo_responsable": "CaaS Tesorería / Bancolombia",
+          "fecha_objetivo": "2026-11-13"
+        }
+      ],
+      "observaciones": [],
+      "clasificacion": "CLASIFICACIÓN PENDIENTE POR FALTA DE EVIDENCIA",
+      "clasificacion_valor": "CLASIFICACIÓN PENDIENTE POR FALTA DE EVIDENCIA",
+      "avance": "100%",
+      "valor_generado": "La HU/HA está cerrada; la clasificación de valor requiere evidencia explícita adicional.",
+      "proximo_paso": "Completar la habilitación de accesos, resolver los Issues de Sonar y realizar el despliegue.",
+      "riesgo": "",
+      "riesgos": [
+        {
+          "ha_hu": 6831844,
+          "tipo": "RIESGO DE CUMPLIMIENTO",
+          "descripcion": "No completar esta HA puede implicar el incumplimiento de las HA dependientes 7860649 y 7853278 y generar carry over nuevamente.",
+          "impacto": "Incumplimiento de Sprint.",
+          "accion_mitigacion": "Priorizar los pedidos para lograr accesos a Sonar.",
+          "responsable": "Christian Leandro Sanchez",
+          "fecha_limite": "2026-11-11",
+          "estado": "EN SEGUIMIENTO"
+        }
+      ],
+      "semaforo": "ROJO",
+      "plan": "",
+      "resultado_real": "El desarrollo está completo y el despliegue estuvo condicionado por Issues de SonarQ y por la habilitación de accesos requeridos.",
+      "causa_desviacion": "Problema de accesos a Sonar para solventar los Issues.",
+      "accion_recuperacion": "Priorizar los pedidos para lograr accesos a Sonar."
+    },
     {
       "id": 7930007,
       "tipo": "User Story",
       "nombre": "Funcionalidad Crud de productos Posición propia",
       "epica_proyecto": "Gestión del riesgo de Posición Propia - Operaciones de tesorería",
-      "celula": "NO INFORMADA",
+      "epica_id": 7848740,
+      "celula": "Rocket",
+      "fuente_celula": "HISTORIAL_AREA_PATH",
       "story_points": 13.0,
       "estado": "Active",
-      "asignado_a": "Camilo Andres Acevedo Esquivel",
       "descripcion": "13Yo como trader de la posición propia quiero poder crear, eliminar y actualizar la información de productos que mueve la PP",
       "criterios_aceptacion": [
         "Endpoint que permita crear, consultar, modificar y eliminar agrupadores de la posición propia, se deben gestionar los campo",
@@ -122,12 +427,12 @@
         {
           "id": 8004351,
           "nombre": "Endpoints y validaciones",
-          "estado": "Active"
+          "estado": "Closed"
         },
         {
           "id": 8004356,
           "nombre": "Modelo, gateway y códigos de error",
-          "estado": "Active"
+          "estado": "Closed"
         }
       ],
       "contexto_avance": "",
@@ -136,8 +441,8 @@
       "observaciones": [],
       "clasificacion": "AVANCE RELEVANTE",
       "clasificacion_valor": "AVANCE RELEVANTE",
-      "avance": "0%",
-      "valor_generado": "La fuente operativa evidencia trabajo en ejecución, pero no existe contexto manual suficiente para confirmar una capacidad materializada.",
+      "avance": "100%",
+      "valor_generado": "Existe trabajo operativo en ejecución, pero no hay contexto manual suficiente para confirmar una capacidad materializada.",
       "proximo_paso": "Información insuficiente para determinar el próximo paso ejecutivo.",
       "riesgo": "",
       "riesgos": [],
@@ -148,74 +453,77 @@
       "accion_recuperacion": ""
     },
     {
-      "id": 8009304,
-      "tipo": "User Story",
-      "nombre": "MsTasas - Fix Eliminación de SpreadsCliente y SpreadsSegmentos",
-      "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
-      "celula": "Rocket",
-      "story_points": 3.0,
+      "id": 7946584,
+      "tipo": "Habilitador",
+      "nombre": "Disponibilizar anexo para envío de correo de confirmación",
+      "epica_proyecto": "PIV Modernización de interfaz Anexos de confirmación (por riesgos de incumplimiento)",
+      "epica_id": 7802311,
+      "celula": "Flintstones",
+      "fuente_celula": "HISTORIAL_AREA_PATH",
+      "story_points": 8.0,
       "estado": "Active",
-      "asignado_a": "Cristian Fernando Grisales Venitez",
-      "descripcion": "Yo como parte del equipo Rocket requiero hacer una reestructuracion de la eliminación de SpreadsCliente y SpreadsSegmentos",
+      "descripcion": "Dispobibilización de archivo anexo del bucket según el caso para su envío por correo electrónico",
       "criterios_aceptacion": [
-        "Cambiar la forma de  eliminación de SpreadsCliente y SpreadsSegmentos"
+        "Given se vaya a enviar correo",
+        "When se solicite al anexo de confirmación",
+        "Then se debe disponibilizar el anexo que está en el bucket",
+        "Given se solicite el anexo",
+        "When no se encuentre disponible después de 5 reintentos",
+        "Then se debe devolver un error y generar alerta",
+        "Given se solicite un anexo",
+        "When su peso exceda las 50mb",
+        "Then se debe generar una alerta para que el caso sea revisado manualmente"
       ],
       "tareas": [
         {
-          "id": 8009328,
-          "nombre": "Modificacion de las pruebas unitarias",
-          "estado": "Closed"
+          "id": 8043820,
+          "nombre": "Implementar validación de tamaño máximo del anexo",
+          "estado": "New"
         },
         {
-          "id": 8009326,
-          "nombre": "Se cambia la forma de eliminar de SpreadClientes y SpreadSegmentos",
-          "estado": "Closed"
+          "id": 8043828,
+          "nombre": "Implementar pruebas unitarias para recuperación y validación de anexos",
+          "estado": "New"
         },
         {
-          "id": 8009330,
-          "nombre": "Reestructuración de codigo",
-          "estado": "Closed"
+          "id": 8043814,
+          "nombre": "Diseñar flujo de recuperación de anexos desde S3 para envío de confirmación",
+          "estado": "Active"
+        },
+        {
+          "id": 8043817,
+          "nombre": "Implementar adapter de descarga de archivo desde S3",
+          "estado": "New"
+        },
+        {
+          "id": 8043816,
+          "nombre": "Implementar consulta de anexo asociado al caso",
+          "estado": "New"
+        },
+        {
+          "id": 8043818,
+          "nombre": "Implementar validación de reintentos para recuperación de anexos",
+          "estado": "New"
+        },
+        {
+          "id": 8043823,
+          "nombre": "Integrar anexo recuperado con flujo de envío de correo",
+          "estado": "New"
+        },
+        {
+          "id": 8043832,
+          "nombre": "Ejecutar pruebas funcionales end-to-end del flujo de anexos para correo",
+          "estado": "New"
         }
       ],
-      "contexto_avance": "Se está reestructurando la eliminación de SpreadsCliente y SpreadsSegmentos. Las actividades reportadas están completas y el fix está a la espera del despliegue a producción.",
-      "dependencias": [],
-      "bloqueos": [],
-      "observaciones": [],
-      "clasificacion": "AVANCE RELEVANTE",
-      "clasificacion_valor": "AVANCE RELEVANTE",
-      "avance": "100%",
-      "valor_generado": "Existe trabajo de implementación en curso, sin evidencia suficiente de una capacidad ya materializada y utilizable.",
-      "proximo_paso": "Realizar el despliegue a producción.",
-      "riesgo": "",
-      "riesgos": [],
-      "semaforo": "VERDE",
-      "plan": "",
-      "resultado_real": "Se está reestructurando la eliminación de SpreadsCliente y SpreadsSegmentos. Las actividades reportadas están completas y el fix está a la espera del despliegue a producción.",
-      "causa_desviacion": "",
-      "accion_recuperacion": ""
-    },
-    {
-      "id": 7864215,
-      "tipo": "Habilitador",
-      "nombre": "Apoyo tabla MesasXTrader y Auditoria",
-      "epica_proyecto": "Gestión del riesgo de Posición Propia - Operaciones de tesorería",
-      "celula": "NO INFORMADA",
-      "story_points": 2.0,
-      "estado": "Active",
-      "asignado_a": "Cristian Fernando Grisales Venitez",
-      "descripcion": "Se requiere la creación de la tabla MesasXTrader en la BD MPT para almacenar las relaciones de las mesas que atiende o tiene asignadas cada trader",
-      "criterios_aceptacion": [
-        "Tabla creada en la BD MPT DEV y QA"
-      ],
-      "tareas": [],
       "contexto_avance": "",
       "dependencias": [],
       "bloqueos": [],
       "observaciones": [],
       "clasificacion": "AVANCE RELEVANTE",
       "clasificacion_valor": "AVANCE RELEVANTE",
-      "avance": "Información insuficiente para calcular avance",
-      "valor_generado": "La fuente operativa evidencia trabajo en ejecución, pero no existe contexto manual suficiente para confirmar una capacidad materializada.",
+      "avance": "0%",
+      "valor_generado": "Existe trabajo operativo en ejecución, pero no hay contexto manual suficiente para confirmar una capacidad materializada.",
       "proximo_paso": "Información insuficiente para determinar el próximo paso ejecutivo.",
       "riesgo": "",
       "riesgos": [],
@@ -230,16 +538,19 @@
       "tipo": "User Story",
       "nombre": "Crear caso en el MAC para la gestión de los anexos (EXITOSO) - MANUAL",
       "epica_proyecto": "PIV Modernización de interfaz Anexos de confirmación (por riesgos de incumplimiento)",
-      "celula": "NO INFORMADA",
+      "epica_id": 7802311,
+      "celula": "Flintstones",
+      "fuente_celula": "HISTORIAL_AREA_PATH",
       "story_points": 13.0,
-      "estado": "Impedimento",
-      "asignado_a": "Edwin Alexander Vallecilla Henao",
+      "estado": "Active",
       "descripcion": "El MAC recibe input desde el front con la información de la metadata y el pdf para analizarla y de ser el caso crear el caso de anexos. \n NOTA: 2 SPRINTS",
       "criterios_aceptacion": [
         "Given MAC reciba el pdf y recibir la información de la metadata desde el front",
         "When ejecute validaciones técnicas y funcionales",
-        "Then se debe crear caso asociado al pdf con la metadata que se diligenció vía front y enviarlos al bucket  (caso en  estado Pendiente Envío)",
-        "Given que se reciba el pdf y se diligencie la metadata completa en el front del MAC When se cree el caso en el MAC Then se debe asociar un número de radicado al caso",
+        "Then se debe crear caso asociado al pdf con la metadata que se diligenció vía front y enviarlos al bucket (caso en estado Pendiente Envío)",
+        "Given que se reciba el pdf y se diligencie la metadata completa en el front del MAC",
+        "When se cree el caso en el MAC",
+        "Then se debe asociar un número de radicado al caso",
         "Implementar validaciones de campos obligatorios, formatos, tipos de dato, consistencia cliente-operación-anexo, fechas, horas, canal (Manual) y demás datos definidos."
       ],
       "tareas": [
@@ -266,7 +577,7 @@
         {
           "id": 7949665,
           "nombre": "Asociar el número de radicado al caso",
-          "estado": "Impedimento"
+          "estado": "Active"
         },
         {
           "id": 7949660,
@@ -294,12 +605,13 @@
           "estado": "Active"
         }
       ],
-      "contexto_avance": "La historia está lista para despliegue. Su salida depende del despliegue de la HA 6831844.",
+      "contexto_avance": "La entrega está lista para despliegue y depende del despliegue de la HA 6831844.",
       "dependencias": [
         {
           "tipo": "DEPENDENCIA",
-          "descripcion": "El despliegue depende de la HA 6831844 y de la resolución de sus Issues de Sonar.",
-          "equipo": "CaaS Tesorería",
+          "situacion": "Se debe desplegar primero la integración de cambios asociada a la HA 6831844.",
+          "requisito": "Resolver los Issues reportados por Sonar en la HA 6831844.",
+          "equipo_responsable": "CaaS Tesorería",
           "fecha_objetivo": "2026-11-13"
         }
       ],
@@ -308,147 +620,149 @@
       "clasificacion": "AVANCE RELEVANTE",
       "clasificacion_valor": "AVANCE RELEVANTE",
       "avance": "70%",
-      "valor_generado": "El desarrollo reportado está completado o listo técnicamente, pero la capacidad aún no está disponible porque falta el despliegue.",
-      "proximo_paso": "Resolver los Issues de Sonar de la HA 6831844 y completar el despliegue en el orden acordado.",
+      "valor_generado": "Existe avance verificable de ejecución, pero la capacidad completa aún depende de los pendientes descritos.",
+      "proximo_paso": "Resolver los Issues de la HA 6831844 y habilitar el despliegue.",
       "riesgo": "",
-      "riesgos": [],
-      "semaforo": "ROJO",
+      "riesgos": [
+        {
+          "ha_hu": 7860649,
+          "tipo": "RIESGO DE CUMPLIMIENTO",
+          "descripcion": "Existe riesgo de no completar la entrega dentro del Sprint 257.",
+          "impacto": "Retraso del plan general para el proyecto.",
+          "accion_mitigacion": "Realizar sesión para definir los Issues de la HA 6831844, priorizarlos y resolverlos.",
+          "responsable": "Henry Zambrano - Edwin Vallecilla - Daniel Gustavo Aponte",
+          "fecha_limite": "2026-11-13",
+          "estado": "EN SEGUIMIENTO"
+        }
+      ],
+      "semaforo": "AMARILLO",
       "plan": "",
-      "resultado_real": "La historia está lista para despliegue. Su salida depende del despliegue de la HA 6831844.",
-      "causa_desviacion": "",
-      "accion_recuperacion": ""
+      "resultado_real": "La entrega está lista para despliegue y depende del despliegue de la HA 6831844.",
+      "causa_desviacion": "Se debe desplegar primero la integración de cambios asociada a la HA 6831844.",
+      "accion_recuperacion": "Realizar sesión para definir los Issues de la HA 6831844, priorizarlos y resolverlos."
     },
     {
-      "id": 6831844,
-      "tipo": "User Story",
-      "nombre": "Crear caso en el MAC para la gestión de los anexos (EXITOSO) - AUTOMÁTICO",
+      "id": 7868815,
+      "tipo": "Habilitador",
+      "nombre": "Consulta de autorizados y demás información para envío de correo",
       "epica_proyecto": "PIV Modernización de interfaz Anexos de confirmación (por riesgos de incumplimiento)",
-      "celula": "NO INFORMADA",
-      "story_points": 13.0,
+      "epica_id": 7802311,
+      "celula": "Flintstones",
+      "fuente_celula": "HISTORIAL_AREA_PATH",
+      "story_points": 8.0,
       "estado": "Active",
-      "asignado_a": "Henry Zambrano Polentino",
-      "descripcion": "El MAC recibe la información desde Murex de la metadata y el pdf para analizarla y de ser el caso crear el caso de anexos. \n NOTA: 2 SPRINTS",
+      "descripcion": "El objetivo de esta HA es que se puedan disponibilizar los autorizados para la posterior consulta al momento de generar el correo.",
       "criterios_aceptacion": [
-        "Given MAC reciba metadata completa y el pdf",
-        "When ejecute validaciones técnicas y funcionales",
-        "Then la metadata debe marcarse como válida y crear caso asociado al xml y metadata del bucket en estado Pendiente Envío",
-        "Given que se reciba metada completa y pdf When se cree el caso en el MAC Then se debe asociar un número de radicado al caso",
-        "Implementar validaciones de campos obligatorios, formatos, tipos de dato, consistencia cliente-operación-anexo, fechas, horas, canal (Murex) y demás datos definidos."
+        "Given se requiera enviar un correo",
+        "When se consulten los autorizados y la info por cliente",
+        "Then si el cliente tiene autorizados se retornan los autorizados vigentes",
+        "Given se requieran los autorizados de un cliente",
+        "When cuando el cliente no tenga autorizados o la otra información",
+        "Then retornar error de que no hay autorizados",
+        "Given se requieran los autorizados de un caso",
+        "When cuando se de el # del caso",
+        "Then retornar todos los autorizados que estuvieron asociados al caso",
+        "Given se requieran consultar los autorizados de un cliente",
+        "When la consulta venga desde el front",
+        "Then se deben retonar ordenados los autorizados vigentes y los revocados"
       ],
       "tareas": [
         {
-          "id": 7952733,
-          "nombre": "Implementar persistencia y trazabilidad",
-          "estado": "Closed"
+          "id": 8038753,
+          "nombre": "Desarrollo Backend",
+          "estado": "New"
         },
         {
-          "id": 7952737,
-          "nombre": "Pruebas unitarias",
-          "estado": "Closed"
-        },
-        {
-          "id": 7952726,
-          "nombre": "Implementar creación automática del caso de anexos en MAC",
-          "estado": "Closed"
-        },
-        {
-          "id": 7952864,
-          "nombre": "Pruebas funcionales e integración",
-          "estado": "Closed"
-        },
-        {
-          "id": 7952729,
-          "nombre": "Asociar número de radicado al caso generado",
-          "estado": "Closed"
-        },
-        {
-          "id": 7946123,
-          "nombre": "Diseñar flujo reactivo de creación automática de casos MAC",
-          "estado": "Closed"
-        },
-        {
-          "id": 7952732,
-          "nombre": "Actualizar estado de metadata a Pendiente Envío",
-          "estado": "Closed"
-        },
-        {
-          "id": 8031301,
-          "nombre": "Revisión de SonarQube",
+          "id": 8038733,
+          "nombre": "Análisis y Diseño",
           "estado": "Active"
-        },
-        {
-          "id": 7952867,
-          "nombre": "Documentación técnica y despliegue",
-          "estado": "Closed"
-        },
-        {
-          "id": 8003302,
-          "nombre": "Evidenciar el fallo de conexión al RDS al crear el caso de anexo",
-          "estado": "Closed"
-        },
-        {
-          "id": 7952723,
-          "nombre": "Implementar validaciones de metadata y documentos",
-          "estado": "Closed"
-        }
-      ],
-      "contexto_avance": "El desarrollo está completo. El despliegue no se ha realizado por Issues reportados por SonarQube y por la necesidad de habilitar accesos a los grupos de seguridad requeridos.",
-      "dependencias": [],
-      "bloqueos": [
-        {
-          "tipo": "ACCESOS",
-          "descripcion": "Los accesos requeridos en Sonar no estaban habilitados y la documentación disponible en la wiki estaba incompleta.",
-          "equipo": "CaaS Tesorería / Bancolombia",
-          "fecha_objetivo": "2026-11-13"
-        }
-      ],
-      "observaciones": [],
-      "clasificacion": "AVANCE RELEVANTE",
-      "clasificacion_valor": "AVANCE RELEVANTE",
-      "avance": "90.9%",
-      "valor_generado": "El desarrollo reportado está completado o listo técnicamente, pero la capacidad aún no está disponible porque falta el despliegue.",
-      "proximo_paso": "Completar la habilitación de accesos, resolver los Issues de Sonar y ejecutar el despliegue.",
-      "riesgo": "",
-      "riesgos": [],
-      "semaforo": "ROJO",
-      "plan": "",
-      "resultado_real": "El desarrollo está completo. El despliegue no se ha realizado por Issues reportados por SonarQube y por la necesidad de habilitar accesos a los grupos de seguridad requeridos.",
-      "causa_desviacion": "",
-      "accion_recuperacion": ""
-    },
-    {
-      "id": 8025796,
-      "tipo": "User Story",
-      "nombre": "MsMesasNeg - Fix trader asignado",
-      "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
-      "celula": "Rocket",
-      "story_points": 3.0,
-      "estado": "Closed",
-      "asignado_a": "Cristian Fernando Grisales Venitez",
-      "descripcion": "Yo como parte del equipo Rocket requiero modificar la logica del trader asignado para asignar el trader backup correctamente",
-      "criterios_aceptacion": [
-        "Agregar condicion, solo exista un comercial bloqueado entre 2, reiterar que si sea el Backup o el principal"
-      ],
-      "tareas": [
-        {
-          "id": null,
-          "nombre": "Tarea sintética para cálculo de avance de HU/HA cerrada",
-          "estado": "Closed",
-          "origen": "REGLA_CIERRE_100_PORCIENTO"
         }
       ],
       "contexto_avance": "",
       "dependencias": [],
       "bloqueos": [],
       "observaciones": [],
-      "clasificacion": "CLASIFICACIÓN PENDIENTE POR FALTA DE EVIDENCIA",
-      "clasificacion_valor": "CLASIFICACIÓN PENDIENTE POR FALTA DE EVIDENCIA",
-      "avance": "100%",
-      "valor_generado": "La HU/HA está cerrada en Azure DevOps, pero no existe contexto actual suficiente para determinar de forma verificable la capacidad materializada.",
-      "proximo_paso": "No se reportan pendientes adicionales para esta HU/HA.",
+      "clasificacion": "AVANCE RELEVANTE",
+      "clasificacion_valor": "AVANCE RELEVANTE",
+      "avance": "0%",
+      "valor_generado": "Existe trabajo operativo en ejecución, pero no hay contexto manual suficiente para confirmar una capacidad materializada.",
+      "proximo_paso": "Información insuficiente para determinar el próximo paso ejecutivo.",
       "riesgo": "",
       "riesgos": [],
-      "semaforo": "VERDE",
+      "semaforo": "SIN INFORMACIÓN",
+      "plan": "",
+      "resultado_real": "",
+      "causa_desviacion": "",
+      "accion_recuperacion": ""
+    },
+    {
+      "id": 7927999,
+      "tipo": "User Story",
+      "nombre": "Entidades Back: CRUDs de Calendarios",
+      "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
+      "epica_id": 7848735,
+      "celula": "Rocket",
+      "fuente_celula": "HISTORIAL_AREA_PATH",
+      "story_points": 5.0,
+      "estado": "Active",
+      "descripcion": "Yo como parte del equipo Rocket, requiero la implementación de los endpoints en el micro de sistema para crear, editar y eliminar calendarios del MPT",
+      "criterios_aceptacion": [
+        "Implementar endpoints para crear, editar y eliminar calendarios del sistema MPT"
+      ],
+      "tareas": [
+        {
+          "id": 8038839,
+          "nombre": "Desarrollo use case",
+          "estado": "Closed"
+        },
+        {
+          "id": 8038842,
+          "nombre": "Desarrollo entry point",
+          "estado": "Closed"
+        },
+        {
+          "id": 8038841,
+          "nombre": "Desarrollo adapter r2dbc-oracle",
+          "estado": "Closed"
+        },
+        {
+          "id": 8038829,
+          "nombre": "Análisis del CRUD de calendarios",
+          "estado": "Closed"
+        },
+        {
+          "id": 8038849,
+          "nombre": "Despliegue y validación en QA",
+          "estado": "Active"
+        },
+        {
+          "id": 8038846,
+          "nombre": "Pruebas en DEV con Insomnia",
+          "estado": "Closed"
+        },
+        {
+          "id": 8038838,
+          "nombre": "Desarrollo capa dominio",
+          "estado": "Closed"
+        },
+        {
+          "id": 8038845,
+          "nombre": "Pruebas unitarias",
+          "estado": "Closed"
+        }
+      ],
+      "contexto_avance": "",
+      "dependencias": [],
+      "bloqueos": [],
+      "observaciones": [],
+      "clasificacion": "AVANCE RELEVANTE",
+      "clasificacion_valor": "AVANCE RELEVANTE",
+      "avance": "87.5%",
+      "valor_generado": "Existe trabajo operativo en ejecución, pero no hay contexto manual suficiente para confirmar una capacidad materializada.",
+      "proximo_paso": "Información insuficiente para determinar el próximo paso ejecutivo.",
+      "riesgo": "",
+      "riesgos": [],
+      "semaforo": "SIN INFORMACIÓN",
       "plan": "",
       "resultado_real": "",
       "causa_desviacion": "",
@@ -459,13 +773,15 @@
       "tipo": "User Story",
       "nombre": "Crear caso en el MAC para la gestión de los anexos (FALLIDO)",
       "epica_proyecto": "PIV Modernización de interfaz Anexos de confirmación (por riesgos de incumplimiento)",
-      "celula": "NO INFORMADA",
+      "epica_id": 7802311,
+      "celula": "Flintstones",
+      "fuente_celula": "HISTORIAL_AREA_PATH",
       "story_points": 13.0,
       "estado": "Active",
-      "asignado_a": "Daniel Gustavo Aponte Cerinza",
       "descripcion": "El MAC recibe la información desde Murex de la metadata y el pdf para analizarla y retornar error técnico a nivel de monitoreo. \n NOTA: 2 SPRINTS",
       "criterios_aceptacion": [
-        "Given MAC reciba metadata incompleta o inconsistente When ejecute validaciones",
+        "Given MAC reciba metadata incompleta o inconsistente",
+        "When ejecute validaciones",
         "Then el anexo debe quedar en estado INCONSISTENCIA METADATA generando alerta de monitoreo",
         "Implementar validaciones de campos obligatorios, formatos, tipos de dato, consistencia cliente-operación-anexo, fechas, horas, canal (Murex, manual, ¿otros?) y demás datos definidos.",
         "Apoyo @Yenny Marcela Estrada Osorio"
@@ -507,12 +823,13 @@
           "estado": "Closed"
         }
       ],
-      "contexto_avance": "Todas las tareas de la historia están completadas. El despliegue está pendiente y se planeó realizarlo en conjunto con la HA 6831844 para reducir procedimientos.",
+      "contexto_avance": "Todas las tareas reportadas están completadas; el despliegue está pendiente y se planeó realizarlo junto con la HA 6831844 para reducir procedimientos.",
       "dependencias": [
         {
           "tipo": "DEPENDENCIA",
-          "descripcion": "El despliegue depende de la integración de cambios y de resolver los Issues de Sonar asociados a la HA 6831844.",
-          "equipo": "CaaS Tesorería",
+          "situacion": "Se debe desplegar primero la integración de cambios asociada a la HA 6831844.",
+          "requisito": "Terminar de resolver los Issues reportados por Sonar en la HA 6831844.",
+          "equipo_responsable": "CaaS Tesorería",
           "fecha_objetivo": "2026-11-13"
         }
       ],
@@ -521,95 +838,55 @@
       "clasificacion": "AVANCE RELEVANTE",
       "clasificacion_valor": "AVANCE RELEVANTE",
       "avance": "100%",
-      "valor_generado": "El desarrollo reportado está completado o listo técnicamente, pero la capacidad aún no está disponible porque falta el despliegue.",
-      "proximo_paso": "Completar el despliegue conjunto una vez se resuelvan los Issues de Sonar asociados a la HA 6831844.",
+      "valor_generado": "Existe avance verificable de ejecución, pero la capacidad completa aún depende de los pendientes descritos.",
+      "proximo_paso": "Resolver los Issues de Sonar asociados a la HA 6831844 y ejecutar el despliegue conjunto.",
       "riesgo": "",
-      "riesgos": [],
+      "riesgos": [
+        {
+          "ha_hu": 7853278,
+          "tipo": "RIESGO DE CUMPLIMIENTO",
+          "descripcion": "Existe riesgo de no completar la entrega dentro del Sprint 257.",
+          "impacto": "Retraso del plan general para el proyecto.",
+          "accion_mitigacion": "Realizar sesión para definir los Issues de la HA 6831844, priorizarlos y resolverlos.",
+          "responsable": "Henry Zambrano - Edwin Vallecilla - Daniel Gustavo Aponte",
+          "fecha_limite": "2026-11-13",
+          "estado": "EN SEGUIMIENTO"
+        }
+      ],
       "semaforo": "AMARILLO",
       "plan": "",
-      "resultado_real": "Todas las tareas de la historia están completadas. El despliegue está pendiente y se planeó realizarlo en conjunto con la HA 6831844 para reducir procedimientos.",
-      "causa_desviacion": "",
-      "accion_recuperacion": ""
-    },
-    {
-      "id": 7864220,
-      "tipo": "Habilitador",
-      "nombre": "ms_sistema_mpt - ajuste tabla de auditoria por entidad",
-      "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
-      "celula": "NO INFORMADA",
-      "story_points": 8.0,
-      "estado": "Active",
-      "asignado_a": "Cristian Fernando Grisales Venitez",
-      "descripcion": "Se requiere la modificación de la tabla de auditoría para que permita hacer el registro por entidad",
-      "criterios_aceptacion": [
-        "Modificar Tabla auditoria agregando el campo entidad, en la BD MPT DEV y QA endpoint que permita registrar las auditorías por entidad"
-      ],
-      "tareas": [],
-      "contexto_avance": "",
-      "dependencias": [],
-      "bloqueos": [],
-      "observaciones": [],
-      "clasificacion": "AVANCE RELEVANTE",
-      "clasificacion_valor": "AVANCE RELEVANTE",
-      "avance": "Información insuficiente para calcular avance",
-      "valor_generado": "La fuente operativa evidencia trabajo en ejecución, pero no existe contexto manual suficiente para confirmar una capacidad materializada.",
-      "proximo_paso": "Información insuficiente para determinar el próximo paso ejecutivo.",
-      "riesgo": "",
-      "riesgos": [],
-      "semaforo": "SIN INFORMACIÓN",
-      "plan": "",
-      "resultado_real": "",
-      "causa_desviacion": "",
-      "accion_recuperacion": ""
-    },
-    {
-      "id": 7927999,
-      "tipo": "User Story",
-      "nombre": "Entidades Back: CRUDs de Calendarios",
-      "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
-      "celula": "Rocket",
-      "story_points": 5.0,
-      "estado": "Active",
-      "asignado_a": "Camilo Andres Acevedo Esquivel",
-      "descripcion": "Yo como parte del equipo Rocket, requiero la implementación de los endpoints en el micro de sistema para crear, editar y eliminar calendarios del MPT",
-      "criterios_aceptacion": [
-        "Implementar endpoints para crear, editar y eliminar calendarios del sistema MPT"
-      ],
-      "tareas": [],
-      "contexto_avance": "",
-      "dependencias": [],
-      "bloqueos": [],
-      "observaciones": [],
-      "clasificacion": "AVANCE RELEVANTE",
-      "clasificacion_valor": "AVANCE RELEVANTE",
-      "avance": "Información insuficiente para calcular avance",
-      "valor_generado": "La fuente operativa evidencia trabajo en ejecución, pero no existe contexto manual suficiente para confirmar una capacidad materializada.",
-      "proximo_paso": "Información insuficiente para determinar el próximo paso ejecutivo.",
-      "riesgo": "",
-      "riesgos": [],
-      "semaforo": "SIN INFORMACIÓN",
-      "plan": "",
-      "resultado_real": "",
-      "causa_desviacion": "",
-      "accion_recuperacion": ""
+      "resultado_real": "Todas las tareas reportadas están completadas; el despliegue está pendiente y se planeó realizarlo junto con la HA 6831844 para reducir procedimientos.",
+      "causa_desviacion": "Se debe desplegar primero la integración de cambios asociada a la HA 6831844.",
+      "accion_recuperacion": "Realizar sesión para definir los Issues de la HA 6831844, priorizarlos y resolverlos."
     },
     {
       "id": 7864161,
       "tipo": "User Story",
       "nombre": "Documentación técnica sobre el ms_clientes",
       "epica_proyecto": "Habilitación de Capacidades Regionales de Tesorería en MPT",
+      "epica_id": 7848735,
       "celula": "Rocket",
+      "fuente_celula": "TAG",
       "story_points": 5.0,
       "estado": "Active",
-      "asignado_a": "Cristian Fernando Grisales Venitez",
       "descripcion": "Yo como parte del equipo Rocket requiero contar con documentación técnica del ms de clientes del mpt",
       "criterios_aceptacion": [
         "Documentación creada en la herramienta xxx"
       ],
       "tareas": [
         {
+          "id": 8038481,
+          "nombre": "Se realiza la documentación esperando feedback",
+          "estado": "Active"
+        },
+        {
           "id": 7981024,
           "nombre": "Avances en la documentacion del MsClientes, informacion basica",
+          "estado": "Closed"
+        },
+        {
+          "id": 8038491,
+          "nombre": "Se crean los otros espacios para la documentacion de los demas micros - COES",
           "estado": "Closed"
         }
       ],
@@ -619,8 +896,8 @@
       "observaciones": [],
       "clasificacion": "AVANCE RELEVANTE",
       "clasificacion_valor": "AVANCE RELEVANTE",
-      "avance": "100%",
-      "valor_generado": "La fuente operativa evidencia trabajo en ejecución, pero no existe contexto manual suficiente para confirmar una capacidad materializada.",
+      "avance": "66.7%",
+      "valor_generado": "Existe trabajo operativo en ejecución, pero no hay contexto manual suficiente para confirmar una capacidad materializada.",
       "proximo_paso": "Información insuficiente para determinar el próximo paso ejecutivo.",
       "riesgo": "",
       "riesgos": [],
@@ -634,39 +911,32 @@
   "novedades_ejecutivas": [
     {
       "ha_hu": 6831844,
-      "descripcion": "Desarrollo completo sin despliegue por Issues de SonarQube y demora en la habilitación de accesos requeridos.",
+      "descripcion": "El despliegue estuvo condicionado por accesos a Sonar e Issues que debían resolverse.",
       "categoria": "BLOQUEO",
       "estado": "EN SEGUIMIENTO"
     },
     {
       "ha_hu": 7853278,
-      "descripcion": "Tareas completadas; despliegue pendiente y coordinado con la HA 6831844.",
+      "descripcion": "Todas las tareas reportadas están completadas; el despliegue está pendiente y coordinado con la HA 6831844.",
       "categoria": "DEPENDENCIA",
       "estado": "EN SEGUIMIENTO"
     },
     {
       "ha_hu": 7860649,
-      "descripcion": "Entrega lista para despliegue y dependiente de la salida de la HA 6831844.",
+      "descripcion": "La entrega está lista para despliegue y depende de la HA 6831844.",
       "categoria": "DEPENDENCIA",
       "estado": "EN SEGUIMIENTO"
-    },
-    {
-      "ha_hu": "GENERAL",
-      "descripcion": "La baja temporal de usuarios y accesos de Edwin Alexander Vallecilla afectó la operación durante tres días; los accesos fueron restablecidos.",
-      "categoria": "ACCESOS",
-      "estado": "RESUELTA"
     }
   ],
-  "valor_esperado": [],
   "hitos": [],
   "riesgos_identificados": [
     {
       "ha_hu": 7860649,
       "tipo": "RIESGO DE CUMPLIMIENTO",
       "descripcion": "Existe riesgo de no completar la entrega dentro del Sprint 257.",
-      "impacto": "Retraso del plan general del proyecto.",
-      "accion_mitigacion": "Realizar sesión de priorización para resolver los Issues de la HA 6831844 y habilitar el despliegue.",
-      "responsable": "Henry Zambrano / Edwin Vallecilla / Daniel Gustavo Aponte",
+      "impacto": "Retraso del plan general para el proyecto.",
+      "accion_mitigacion": "Realizar sesión para definir los Issues de la HA 6831844, priorizarlos y resolverlos.",
+      "responsable": "Henry Zambrano - Edwin Vallecilla - Daniel Gustavo Aponte",
       "fecha_limite": "2026-11-13",
       "estado": "EN SEGUIMIENTO"
     },
@@ -674,27 +944,27 @@
       "ha_hu": 7853278,
       "tipo": "RIESGO DE CUMPLIMIENTO",
       "descripcion": "Existe riesgo de no completar la entrega dentro del Sprint 257.",
-      "impacto": "Retraso del plan general del proyecto.",
-      "accion_mitigacion": "Realizar sesión de priorización para resolver los Issues de la HA 6831844 y habilitar el despliegue conjunto.",
-      "responsable": "Henry Zambrano / Edwin Vallecilla / Daniel Gustavo Aponte",
+      "impacto": "Retraso del plan general para el proyecto.",
+      "accion_mitigacion": "Realizar sesión para definir los Issues de la HA 6831844, priorizarlos y resolverlos.",
+      "responsable": "Henry Zambrano - Edwin Vallecilla - Daniel Gustavo Aponte",
       "fecha_limite": "2026-11-13",
       "estado": "EN SEGUIMIENTO"
     },
     {
-      "ha_hu": "GENERAL",
-      "tipo": "ACCESOS",
-      "descripcion": "La baja de usuarios y accesos de Edwin Alexander Vallecilla interrumpió temporalmente el acceso a las plataformas.",
-      "impacto": "La operación se normalizó después de tres días y la situación puso en riesgo el cumplimiento de los compromisos.",
-      "accion_mitigacion": "Mantener seguimiento preventivo a usuarios y accesos críticos del equipo.",
-      "responsable": "",
-      "fecha_limite": "",
-      "estado": "RESUELTO"
+      "ha_hu": 6831844,
+      "tipo": "RIESGO DE CUMPLIMIENTO",
+      "descripcion": "No completar esta HA puede implicar el incumplimiento de las HA dependientes 7860649 y 7853278 y generar carry over nuevamente.",
+      "impacto": "Incumplimiento de Sprint.",
+      "accion_mitigacion": "Priorizar los pedidos para lograr accesos a Sonar.",
+      "responsable": "Christian Leandro Sanchez",
+      "fecha_limite": "2026-11-11",
+      "estado": "EN SEGUIMIENTO"
     }
   ],
   "compromisos": [
     {
       "ha_hu": 7860649,
-      "descripcion": "Resolver los Issues asociados a la HA 6831844 para habilitar el despliegue.",
+      "descripcion": "Solventar Issues de la HA 6831844.",
       "responsable": "Henry Zambrano",
       "fecha": "2026-11-13",
       "estado": "EN CURSO",
@@ -704,64 +974,34 @@
   ],
   "informacion_insuficiente": [
     {
+      "ha_hu": 8025796,
+      "campo": "valor_generado",
+      "descripcion": "HU/HA cerrada sin contexto manual suficiente para clasificar el valor materializado."
+    },
+    {
+      "ha_hu": 7864215,
+      "campo": "valor_generado",
+      "descripcion": "HU/HA cerrada sin contexto manual suficiente para clasificar el valor materializado."
+    },
+    {
+      "ha_hu": 7864220,
+      "campo": "valor_generado",
+      "descripcion": "HU/HA cerrada sin contexto manual suficiente para clasificar el valor materializado."
+    },
+    {
       "ha_hu": 7930007,
-      "campo": "celula",
-      "descripcion": "La célula origen no está informada explícitamente en las fuentes actuales y no se infiere."
-    },
-    {
-      "ha_hu": 7930007,
       "campo": "contexto_avance",
       "descripcion": "No se suministró contexto manual vigente para determinar valor generado y próximo paso con suficiente evidencia."
     },
     {
-      "ha_hu": 7864215,
-      "campo": "avance",
-      "descripcion": "No existen tareas informadas para calcular el avance de ejecución."
-    },
-    {
-      "ha_hu": 7864215,
-      "campo": "celula",
-      "descripcion": "La célula origen no está informada explícitamente en las fuentes actuales y no se infiere."
-    },
-    {
-      "ha_hu": 7864215,
+      "ha_hu": 7946584,
       "campo": "contexto_avance",
       "descripcion": "No se suministró contexto manual vigente para determinar valor generado y próximo paso con suficiente evidencia."
     },
     {
-      "ha_hu": 7860649,
-      "campo": "celula",
-      "descripcion": "La célula origen no está informada explícitamente en las fuentes actuales y no se infiere."
-    },
-    {
-      "ha_hu": 6831844,
-      "campo": "celula",
-      "descripcion": "La célula origen no está informada explícitamente en las fuentes actuales y no se infiere."
-    },
-    {
-      "ha_hu": 7853278,
-      "campo": "celula",
-      "descripcion": "La célula origen no está informada explícitamente en las fuentes actuales y no se infiere."
-    },
-    {
-      "ha_hu": 7864220,
-      "campo": "avance",
-      "descripcion": "No existen tareas informadas para calcular el avance de ejecución."
-    },
-    {
-      "ha_hu": 7864220,
-      "campo": "celula",
-      "descripcion": "La célula origen no está informada explícitamente en las fuentes actuales y no se infiere."
-    },
-    {
-      "ha_hu": 7864220,
+      "ha_hu": 7868815,
       "campo": "contexto_avance",
       "descripcion": "No se suministró contexto manual vigente para determinar valor generado y próximo paso con suficiente evidencia."
-    },
-    {
-      "ha_hu": 7927999,
-      "campo": "avance",
-      "descripcion": "No existen tareas informadas para calcular el avance de ejecución."
     },
     {
       "ha_hu": 7927999,
@@ -775,23 +1015,31 @@
     },
     {
       "ha_hu": "GENERAL",
-      "campo": "cumplimiento_sprint",
-      "descripcion": "Falta la línea base confirmada del Planning para calcular el KPI de cumplimiento."
-    },
-    {
-      "ha_hu": "GENERAL",
       "campo": "periodo",
-      "descripcion": "El periodo de inicio y fin del Sprint 257 no fue informado en las fuentes actuales."
+      "descripcion": "FECHA DE INICIO y FECHA DE FINALIZACIÓN conservan marcadores en el contexto manual; no se construye el periodo."
     },
     {
       "ha_hu": "GENERAL",
-      "campo": "valor_esperado",
-      "descripcion": "No se suministró información ejecutiva de beneficio esperado por iniciativa."
+      "campo": "cumplimiento_sprint",
+      "descripcion": "Falta una línea base congelada del Planning para calcular comprometidos y KPI de cumplimiento."
     },
     {
       "ha_hu": "GENERAL",
-      "campo": "hitos",
-      "descripcion": "No se registraron hitos ejecutivos en el contexto manual."
+      "campo": "salud_ejecucion",
+      "descripcion": "Sin fechas reales de inicio y fin no se calcula avance esperado por momento del Sprint."
     }
-  ]
+  ],
+  "trazabilidad_contexto": {
+    "corte_actual": "2026-11-12 12:37:19",
+    "fuentes": [
+      {
+        "tipo": "METRICAS",
+        "archivo": "metricas_celula.json"
+      },
+      {
+        "tipo": "CONTEXTO_MANUAL",
+        "archivo": "Contexto_Manual_Sprint_CaaS.txt"
+      }
+    ]
+  }
 }
